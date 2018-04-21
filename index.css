@@ -13,6 +13,14 @@ header{
 }
 
 .group_left{
+	;
+}
+
+.group_right{
+	;
+}
+
+.group_left_left{
 	width: 20%;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
@@ -20,7 +28,7 @@ header{
 	float: left;
 }
 
-.group_left h1{
+.group_left_left h1{
 	text-decoration: underline;
 	font-weight: normal;
 	font-size: 150%;
@@ -28,7 +36,7 @@ header{
 	margin-bottom: 3%;
 }
 
-.group_right{
+.group_right_left{
 	width: 20%;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
@@ -36,7 +44,7 @@ header{
 	float: left;
 }
 
-.group_right h1{
+.group_right_left h1{
 	text-decoration: underline;
 	font-weight: normal;
 	font-size: 150%;
@@ -75,5 +83,11 @@ header{
 
 table{
 	float: left;
-	font-size: 87.5%
+	font-size: 87.5%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
