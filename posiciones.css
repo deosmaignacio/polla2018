@@ -12,11 +12,14 @@ header{
 	border-bottom: 1px solid black;
 }
 
-.Tabla
+table, th, td {
+   border: 1px solid black;
+}
+
 table {
     border-collapse: collapse;
 }
 
-table, th, td {
-   border: 1px solid black;
+table {
+	width: 100%;
 }
