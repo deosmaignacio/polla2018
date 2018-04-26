@@ -12,5 +12,23 @@ header{
 	border-bottom: 1px solid black;
 }
 .fase {
-	float: left,
+	width: 8%;
+	float: left;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+
+}
+.match {
+	margin-top: 10%;
+	margin-bottom: 10%;
+
+
+}
+
+.fasefinal {
+	width: 16%;
+	float: left;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+
 }
