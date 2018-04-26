@@ -39,6 +39,10 @@ header{
 	margin-bottom: 2.5%;
 	margin-left: 7.5%;
 }
+.rowlast{
+	height: 25%;
+	margin: auto;
+}
 
 .last_group{
 	width: 45%;
@@ -95,7 +99,7 @@ header{
 
 table{
 	float: center;
-	font-size: 75%;
+	font-size: 87.5%;
 	margin-right: 2%;
 	margin-left: 7.5%;
 }
