@@ -1,6 +1,7 @@
 body {
 	font-family: Avenir, sans-serif;
 	background-color: #f7f0d7;
+	font-size: 80%
 }
 
 header{
@@ -12,7 +13,24 @@ header{
 	border-bottom: 1px solid black;
 }
 
+body {
+	font-size: 100%;
+}
 .reglas{
   height: 50%;
   width: 100%;
+}
+
+.row{
+	height: 55%;
+	margin-bottom: 2.5%;
+	margin-left: 2.5%;
+}
+
+.info {
+	width: 40%;
+	height: 100%;
+	float: left;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
 }
