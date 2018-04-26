@@ -11,3 +11,16 @@ header{
 	margin-bottom: 0%;
 	border-bottom: 1px solid black;
 }
+
+table{
+	float: center;
+	font-size: 87.5%;
+	margin-right: 2%;
+	margin-left: 7.5%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
