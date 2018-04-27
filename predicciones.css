@@ -50,6 +50,12 @@ header{
 	margin-left: 7.5%;
 }
 
+.rowlast{
+	height: 47%;
+	margin-bottom: 2.5%;
+	margin-left: 7.5%;
+}
+
 .last_group{
 	width: 45%;
 	height: 100%;
@@ -149,7 +155,7 @@ td, th {
 }
 
 .credits{
-	margin-top: 5%;
+	margin-top: 2.5%;
 	width: 100%;
 	height: 5%;
 	text-align: right;
