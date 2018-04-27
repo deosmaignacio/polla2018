@@ -23,9 +23,9 @@ header{
 	margin-right: 6%;
 }
 .instructions{
-	margin-top: 1%;
+	margin-top: 1.5%;
 	width: 100%;
-	height: 10%;
+	height: 5%;
 	font-weight: bold;
 	margin-left: 0.25%;
 }
@@ -51,11 +51,29 @@ header{
 }
 
 .rowlast{
-	height: 47%;
-	margin-bottom: 2.5%;
-	margin-left: 7.5%;
+	height: 37%;
+	margin-left: 10%;
+	width: 100%;
 }
 
+.lastrowinfo{
+	width: 30%;
+	height: 100%;
+	float: left;
+	margin-left: 2%
+	margin-right: 0%;
+}
+
+table{
+	float: center;
+	font-size: 87.5%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
 .last_group{
 	width: 45%;
 	height: 100%;
@@ -109,18 +127,7 @@ header{
 
 }
 
-table{
-	float: center;
-	font-size: 87.5%;
-	margin-right: 2%;
-	margin-left: 7.5%;
-}
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-}
 
 .matches{
 	float: center;
