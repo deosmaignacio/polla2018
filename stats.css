@@ -24,6 +24,18 @@ table {
 		margin-top: 1%;
 }
 
+.tabs {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab {
+	float: left;
+	margin-left: 6%;
+	margin-right: 6%;
+}
+
 .match {
 	width: 45%;
 	float: left;

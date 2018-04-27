@@ -12,6 +12,17 @@ header{
 	border-bottom: 1px solid black;
 }
 
+.tabs {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab {
+	float: left;
+	margin-left: 6%;
+	margin-right: 6%;
+}
 
 
 

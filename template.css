@@ -12,13 +12,14 @@ header{
 	border-bottom: 1px solid black;
 }
 
-	table {
-	 text-align: center;
-	 font-size: 100%;
-	 margin: auto;
+.tabs {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-td {
-	padding-left: 40;
-	padding-right: 40;
+.tab {
+	float: left;
+	margin-left: 6%;
+	margin-right: 6%;
 }

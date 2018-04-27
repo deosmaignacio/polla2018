@@ -16,6 +16,19 @@ header{
 body {
 	font-size: 100%;
 }
+
+.tabs {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab {
+	float: left;
+	margin-left: 6%;
+	margin-right: 6%;
+}
+
 .reglas{
   height: 50%;
   width: 100%;

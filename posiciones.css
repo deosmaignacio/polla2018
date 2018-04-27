@@ -14,6 +14,18 @@ header{
 
 tr:hover {background-color:#f5f5f5;}
 
+.tabs {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tab {
+	float: left;
+	margin-left: 6%;
+	margin-right: 6%;
+}
+
 table, th, td {
    border: 1px solid black;
 	 text-align: center;

@@ -11,7 +11,17 @@ header{
 	margin-bottom: 0%;
 	border-bottom: 1px solid black;
 }
+.tabs {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.tab {
+	float: left;
+	margin-left: 6%;
+	margin-right: 6%;
+}
 .instructions{
 	margin-top: 1%;
 	width: 100%;
@@ -38,10 +48,6 @@ header{
 	height: 75%;
 	margin-bottom: 2.5%;
 	margin-left: 7.5%;
-}
-.rowlast{
-	height: 25%;
-	margin: auto;
 }
 
 .last_group{
