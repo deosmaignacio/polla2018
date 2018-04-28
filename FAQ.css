@@ -13,15 +13,14 @@ header{
 }
 
 .tabs {
-	width: 45%;
-	margin-left: auto;
-	margin-right: auto;
+	width: 100%;
 }
 
 .tab {
+	width: 20%;
 	float: left;
-	margin-left: 6%;
-	margin-right: 6%;
+	text-align: center;
+	border-bottom: 1px solid black;
 }
 
 
