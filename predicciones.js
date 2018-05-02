@@ -34,6 +34,46 @@ add_team("Uruguay", 0, 4);
 
 // Grupo B
 add_team("Portugal", 1, 5);
+add_team("España", 1, 6);
+add_team("Marruecos", 1, 7);
+add_team("Iran", 1, 8);
+
+// Grupo C
+add_team("Francia", 2, 9);
+add_team("Australia", 2, 10);
+add_team("Perú", 2, 11);
+add_team("Dinamarca", 2, 12);
+
+// Grupo D
+add_team("Argentina", 3, 13);
+add_team("Islandia", 3, 14);
+add_team("Croacia", 3, 15);
+add_team("Nigeria", 3, 16);
+
+// Grupo E
+add_team("Brasil", 4, 17);
+add_team("Suiza", 4, 18);
+add_team("Costa Rica", 4, 19);
+add_team("Serbia", 4, 20);
+
+// Grupo F
+add_team("Alemania", 5, 21);
+add_team("México", 5, 22);
+add_team("Suecia", 5, 23);
+add_team("Corea", 5, 24);
+
+// Grupo G
+add_team("Bélgica", 6, 25);
+add_team("Panamá", 6, 26);
+add_team("Túnez", 6, 27);
+add_team("Inglaterra", 6, 28);
+
+// Grupo H
+add_team("Polonia", 7, 29);
+add_team("Senegal", 7, 30);
+add_team("Colombia", 7, 31);
+add_team("Japón", 7, 32);
+
 
 function get_team_index(team_name){
   for(i = 0; i < teams.length; i++){
