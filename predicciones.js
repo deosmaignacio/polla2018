@@ -19,7 +19,7 @@ function Team(name, group, id){
 // add above to an index.js . pull index.js from all html files
 
 teams = [];
-groups = ["A", "B", "C", "D", "E", "F"]
+groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 // group property in class correspond to group index
 
 function add_team(name, group, id){
@@ -145,7 +145,7 @@ function group_points(group){
 
 function order_group(group){
   temp = [];
-  result = [];
+  result = []; // ascending order
   for(i = 0; i < teams.length; i++){
     if(teams[i].group == group){
       temp.push(teams[i]);
@@ -178,16 +178,12 @@ function order_group(group){
   while(x < result.length){
     for(y = x+1; y < result.length; y++){
       if((result[x].pts == result[y].pts) && (result[x].dg == result[y].dg) && (result[x].gf == result[y].gf)){
-        console.log("test");
-        console.log(result[x].name, result[y].name);
         for(z = 1; z < 7; z++){
           var home = document.getElementById("T"+z+"H").innerHTML;
           var away = document.getElementById("T"+z+"A").innerHTML;
-          console.log(home);
           home = home.trim();
           away = away.trim();
-          if((home == result[x].name) && away == result[y].name){
-            console.log("enter first if");
+          if((home == result[x].name) && (away == result[y].name)){
             var home_score = document.getElementById("M"+z+"H").value;
             var away_score = document.getElementById("M"+z+"A").value;
             if(home_score > away_score){
@@ -198,12 +194,9 @@ function order_group(group){
             }
           }
           else if((away == result[x].name) && (home == result[y].name)){
-            console.log("enter second if");
             var home_score = document.getElementById("M"+z+"H").value;
             var away_score = document.getElementById("M"+z+"A").value;
-            console.log(home_score, away_score);
             if(away_score > home_score){
-              console.log("second last if");
               var temp = result[x];
               result[x] = result[y];
               result[y] = temp;
@@ -217,6 +210,9 @@ function order_group(group){
   var group_letter = groups[group];
   for(j = 1; j < result.length+1; j++){
     var index = result.length - j;
+    if(j < 3){
+      // meter en clasificados
+    }
     document.getElementById(j+group_letter).innerHTML = result[index].name;
     document.getElementById(j+group_letter+"PTS").innerHTML = result[index].pts;
     document.getElementById(j+group_letter+"DG").innerHTML = result[index].dg;
