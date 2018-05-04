@@ -24,13 +24,45 @@ header{
 	border-bottom: 1px solid black;
 }
 
-.fase {
+.todo{
+	width: 100%;
+	float: left;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+}
+
+.matches4 {
 	width: 8%;
 	float: left;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
 
 }
+
+.matches2 {
+	width: 8%;
+	float: left;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	margin-top: 8%
+}
+
+.matches1 {
+	width: 8%;
+	float: left;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	margin-top: 12%
+}
+
+.fasefinal {
+	width: 16%;
+	float: left;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	margin-top: 10%
+}
+
 .match {
 	margin-top: 40%;
 	margin-bottom: 40%;
@@ -40,11 +72,6 @@ header{
 	border-right: 1px solid black;
 }
 
-
-.fasefinal {
-	width: 16%;
-	float: left;
-	margin-left: 2.5%;
-	margin-right: 2.5%;
+.choose {
 
 }
