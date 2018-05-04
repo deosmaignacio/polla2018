@@ -25,9 +25,36 @@
         </div>
       </div>
     <br>
+      <div class="info_user">
+        <div class="info_entry">
+          <div class="info_name">
+            <p>Nombre:<p>
+          </div>
+          <div class="info_square">
+            <input type="text" name="name" value="">
+          </div>
+        </div>
+        <div class="info_entry">
+          <div class="info_name">
+            <p>Email:<p>
+          </div>
+          <div class="info_square">
+            <input type="text" name="email" value="">
+          </div>
+        </div>
+        <div class="info_entry">
+          <div class="info_name">
+            <p>Contraseña:<p>
+          </div>
+          <div class="info_square">
+            <input type="text" name="password" value="">
+          </div>
+        </div>
+      </div>
       <div class="instructions">
         Ingrese sus predicciones en las siguientes casillas y podrá ver el pronóstico para cada grupo.
       </div>
+    </div>
       <div class="row">
         <div class="group_half">
           <!-- Grupo A -->
@@ -2098,32 +2125,68 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="submit_button">
+                  <input type="submit" value="Ingersar">
+                </div>
+
                 <div class="rowlast">
                 <div class="lastrowinfo">
                   <b>Premios individuales</b>
                   <table>
                   <tr>
                     <td><b>Mejor Arquero</b></td>
-                    <td>De Gea</td>
+                    <td>
+                      <form autocomplete="off">
+                        <div class="autocomplete">
+                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                   <tr>
                     <td><b>Mejor Jugador Joven</b></td>
-                    <td>Gabriel Jesus</td>
+                    <td>
+                      <form autocomplete="off">
+                        <div class="autocomplete">
+                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                   <tr>
                     <td><b>Mejor Jugador</b></td>
-                    <td>Messi</td>
+                    <td>
+                      <form autocomplete="off">
+                        <div class="autocomplete">
+                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                   <tr>
                     <td><b>Goleador</b></td>
-                    <td>Isco</td>
+                    <td>
+                      <form autocomplete="off">
+                        <div class="autocomplete">
+                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                   <tr>
                     <td><b>Campeon</b></td>
-                    <td>Argentina</td>
+                    <td>
+                      <form autocomplete="off">
+                        <div class="autocomplete">
+                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                 </table>
                 </div>
+
                 <div class="lastrowinfo">
                 <b>Clasificados</b>
                   <br>
@@ -2165,6 +2228,7 @@
                 </table>
               </div>
               </div>
+              <div class="reglas">
                 <br>
                 Criterios FIFA de ranking en un grupo:
                 <ol>
@@ -2185,10 +2249,10 @@
                 <ul>
                 <li>Sí hay un empate no resuelto: Según los resultados que usted ha colocado, existe un empate que no se ha resuelto. En la vida real, pasará el equipo con mejor puntaje fair play, es decir menos tarjetas. Si persiste el empate, será un sorteo. En este caso, se coloca por default al equipo más cercano a la cabeza de serie como mejor clasificado. Si desea que sea lo contrario, tendrá que cambiar los resultados para que no estén empatados.</li>
                 </ul>
-
-                <div class="credits">
-                  Por: Ignacio de Osma, Gonzalo Vidaurrazaga, y Juan Diego Vidaurrazaga
-                </div>
+              </div>
+              <div class="credits">
+                Por: Ignacio de Osma, Gonzalo Vidaurrazaga, y Juan Diego Vidaurrazaga
+              </div>
 
 
 
