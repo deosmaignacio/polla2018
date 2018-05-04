@@ -30,55 +30,230 @@
       </div>
       <div class="row">
         <div class="group_half">
-        <!-- Grupo A -->
-          <h1>Grupo A</h1>
-          <div class="points">
-            <table>
-              <tr>
-                <th>País</th>
-                <th>PTS</th>
-                <th>DG</th>
-                <th>GF</th>
-                <th>GC</th>
-              </tr>
-              <tr>
-                <td contentEditable id="1A">Rusia</td>
-                <td id="1APTS">0</td>
-                <td id="1ADG">0</td>
-                <td id="1AGF">0</td>
-                <td id="1AGC">0</td>
-              </tr>
-              <tr>
-                <td id="2A">Arabia S.</td>
-                <td id="2APTS">0</td>
-                <td id="2ADG">0</td>
-                <td id="2AGF">0</td>
-                <td id="2AGC">0</td>
-              </tr>
-              <tr>
-                <td id="3A">Egipto</td>
-                <td id="3APTS">0</td>
-                <td id="3ADG">0</td>
-                <td id="3AGF">0</td>
-                <td id="3AGC">0</td>
-              </tr>
-              <tr>
-                <td id="4A">Uruguay</td>
-                <td id="4APTS">0</td>
-                <td id="4ADG">0</td>
-                <td id="4AGF">0</td>
-                <td id="4AGC">0</td>
-              </tr>
-            </table>
-          </div>
-          <div class="matches">
-          <!-- Rusia vs. Arabia Saudita -->
-          <div class="match">
-            <div class="team_left" id="T1H">
-            Rusia
+          <!-- Grupo A -->
+            <h1>Grupo A</h1>
+            <div class="points">
+              <table>
+                <tr>
+                  <th>País</th>
+                  <th>PTS</th>
+                  <th>DG</th>
+                  <th>GF</th>
+                  <th>GC</th>
+                </tr>
+                <tr>
+                  <td contentEditable id="1A">Rusia</td>
+                  <td id="1APTS">0</td>
+                  <td id="1ADG">0</td>
+                  <td id="1AGF">0</td>
+                  <td id="1AGC">0</td>
+                </tr>
+                <tr>
+                  <td id="2A">Arabia S.</td>
+                  <td id="2APTS">0</td>
+                  <td id="2ADG">0</td>
+                  <td id="2AGF">0</td>
+                  <td id="2AGC">0</td>
+                </tr>
+                <tr>
+                  <td id="3A">Egipto</td>
+                  <td id="3APTS">0</td>
+                  <td id="3ADG">0</td>
+                  <td id="3AGF">0</td>
+                  <td id="3AGC">0</td>
+                </tr>
+                <tr>
+                  <td id="4A">Uruguay</td>
+                  <td id="4APTS">0</td>
+                  <td id="4ADG">0</td>
+                  <td id="4AGF">0</td>
+                  <td id="4AGC">0</td>
+                </tr>
+              </table>
             </div>
-          <div class="score">
-            <select id="M1H">
+            <div class="matches">
+            <!-- Rusia vs. Arabia S. -->
+            <div class="match">
+              <div class="team_left" id="T1H">
+              Rusia
+              </div>
+            <div class="score">
+              <select id="M1H">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+              <select id="M1A">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+            <div class="team_right" id="T1A">
+              Arabia S.
+            </div>
+            </div>
+            <!-- Egipto vs. Uruguay -->
+            <div class="match">
+              <div class="team_left" id="T2H">
+                Egipto
+              </div>
+              <div class="score">
+                <select id="M2H">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+                <select id="M2A">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              </div>
+              <div class="team_right" id="T2A">
+                Uruguay
+              </div>
+            </div>
+            <!-- Rusia vs. Egipto -->
+            <div class="match">
+              <div class="team_left" id="T3H">
+                Rusia
+              </div>
+              <div class="score">
+                <select id="M3H">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+                <select id="M3A">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              </div>
+              <div class="team_right" id="T3A">
+                Egipto
+              </div>
+            </div>
+            <!-- Uruguay vs. Arabia S. -->
+            <div class="match">
+              <div class="team_left" id="T4H">
+                Uruguay
+              </div>
+              <div class="score">
+                <select id="M4H">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+                <select id="M4A">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              </div>
+              <div class="team_right" id="T4A">
+                Arabia S.
+              </div>
+            </div>
+            <!-- Arabia S. vs. Egipto -->
+            <div class="match">
+              <div class="team_left" id="T5H">
+                Arabia S.
+              </div>
+              <div class="score">
+                <select id="M5H">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+                <select id="M5A">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              </div>
+              <div class="team_right" id="T5A">
+                Egipto
+              </div>
+            </div>
+            <!-- Uruguay vs. Rusia -->
+            <div class="match">
+              <div class="team_left" id="T6H">
+                Uruguay
+              </div>
+              <div class="score">
+                <select id="M6H">
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -90,206 +265,31 @@
               <option value="8">8</option>
               <option value="9">9</option>
             </select>
-            <select id="M1A">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
+                <select id="M6A">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
             </select>
-          </div>
-          <div class="team_right" id="T1A">
-            Arabia S.
-          </div>
-          </div>
-          <!-- Egipto vs. Uruguay -->
-          <div class="match">
-            <div class="team_left" id="T2H">
-              Egipto
+              </div>
+              <div class="team_right" id="T6A">
+                Rusia
+              </div>
             </div>
-            <div class="score">
-              <select id="M2H">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-              <select id="M2A">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
             </div>
-            <div class="team_right" id="T2A">
-              Uruguay
+            <div class="submit">
+              <input type="submit" value="Ver predicciones!" onclick="group_points(0)">
             </div>
           </div>
-          <!-- Rusia vs. Egypt -->
-          <div class="match">
-            <div class="team_left" id="T3H">
-              Rusia
-            </div>
-            <div class="score">
-              <select id="M3H">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-              <select id="M3A">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-            </div>
-            <div class="team_right" id="T3A">
-              Egipto
-            </div>
-          </div>
-          <!-- Uruguay vs. Arabia Saudita -->
-          <div class="match">
-            <div class="team_left" id="T4H">
-              Uruguay
-            </div>
-            <div class="score">
-              <select id="M4H">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-              <select id="M4A">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-            </div>
-            <div class="team_right" id="T4A">
-              Arabia S.
-            </div>
-          </div>
-          <!-- Arabia Saudita vs. Egipto -->
-          <div class="match">
-            <div class="team_left" id="T5H">
-              Arabia S.
-            </div>
-            <div class="score">
-              <select id="M5H">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-              <select id="M5A">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-            </div>
-            <div class="team_right" id="T5A">
-              Egipto
-            </div>
-          </div>
-          <!-- Uruguay vs. Rusia -->
-          <div class="match">
-            <div class="team_left" id="T6H">
-              Uruguay
-            </div>
-            <div class="score">
-              <select id="M6H">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-          </select>
-              <select id="M6A">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-          </select>
-            </div>
-            <div class="team_right" id="T6A">
-              Rusia
-            </div>
-          </div>
-          </div>
-          <div class="submit">
-            <input type="submit" value="Ver predicciones!" onclick="group_points(0)">
-          </div>
-        </div>
+          <div class="group_half">
 
-        <div class="group_half">
-        <!-- Grupo iB -->
+        <!-- Grupo B -->
           <h1>Grupo B</h1>
           <div class="points">
             <table>
@@ -301,255 +301,243 @@
                 <th>GC</th>
               </tr>
               <tr>
-                <td>Portugal</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td contentEditable id="1B">Portugal</td>
+                <td id="1BPTS">0</td>
+                <td id="1BDG">0</td>
+                <td id="1BGF">0</td>
+                <td id="1BGC">0</td>
               </tr>
               <tr>
-                <td>España</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td id="2B">España</td>
+                <td id="2BPTS">0</td>
+                <td id="2BDG">0</td>
+                <td id="2BGF">0</td>
+                <td id="2BGC">0</td>
               </tr>
               <tr>
-                <td>Marruecos</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td id="3B">Marruecos</td>
+                <td id="3BPTS">0</td>
+                <td id="3BDG">0</td>
+                <td id="3BGF">0</td>
+                <td id="3BGC">0</td>
               </tr>
               <tr>
-                <td>Irán</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td id="4B">Irán</td>
+                <td id="4BPTS">0</td>
+                <td id="4BDG">0</td>
+                <td id="4BGF">0</td>
+                <td id="4BGC">0</td>
               </tr>
             </table>
           </div>
           <div class="matches">
           <!-- Portugal vs. España -->
           <div class="match">
-            <div class="team_left">
-              Portugal
+            <div class="team_left" id="T7H">
+            Portugal
             </div>
-            <div class="score">
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
-              </select>
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
-              </select>
-            </div>
-            <div class="team_right">
-              España
-            </div>
+          <div class="score">
+            <select id="M7H">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+            <select id="M7A">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+          </div>
+          <div class="team_right" id="T7A">
+            España
+          </div>
           </div>
           <!-- Marruecos vs. Irán -->
           <div class="match">
-            <div class="team_left">
-            Marruecos
+            <div class="team_left" id="T8H">
+              Marruecos
             </div>
-          <div class="score">
-            <select>
-              <option value="vacio"></option>
-              <option value="zero">0</option>
-              <option value="one">1</option>
-              <option value="two">2</option>
-              <option value="three">3</option>
-              <option value="four">4</option>
-              <option value="five">5</option>
-              <option value="six">6</option>
-              <option value="seven">7</option>
-              <option value="eight">8</option>
-              <option value="nine">9</option>
-            </select>
-            <select>
-              <option value="vacio"></option>
-              <option value="zero">0</option>
-              <option value="one">1</option>
-              <option value="two">2</option>
-              <option value="three">3</option>
-              <option value="four">4</option>
-              <option value="five">5</option>
-              <option value="six">6</option>
-              <option value="seven">7</option>
-              <option value="eight">8</option>
-              <option value="nine">9</option>
-            </select>
-          </div>
-          <div class="team_right">
-            Irán
-          </div>
+            <div class="score">
+              <select id="M8H">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+              <select id="M8A">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+            <div class="team_right" id="T8A">
+              Irán
+            </div>
           </div>
           <!-- Portugal vs. Marruecos -->
           <div class="match">
-            <div class="team_left">
+            <div class="team_left" id="T9H">
               Portugal
             </div>
             <div class="score">
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
+              <select id="M9H">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
               </select>
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
+              <select id="M9A">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
               </select>
             </div>
-            <div class="team_right">
+            <div class="team_right" id="T9A">
               Marruecos
             </div>
           </div>
           <!-- Irán vs. España -->
           <div class="match">
-            <div class="team_left">
+            <div class="team_left" id="T10H">
               Irán
             </div>
             <div class="score">
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
+              <select id="M10H">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
               </select>
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
+              <select id="M10A">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
               </select>
             </div>
-            <div class="team_right">
+            <div class="team_right" id="T10A">
               España
             </div>
           </div>
           <!-- España vs. Marruecos -->
           <div class="match">
-            <div class=team_left>
+            <div class="team_left" id="T11H">
               España
             </div>
             <div class="score">
-              <select>
-            <option value="vacio"></option>
-            <option value="zero">0</option>
-            <option value="one">1</option>
-            <option value="two">2</option>
-            <option value="three">3</option>
-            <option value="four">4</option>
-            <option value="five">5</option>
-            <option value="six">6</option>
-            <option value="seven">7</option>
-            <option value="eight">8</option>
-            <option value="nine">9</option>
-          </select>
-              <select>
-            <option value="vacio"></option>
-            <option value="zero">0</option>
-            <option value="one">1</option>
-            <option value="two">2</option>
-            <option value="three">3</option>
-            <option value="four">4</option>
-            <option value="five">5</option>
-            <option value="six">6</option>
-            <option value="seven">7</option>
-            <option value="eight">8</option>
-            <option value="nine">9</option>
-          </select>
+              <select id="M11H">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+              <select id="M11A">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
             </div>
-            <div class="team_right">
+            <div class="team_right" id="T11A">
               Marruecos
             </div>
           </div>
           <!-- Irán vs. Portugal -->
           <div class="match">
-            <div class="team_left">
+            <div class="team_left" id="T12H">
               Irán
             </div>
             <div class="score">
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
-              </select>
-              <select>
-                <option value="vacio"></option>
-                <option value="zero">0</option>
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
-                <option value="six">6</option>
-                <option value="seven">7</option>
-                <option value="eight">8</option>
-                <option value="nine">9</option>
-              </select>
+              <select id="M12H">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+              <select id="M12A">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+          </select>
             </div>
-            <div class="team_right">
+            <div class="team_right" id="T12A">
               Portugal
             </div>
           </div>
@@ -559,6 +547,7 @@
           </div>
         </div>
         <div class="group_half">
+
         <!-- Grupo C -->
           <h1>Grupo C</h1>
           <div class="points">
@@ -2238,7 +2227,7 @@
       </tr>
       <tr>
         <td><b>2</b></td>
-        <td>Egipto</td>
+        <td>Marruecos</td>
         <td>Portugal</td>
         <td>Perú</td>
         <td>Croacia</td>
