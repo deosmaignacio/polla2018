@@ -36,7 +36,7 @@ add_team("Uruguay", 0, 4);
 add_team("Portugal", 1, 5);
 add_team("España", 1, 6);
 add_team("Marruecos", 1, 7);
-add_team("Iran", 1, 8);
+add_team("Irán", 1, 8);
 
 // Grupo C
 add_team("Francia", 2, 9);
