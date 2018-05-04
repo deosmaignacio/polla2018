@@ -211,8 +211,8 @@ function order_group(group){
   for(j = 1; j < result.length+1; j++){
     var index = result.length - j;
     if(j < 3){
-      // meter en clasificados
-      document.getElementById(j+group_letter+"R").innerHTML = result[index].name;
+      // meter en clasificados --> CL es por Clasificado
+      document.getElementById(j+group_letter+"CL").innerHTML = result[index].name;
     }
     document.getElementById(j+group_letter).innerHTML = result[index].name;
     document.getElementById(j+group_letter+"PTS").innerHTML = result[index].pts;
