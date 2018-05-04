@@ -136,6 +136,7 @@ function group_points(group){
     var away_team = document.getElementById("T"+index+"A").innerHTML;
     var home_score = document.getElementById("M"+index+"H").value;
     var away_score = document.getElementById("M"+index+"A").value;
+    console.log(home_team.trim(), away_team.trim());
     index++;
     scoring(home_team, away_team, home_score, away_score);
     i = j;
@@ -207,6 +208,7 @@ function order_group(group){
     }
     x++;
   }
+
   var group_letter = groups[group];
   for(j = 1; j < result.length+1; j++){
     var index = result.length - j;
