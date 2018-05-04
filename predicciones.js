@@ -212,6 +212,7 @@ function order_group(group){
     var index = result.length - j;
     if(j < 3){
       // meter en clasificados
+      document.getElementById(j+group_letter+"R").innerHTML = result[index].name;
     }
     document.getElementById(j+group_letter).innerHTML = result[index].name;
     document.getElementById(j+group_letter+"PTS").innerHTML = result[index].pts;
