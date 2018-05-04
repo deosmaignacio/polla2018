@@ -183,3 +183,17 @@ td, th {
 	height: 50%;
 	font-family: Avenir, sans-serif;
 }
+
+.submit_last{
+	text-align: center;
+	margin-top: 2.5%;
+	width: 60%;
+	margin-left: 26.5%;
+}
+
+.submit_last input[type=submit]{
+	width: 50%;
+	font-size: 100%;
+	height: 50%;
+	font-family: Avenir, sans-serif;
+}
