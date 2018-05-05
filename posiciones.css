@@ -35,10 +35,19 @@ table {
     border-collapse: collapse;
 }
 
+.todo {
+	width: 100%;
+}
 
-.tabla {
+.columna {
 	width: 45%;
 	float: left;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
+}
+
+.fila{
+	margin-top: 2.5%;
+	margin-bottom: 2.5%;
+
 }
