@@ -38,6 +38,13 @@ table {
 .match {
 	width: 45%;
 	float: left;
-	margin-left: 2.5%;
-	margin-right: 2.5%;
+	font-size: 70%;
+}
+
+.todo {
+	margin-left: 5%;
+}
+
+.list {
+	text-emphasis-style: none;
 }
