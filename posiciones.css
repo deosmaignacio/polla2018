@@ -42,16 +42,23 @@ table {
 }
 
 .columna1 {
-	width: 29%;
+	width: 27%;
 	float: left;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
 }
 .columna2 {
-	width: 61%;
+	width: 63%;
 	float: left;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
+}
+
+.tablagrupos {
+	width: 48.5%;
+	float: left;
+	margin-right: 1.5%;
+	margin-bottom: 2.5%;
 }
 
 .fila{
