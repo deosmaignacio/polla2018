@@ -1,8 +1,7 @@
-function User(username, password){
+function User(name, email, password){
   this.password = password;
-  this.name = "";
-  this.email = ""
-  this.lastname = "";
+  this.name = name;
+  this.email = email;
   this.id = null;
   this.points = 0;
 }
@@ -18,9 +17,15 @@ function Team(name, group, id){
 }
 // add above to an index.js . pull index.js from all html files
 
+users = [];
 teams = [];
 groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 // group property in class correspond to group index
+
+function add_user(name, email, password){
+  var usr = new User(name, email, password);
+  users.push(usr);
+}
 
 function add_team(name, group, id){
   var team = new Team(name, group, id);
@@ -136,7 +141,6 @@ function group_points(group){
     var away_team = document.getElementById("T"+index+"A").innerHTML;
     var home_score = document.getElementById("M"+index+"H").value;
     var away_score = document.getElementById("M"+index+"A").value;
-    console.log(home_team.trim(), away_team.trim());
     index++;
     scoring(home_team, away_team, home_score, away_score);
     i = j;
@@ -223,6 +227,54 @@ function order_group(group){
     document.getElementById(j+group_letter+"GC").innerHTML = result[index].gc;
   }
 }
+
+//// Firebase
+function init(){
+  var x = "a";
+  var database = firebase.database();
+  var fruitRef = database.ref('title');
+  var result = fruitRef.push({
+    name: 'sub1',
+    color: {red: 0, blue: 1}
+  });
+}
+
+function submit(){
+  var database = firebase.database();
+  var name = document.getElementsByName("name")[0].value;
+  var email = document.getElementsByName("email")[0].value;
+  var password = document.getElementsByName("password")[0].value;
+  add_user(name, email, password);
+  var name_db = database.ref(name);
+  var data1 = name_db.set({
+    name: name,
+    email: email,
+    password: password,
+    points: 0
+  });
+  var index = 1;
+  for(i = 0; i < groups.length; i++){
+    for(j = 0; j < 6; j++){
+      var home_team = document.getElementById("T"+index+"H").innerHTML;
+      var away_team = document.getElementById("T"+index+"A").innerHTML;
+      var home_score = document.getElementById("M"+index+"H").value;
+      var away_score = document.getElementById("M"+index+"A").value;
+      home_team = home_team.trim();
+      away_team = away_team.trim();
+      var data2 = name_db.push({
+        match: index,
+        home: home_team,
+        away: away_team,
+        home_score: home_score,
+        away_score: away_score
+      });
+      index++;
+    }
+  }
+}
+
+
+
 
 // AUTO COMPLETE
 function autocomplete(inp, arr) {
