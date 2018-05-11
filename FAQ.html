@@ -1,6 +1,7 @@
 <html>
     <head>
       <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Polla Mundial 2018</title>
       <link rel="stylesheet" type="text/css" href="FAQ.css"/>
     </head>
@@ -27,85 +28,107 @@
     <br>
       <h2>FAQ</h2>
 
-      <div class="row">
-      <div class="ej">
-      Ejemplo de puntaje para un partido de grupos:
-      <br>
-      <table>
-        <col width="400">
-        <col width="400">
-        <col width="50">
-        <tr>
-          <th>Resultado</th>
-          <th>Predicción</th>
-          <th>Puntaje</th>
-        </tr>
-        <tr>
-          <td>España 2-1 Portugal</td>
-          <td>España 2-0 Portugal</td>
-          <td>50 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-1 Portugal</td>
-          <td>España 3-2 Portugal</td>
-          <td>60 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-1 Portugal</td>
-          <td>España 2-1 Portugal</td>
-          <td>80 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-1 Portugal</td>
-          <td>España 0-1 Portugal</td>
-          <td>0 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-2 Portugal</td>
-          <td>España 1-1 Portugal</td>
-          <td>60 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-2 Portugal</td>
-          <td>España 2-2 Portugal</td>
-          <td>80 pts</td>
-        </tr>
-      </table>
-    </div>
+<button class="collapsible">Ejemplo de puntaje para un partido de grupos:</button>
+<div class="content">
+  <div class="ej">
+  <table>
+    <col width="400">
+    <col width="400">
+    <col width="50">
+    <tr>
+      <th>Resultado</th>
+      <th>Predicción</th>
+      <th>Puntaje</th>
+    </tr>
+    <tr>
+      <td>España 2-1 Portugal</td>
+      <td>España 2-0 Portugal</td>
+      <td>50 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-1 Portugal</td>
+      <td>España 3-2 Portugal</td>
+      <td>60 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-1 Portugal</td>
+      <td>España 2-1 Portugal</td>
+      <td>80 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-1 Portugal</td>
+      <td>España 0-1 Portugal</td>
+      <td>0 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-2 Portugal</td>
+      <td>España 1-1 Portugal</td>
+      <td>60 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-2 Portugal</td>
+      <td>España 2-2 Portugal</td>
+      <td>80 pts</td>
+    </tr>
+  </table>
+</div></div>
+<button class="collapsible">Ejemplo de puntaje para un partido de la 2da Fase (cuartos, semi, final, 3y4):</button>
+<div class="content">
+  <div class="ej">
+  <table>
+    <col width="400">
+    <col width="400">
+    <col width="50">
+    <tr>
+      <th>Resultado</th>
+      <th>Predicción</th>
+      <th>Puntaje</th>
+    </tr>
+    <tr>
+      <td>España 2-1 Argentina</td>
+      <td>España 3-2 Peru</td>
+      <td>0 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-1 Argentina</td>
+      <td>España 2-1 Peru</td>
+      <td>0 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-1 Argentina</td>
+      <td>España 1-0 Argentina</td>
+      <td>10 pts</td>
+    </tr>
+    <tr>
+      <td>España 2-1 Argentina</td>
+      <td>España 2-1 Argentina</td>
+      <td>30 pts</td>
+    </tr>
+  </table>
+  </div></div>
+<button class="collapsible">Open Section 3</button>
+<div class="content">
 
-      <div class="ej">
-      Ejemplo de puntaje para un partido de la 2da Fase (cuartos, semi, final, 3y4):
-      <table>
-        <col width="400">
-        <col width="400">
-        <col width="50">
-        <tr>
-          <th>Resultado</th>
-          <th>Predicción</th>
-          <th>Puntaje</th>
-        </tr>
-        <tr>
-          <td>España 2-1 Argentina</td>
-          <td>España 3-2 Peru</td>
-          <td>0 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-1 Argentina</td>
-          <td>España 2-1 Peru</td>
-          <td>0 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-1 Argentina</td>
-          <td>España 1-0 Argentina</td>
-          <td>10 pts</td>
-        </tr>
-        <tr>
-          <td>España 2-1 Argentina</td>
-          <td>España 2-1 Argentina</td>
-          <td>30 pts</td>
-        </tr>
-      </table>
-    </div>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+</script>
+
+      <div class="row">
   </div>
     </body>
 </html>
