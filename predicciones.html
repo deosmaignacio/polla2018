@@ -2126,10 +2126,6 @@
                   </div>
                 </div>
 
-                <div class="submit_button">
-                  <input type="submit" value="Ingresar!" onclick="submit()">
-                </div>
-
                 <div class="rowlast">
                 <div class="lastrowinfo">
                   <b>Premios individuales</b>
@@ -2226,32 +2222,55 @@
                   <td id="2HCL">2H</td>
                 </tr>
                 </table>
+                <br>
+                <br>
+                <br>
+
+                <div class="submit_button">
+                    <input type="submit" value="Ingresar!" onclick="submit()">
+                </div>
+
+
               </div>
               </div>
               <div class="reglas">
-                <br>
-                Criterios FIFA de ranking en un grupo:
-                <ol>
-                <li>Pts en todos los partidos</li>
-                <li>DG en todos los partidos</li>
-                <li>GF en todos los partidos</li>
-                </ol>
-                De haber un empate en Pts, DG y GF
-                <ol>
-                <li>Pts de los partidos entre los equipos empatados</li>
-                <li>DG de los partidos entre los equipos empatados</li>
-                <li>GF de los partidos entre los equipos empatados</li>
-                <li>Mejor número de puntos fair play (tarjetas reducen el puntaje)</li>
-                <li>Sorteo</li>
-                </ol>
-                <br>
-                Observaciones ocultas a aparecer:
-                <ul>
-                <li>Sí hay un empate no resuelto: Según los resultados que usted ha colocado, existe un empate que no se ha resuelto. En la vida real, pasará el equipo con mejor puntaje fair play, es decir menos tarjetas. Si persiste el empate, será un sorteo. En este caso, se coloca por default al equipo más cercano a la cabeza de serie como mejor clasificado. Si desea que sea lo contrario, tendrá que cambiar los resultados para que no estén empatados.</li>
-                </ul>
+
+              <button class="collapsible"><u>Criterios FIFA de ranking en un grupo</u></button>
+                <div class="content">
+                  <ol>
+                  <li>Pts en todos los partidos</li>
+                  <li>DG en todos los partidos</li>
+                  <li>GF en todos los partidos</li>
+                  </ol>
+                  De haber un empate en Pts, DG y GF
+                  <ol>
+                  <li>Pts de los partidos entre los equipos empatados</li>
+                  <li>DG de los partidos entre los equipos empatados</li>
+                  <li>GF de los partidos entre los equipos empatados</li>
+                  <li>Mejor número de puntos fair play (tarjetas reducen el puntaje)</li>
+                  <li>Sorteo</li>
+                  </ol>
+                </div>
+                <p align="right">Por: Ignacio de Osma, Gonzalo Vidaurrazaga, y Juan Diego Vidaurrazaga</p>
+                <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+    </script>
               </div>
               <div class="credits">
-                Por: Ignacio de Osma, Gonzalo Vidaurrazaga, y Juan Diego Vidaurrazaga
+
               </div>
 
 
