@@ -2135,7 +2135,7 @@
                     <td>
                       <form autocomplete="off">
                         <div class="autocomplete">
-                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                          <input id="arquero" type="text" name="myCountry" placeholder="">
                         </div>
                       </form>
                     </td>
@@ -2145,7 +2145,7 @@
                     <td>
                       <form autocomplete="off">
                         <div class="autocomplete">
-                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                          <input id="jugador_joven" type="text" name="myCountry" placeholder="">
                         </div>
                       </form>
                     </td>
@@ -2155,7 +2155,7 @@
                     <td>
                       <form autocomplete="off">
                         <div class="autocomplete">
-                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                          <input id="mejor_jugador" type="text" name="myCountry" placeholder="">
                         </div>
                       </form>
                     </td>
@@ -2165,17 +2165,17 @@
                     <td>
                       <form autocomplete="off">
                         <div class="autocomplete">
-                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                          <input id="goleador" type="text" name="myCountry" placeholder="">
                         </div>
                       </form>
                     </td>
                   </tr>
                   <tr>
-                    <td><b>Campeon</b></td>
+                    <td><b>Campeón</b></td>
                     <td>
                       <form autocomplete="off">
                         <div class="autocomplete">
-                          <input id="myInput" type="text" name="myCountry" placeholder="">
+                          <input id="campeon" type="text" name="myCountry" placeholder="">
                         </div>
                       </form>
                     </td>
@@ -2222,16 +2222,13 @@
                   <td id="2HCL">2H</td>
                 </tr>
                 </table>
-                <br>
-                <br>
-                <br>
 
-                <div class="submit_button">
-                    <input type="submit" value="Ingresar!" onclick="submit()">
-                </div>
 
 
               </div>
+              </div>
+              <div class="submit_button">
+                  <input type="submit" value="Ingresar!" onclick="submit()">
               </div>
               <div class="reglas">
 
@@ -2251,45 +2248,13 @@
                   <li>Sorteo</li>
                   </ol>
                 </div>
-                <p align="right">Por: Ignacio de Osma, Gonzalo Vidaurrazaga, y Juan Diego Vidaurrazaga</p>
-                <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-    </script>
               </div>
               <div class="credits">
-
+                Por: Ignacio de Osma, Gonzalo Vidaurrazaga, y Juan Diego Vidaurrazaga
               </div>
-
-
-
              </body>
 
             <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-            <script>
-              // Initialize Firebase
-              var config = {
-                apiKey: "AIzaSyDo5wHOoM32PLAe5Psf5gPOZOAI5G5bKvU",
-                authDomain: "polla-45628.firebaseapp.com",
-                databaseURL: "https://polla-45628.firebaseio.com",
-                projectId: "polla-45628",
-                storageBucket: "",
-                messagingSenderId: "198637023867"
-              };
-              firebase.initializeApp(config);
-            </script>
              <script src="predicciones.js">
              </script>
           </html>
