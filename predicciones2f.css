@@ -60,7 +60,7 @@ header{
 	float: left;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
-	margin-top: 10%
+	margin-top: 10.5%
 }
 
 .match {
@@ -76,6 +76,36 @@ header{
 	border-right: 1px solid black;
 }
 
+.matchfinal {
+	margin-top: 18%;
+	margin-bottom: 18%;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	padding-top: 1px;
+	padding-right: 2px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
 .choose {
+
+}
+
+.CasillaCampeon {
+	margin-top: 0%;
+	margin-bottom: 0%;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	padding-top: 1px;
+	padding-right: 2px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.EquipoCampeon {
 
 }
