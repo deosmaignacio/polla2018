@@ -256,12 +256,22 @@ function submit(){
   var email = document.getElementsByName("email")[0].value;
   var password = document.getElementsByName("password")[0].value;
   add_user(name, email, password);
+  var arquero = document.getElementById("arquero").value;
+  var jj = document.getElementById("jugador_joven").value;
+  var mj = document.getElementById("mejor_jugador").value;
+  var goleador = document.getElementById("goleador").value;
+  var campeon = document.getElementById("campeon").value;
   var name_db = database.ref(name);
   var data1 = name_db.set({
     name: name,
     email: email,
     password: password,
-    points: 0
+    points: 0,
+    arquero: arquero,
+    mejor_jugador_joven: jj,
+    jugador_joven: mj,
+    goleador: goleador,
+    campeon: campeon
   });
   var index = 1;
   for(i = 0; i < groups.length; i++){
@@ -282,10 +292,8 @@ function submit(){
       index++;
     }
   }
+  document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
 }
-
-
-
 
 // AUTO COMPLETE
 function autocomplete(inp, arr) {
