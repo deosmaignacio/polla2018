@@ -9,6 +9,19 @@
   };
   firebase.initializeApp(config);
 
+var codigos = [0, 1, 2, 3, 4, 5];
+var Nusers_a = 0; // jalar de DB
+var Nusers_b = 2;
+
+function submit(nombre, codigo){
+  if(codigo in codigos[Nusers_a:codigos.length]){
+    database.push(nombre)
+    Nusers_a = Nusers_a + 1
+  }
+}
+
+
+
 function User(name, email, password){
   this.password = password;
   this.name = name;
