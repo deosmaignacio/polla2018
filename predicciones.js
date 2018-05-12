@@ -9,21 +9,18 @@
   };
   firebase.initializeApp(config);
 
-var codigos = [0, 1, 2, 3, 4, 5];
+var database = firebase.database();
+var ref = database.ref("Local");
+console.log(ref.keys);
+
+var codes = [9074513446, 7457755588, 4121741592, 4809691577, 7906391236, 9918786968, 4914714566, 7502124568, 8927162667, 8076220242, 1521342472, 5217890826, 6434700837, 7220632906, 4227214146, 5014252667, 7515823403, 4500827771, 2074493062, 7373901522, 7233515879, 8955696374, 5148396674, 4538936527, 8351951308, 9827360772, 6827997368, 8862956432, 3571641213, 1537051081, 8726960894, 5500787952, 7800392082, 9559631366, 8142384266, 8996179516, 5470501526, 3672958497, 9541795599, 9076814679, 1983672781, 8538854977, 5333912954, 4909768348, 7562397226, 5452013889, 5277287996, 2835932913, 4394887703, 4837874069, 6833533435, 6628998356, 8730190189, 9367456835, 6184638876, 9327318563, 1962971653, 2314754631, 3767419257, 8290582094, 7493586791, 3878808218, 7004909904, 1188726542, 6342641044, 3639909489, 1721832360, 8894310813, 6953382615, 6395638337, 4692270253, 3532301383, 6674939320, 9038896107, 5360707708, 8449822129, 6973004397, 6789624053, 9588217560, 8177994204, 8122092323, 8556319113, 5210379417, 5207818696, 4785048755, 8785879549, 8597037221, 4043898169, 5764177655, 2041593160, 2132154848, 3182621113, 6251243197, 3568915564, 9761133909, 8662123573, 6448867466, 7625146623, 5562008942, 3345262352,];
+
 var Nusers_a = 0; // jalar de DB
-var Nusers_b = 2;
-
-function submit(nombre, codigo){
-  if(codigo in codigos[Nusers_a:codigos.length]){
-    database.push(nombre)
-    Nusers_a = Nusers_a + 1
-  }
-}
+var Nusers_b = 0; // updatear manualmente (ESTE SE CAMBIA!)
 
 
-
-function User(name, email, password){
-  this.password = password;
+function User(name, email, code){
+  this.code = code;
   this.name = name;
   this.email = email;
   this.id = null;
@@ -46,8 +43,8 @@ teams = [];
 groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 // group property in class correspond to group index
 
-function add_user(name, email, password){
-  var usr = new User(name, email, password);
+function add_user(name, email, code){
+  var usr = new User(name, email, code);
   users.push(usr);
 }
 
@@ -253,59 +250,58 @@ function order_group(group){
 }
 
 //// Firebase
-function init(){
-  var x = "a";
-  var database = firebase.database();
-  var fruitRef = database.ref('title');
-  var result = fruitRef.push({
-    name: 'sub1',
-    color: {red: 0, blue: 1}
-  });
-}
-
 function submit(){
-  var database = firebase.database();
-  var name = document.getElementsByName("name")[0].value;
-  var email = document.getElementsByName("email")[0].value;
-  var password = document.getElementsByName("password")[0].value;
-  add_user(name, email, password);
-  var arquero = document.getElementById("arquero").value;
-  var jj = document.getElementById("jugador_joven").value;
-  var mj = document.getElementById("mejor_jugador").value;
-  var goleador = document.getElementById("goleador").value;
-  var campeon = document.getElementById("campeon").value;
-  var name_db = database.ref(name);
-  var data1 = name_db.set({
-    name: name,
-    email: email,
-    password: password,
-    points: 0,
-    arquero: arquero,
-    mejor_jugador_joven: jj,
-    jugador_joven: mj,
-    goleador: goleador,
-    campeon: campeon
-  });
-  var index = 1;
-  for(i = 0; i < groups.length; i++){
-    for(j = 0; j < 6; j++){
-      var home_team = document.getElementById("T"+index+"H").innerHTML;
-      var away_team = document.getElementById("T"+index+"A").innerHTML;
-      var home_score = document.getElementById("M"+index+"H").value;
-      var away_score = document.getElementById("M"+index+"A").value;
-      home_team = home_team.trim();
-      away_team = away_team.trim();
-      var data2 = name_db.push({
-        match: index,
-        home: home_team,
-        away: away_team,
-        home_score: home_score,
-        away_score: away_score
-      });
-      index++;
+  var code = document.getElementsByName("code")[0].value;
+  if(code == codes[Nusers_a]){
+    var temp = Nusers_a + 1;
+    var name = document.getElementsByName("name")[0].value;
+    var email = document.getElementsByName("email")[0].value;
+    add_user(name, email, code);
+    var arquero = document.getElementById("arquero").value;
+    var jj = document.getElementById("jugador_joven").value;
+    var mj = document.getElementById("mejor_jugador").value;
+    var goleador = document.getElementById("goleador").value;
+    var campeon = document.getElementById("campeon").value;
+    var local_info = database.ref("Local");
+    var data0 = local_info.set({
+      Nusers: temp
+    });
+    var name_db = database.ref(name);
+    var data1 = name_db.set({
+      name: name,
+      email: email,
+      code: code,
+      points: 0,
+      arquero: arquero,
+      mejor_jugador_joven: jj,
+      jugador_joven: mj,
+      goleador: goleador,
+      campeon: campeon
+    });
+    var index = 1;
+    for(i = 0; i < groups.length; i++){
+      for(j = 0; j < 6; j++){
+        var home_team = document.getElementById("T"+index+"H").innerHTML;
+        var away_team = document.getElementById("T"+index+"A").innerHTML;
+        var home_score = document.getElementById("M"+index+"H").value;
+        var away_score = document.getElementById("M"+index+"A").value;
+        home_team = home_team.trim();
+        away_team = away_team.trim();
+        var data2 = name_db.push({
+          match: index,
+          home: home_team,
+          away: away_team,
+          home_score: home_score,
+          away_score: away_score
+        });
+        index++;
+      }
     }
+    document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
   }
-  document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
+  else{
+    alert("Ha ocurrido un error. Asegurese de tener un código valido.");
+  }
 }
 
 // AUTO COMPLETE
