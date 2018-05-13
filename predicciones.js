@@ -241,7 +241,8 @@ function order_group(group){
 //// Firebase
 function submit(){
   var code = document.getElementsByName("code")[0].value;
-  if(code == codes[Nusers_a]){
+  var same_user = check_result();
+  if(code == codes[Nusers_a] || same_user){
     var temp = Nusers_a + 1;
     var name = document.getElementsByName("name")[0].value;
     var email = document.getElementsByName("email")[0].value;
@@ -280,12 +281,56 @@ function submit(){
         index++;
       }
     }
+    for(var a = 0; a < 8; a++){
+      group_points(a);
+    }
+    var data3 = name_db.child("Clasificados").set({
+      ClasificadoA1: document.getElementById("1ACL").innerHTML,
+      ClasificadoA2: document.getElementById("2ACL").innerHTML,
+      ClasificadoB1: document.getElementById("1BCL").innerHTML,
+      ClasificadoB2: document.getElementById("2BCL").innerHTML,
+      ClasificadoC1: document.getElementById("1CCL").innerHTML,
+      ClasificadoC2: document.getElementById("2CCL").innerHTML,
+      ClasificadoD1: document.getElementById("1DCL").innerHTML,
+      ClasificadoD2: document.getElementById("2DCL").innerHTML,
+      ClasificadoE1: document.getElementById("1ECL").innerHTML,
+      ClasificadoE2: document.getElementById("2ECL").innerHTML,
+      ClasificadoF1: document.getElementById("1FCL").innerHTML,
+      ClasificadoF2: document.getElementById("2FCL").innerHTML,
+      ClasificadoG1: document.getElementById("1GCL").innerHTML,
+      ClasificadoG2: document.getElementById("2GCL").innerHTML,
+      ClasificadoH1: document.getElementById("1HCL").innerHTML,
+      ClasificadoH2: document.getElementById("2HCL").innerHTML
+    })
     document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
   }
   else{
     alert("Ha ocurrido un error. Asegurese de tener un código valido.");
   }
 }
+
+function check_result(){
+  var curr_code = document.getElementsByName("code")[0].value;
+  var curr_name = document.getElementsByName("name")[0].value;
+  var ref = database.ref().once('value', function(snap){
+    snap.forEach(userSnap => {
+      var name = userSnap.key;
+      if(curr_name == name){
+        var ref_name = database.ref().child(name).once('value', data =>{
+          var code = data.val().code;
+          if(code == curr_code){
+            return true;
+          }
+          else{
+            return false;
+          }
+        });
+      }
+     })
+  });
+}
+
+// check_result();
 
 // AUTO COMPLETE
 function autocomplete(inp, arr) {
