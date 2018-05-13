@@ -239,13 +239,12 @@ function order_group(group){
 }
 
 //// Firebase
-function submit(){
-  var code = document.getElementsByName("code")[0].value;
-  var same_user = check_result();
-  if(code == codes[Nusers_a] || same_user){
+function submit(x){
+  if(x == -1 || x == 1){
     var temp = Nusers_a + 1;
     var name = document.getElementsByName("name")[0].value;
     var email = document.getElementsByName("email")[0].value;
+    var code = document.getElementsByName("code")[0].value;
     var arquero = document.getElementById("arquero").value;
     var jj = document.getElementById("jugador_joven").value;
     var mj = document.getElementById("mejor_jugador").value;
@@ -304,6 +303,9 @@ function submit(){
     })
     document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
   }
+  else if(x == 0){
+    alert("Usted a ingresado con el codigo de otro usuario. Su nombre ha sido guardado y no podrá participar en la polla.")
+  }
   else{
     alert("Ha ocurrido un error. Asegurese de tener un código valido.");
   }
@@ -312,21 +314,31 @@ function submit(){
 function check_result(){
   var curr_code = document.getElementsByName("code")[0].value;
   var curr_name = document.getElementsByName("name")[0].value;
+  var usersChecked = 0;
+  var result = -2;
+  var bool = false;
+  if(codes.includes(curr_code)){
+    result = -1;
+  }
   var ref = database.ref().once('value', function(snap){
+    Nusers_a = snap.numChildren();
     snap.forEach(userSnap => {
       var name = userSnap.key;
-      if(curr_name == name){
-        var ref_name = database.ref().child(name).once('value', data =>{
-          var code = data.val().code;
-          if(code == curr_code){
-            return true;
-          }
-          else{
-            return false;
-          }
-        });
-      }
-     })
+      var ref_name = database.ref().child(name).once('value', data =>{
+        var code = data.val().code;
+        usersChecked++;
+        if((code == curr_code) && (name == curr_name)){
+          result = 1;
+          bool = true;
+        }
+        if((code == curr_code) && (name != curr_name) && !bool){
+          result = 0;
+        }
+        if(usersChecked == Nusers_a){
+          submit(result);
+        }
+      });
+    })
   });
 }
 
