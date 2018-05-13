@@ -28,10 +28,8 @@ var ref = database.ref().once('value', function(snap){
   Nusers = snap.numChildren();
   snap.forEach(userSnap => {
     var name = userSnap.key;
-    console.log(name);
     var points_user = 0;
     var ref_name = database.ref().child(name).once('value', data =>{
-      // var points = data.val().points;
       var games = database.ref().child(name).child("Games").once('value', function(snapGames){
         snapGames.forEach(GameSnap =>{
           var game = GameSnap.val();
@@ -51,7 +49,6 @@ var ref = database.ref().once('value', function(snap){
         })
         database.ref().child(name).update({points: points_user});
         add_user(name, points_user);
-        console.log("pushed user")
         init();
       });
     });
@@ -61,7 +58,6 @@ var ref = database.ref().once('value', function(snap){
 function calculate_pts(home_guess, away_guess, home_score, away_score){
   var dg_real = home_score - away_score;
   var dg_pred = home_guess - away_guess
-  console.log(dg_real, dg_pred);
   var result = 0;
   if(dg_real * dg_pred >= 0){
     if((dg_real == 0) && (dg_pred == 0)){
@@ -84,7 +80,6 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
 
 function init(){
   if(Nusers == users.length){
-    console.log("init called");
     users.sort(compare);
     var table = document.getElementById("positions");
     for(var i = 0; i < users.length; i++){

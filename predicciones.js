@@ -258,7 +258,7 @@ function submit(x){
       points: 0,
       arquero: arquero,
       mejor_jugador_joven: jj,
-      jugador_joven: mj,
+      mejor_jugador: mj,
       goleador: goleador,
       campeon: campeon
     });
@@ -312,37 +312,54 @@ function submit(x){
 }
 
 function check_result(){
-  var curr_code = document.getElementsByName("code")[0].value;
-  var curr_name = document.getElementsByName("name")[0].value;
-  var usersChecked = 0;
-  var result = -2;
-  var bool = false;
-  if(codes.includes(curr_code)){
-    result = -1;
+  if(check_entries()){
+    var curr_code = document.getElementsByName("code")[0].value;
+    var curr_name = document.getElementsByName("name")[0].value;
+    var usersChecked = 0;
+    var result = -2;
+    var bool = false;
+    if(codes.includes(curr_code)){
+      result = -1;
+    }
+    var ref = database.ref().once('value', function(snap){
+      Nusers_a = snap.numChildren();
+      snap.forEach(userSnap => {
+        var name = userSnap.key;
+        var ref_name = database.ref().child(name).once('value', data =>{
+          var code = data.val().code;
+          usersChecked++;
+          if((code == curr_code) && (name == curr_name)){
+            result = 1;
+            bool = true;
+          }
+          if((code == curr_code) && (name != curr_name) && !bool){
+            result = 0;
+          }
+          if(usersChecked == Nusers_a){
+            submit(result);
+          }
+        });
+      })
+    });
   }
-  var ref = database.ref().once('value', function(snap){
-    Nusers_a = snap.numChildren();
-    snap.forEach(userSnap => {
-      var name = userSnap.key;
-      var ref_name = database.ref().child(name).once('value', data =>{
-        var code = data.val().code;
-        usersChecked++;
-        if((code == curr_code) && (name == curr_name)){
-          result = 1;
-          bool = true;
-        }
-        if((code == curr_code) && (name != curr_name) && !bool){
-          result = 0;
-        }
-        if(usersChecked == Nusers_a){
-          submit(result);
-        }
-      });
-    })
-  });
 }
 
-// check_result();
+function check_entries(){
+  var arquero = document.getElementById("arquero").value;
+  var mjj = document.getElementById("jugador_joven").value;
+  var mj = document.getElementById("mejor_jugador").value;
+  var goleador = document.getElementById("goleador").value;
+  var campeon = document.getElementById("campeon").value;
+  if(!((arqueros.includes(arquero)) &&
+     (countries.includes(campeon)) &&
+     (jugadores.includes(mj)) &&
+     (jugadores_jovenes.includes(mjj)) &&
+     (jugadores.includes(goleador)))){
+       alert("Asegurarse de dar click en su selección de 'Premios Individuales'");
+       return false;
+     }
+  return true;
+}
 
 // AUTO COMPLETE
 function autocomplete(inp, arr) {
