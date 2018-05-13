@@ -8,63 +8,103 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var database = firebase.database();
-var ref = database.ref("Local");
-var ref_names = database.ref("Names");
-ref.on('value', gotData, errData);
+function User(name, points){
+  this.name = name;
+  this.points = points;
+}
+
+function add_user(name, points){
+  var user = new User(name, points);
+  users.push(user);
+}
+
+var users = [];
 
 var Nusers = 0;
-var names = [];
-var pts = [];
+var Ngames = 2;
 
-function gotData(data){
-  var nusers = data.val();
-  var keys = Object.keys(nusers);
-  Nusers = parseInt(nusers[keys[0]]);
-  var nms = data.val();
-  var keys = Object.keys(nms);
-  // init();
-}
-
-console.log(database.ref().child('object'));
-
-function getNames(data){
-  var nms = data.val();
-  var keys = Object.keys(nms);
-  for(var i = 0; i < keys.length; i++){
-    var k = keys[i];
-    var val = nms[k].name;
-    names.push(val);
-    console.log(i);
-    console.log(val, "end loop");
-  }
-}
-
-function getPoints(data){
-  for(i = 0; i < Nusers; i++){
-    name.on('value', function(dta){
-      var name = database.ref(val);
-      var x = dta.val();
-      var kys = Object.keys(x);
-      point = x[kys[56]];
-      pts.push(point);
+var database = firebase.database();
+var ref = database.ref().once('value', function(snap){
+  Nusers = snap.numChildren();
+  snap.forEach(userSnap => {
+    var name = userSnap.key;
+    console.log(name);
+    var points_user = 0;
+    var ref_name = database.ref().child(name).once('value', data =>{
+      // var points = data.val().points;
+      var games = database.ref().child(name).child("Games").once('value', function(snapGames){
+        snapGames.forEach(GameSnap =>{
+          var game = GameSnap.val();
+          var home = game.home;
+          var away = game.away;
+          var home_score = game.home_score;
+          var away_score = game.away_score;
+          for(var i = 1; i < Ngames + 1; i++){
+            var home_team = document.getElementById("T"+i+"H").innerHTML;
+            var home_goals = document.getElementById("R"+i+"H").innerHTML;
+            var away_team = document.getElementById("T"+i+"A").innerHTML;
+            var away_goals = document.getElementById("R"+i+"A").innerHTML;
+            if((home_team == home) && (away_team == away)){
+              points_user = calculate_pts(home_score, away_score, home_goals, away_goals) + points_user;
+            }
+          }
+        })
+        database.ref().child(name).update({points: points_user});
+        add_user(name, points_user);
+        console.log("pushed user")
+        init();
+      });
     });
+  })
+});
+
+function calculate_pts(home_guess, away_guess, home_score, away_score){
+  var dg_real = home_score - away_score;
+  var dg_pred = home_guess - away_guess
+  console.log(dg_real, dg_pred);
+  var result = 0;
+  if(dg_real * dg_pred >= 0){
+    if((dg_real == 0) && (dg_pred == 0)){
+      result+= 50;
+      result+= 10;
+    }
+    else if ((dg_real > 0) && (dg_pred > 0)){
+      result+= 50;
+      if(dg_real == dg_pred){
+        result += 10;
+      }
+    }
+    if((home_score == home_guess) && (away_score == away_guess)){
+      result+= 20;
+    }
   }
-  init(i);
+  return result;
 }
 
-function errData(err){
-  console.log("Error");
-  console.log(err);
+
+function init(){
+  if(Nusers == users.length){
+    console.log("init called");
+    users.sort(compare);
+    var table = document.getElementById("positions");
+    for(var i = 0; i < users.length; i++){
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      cell1.innerHTML = users.length-i-1;
+      cell2.innerHTML = users[users.length-i-1].name;
+      cell3.innerHTML = users[users.length-i-1].points;
+    }
+  }
 }
 
-function init(index){
-  var table = document.getElementById("positions");
-  var row = table.insertRow(1);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  cell1.innerHTML = index;
-  cell2.innerHTML = names[i];
-  cell3.innerHTML = pts[i];
+function compare(x,y){
+  if(x.points > y.points){
+    return -1;
+  }
+  else{
+    return 1;
+  }
+  return 0;
 }

@@ -21,40 +21,21 @@ alert("Codigo: "+codes[Nusers_b]);
 // print_code();
 
 var database = firebase.database();
-var ref = database.ref("Local").once('value').then(function(snapshot) {
-var val = snapshot.val();
-var keys = Object.keys(val);
-Nusers_a = val[keys[0]]
-});
-
-function User(name, email, code){
-this.code = code;
-this.name = name;
-this.email = email;
-this.id = null;
-this.points = 0;
-}
 
 function Team(name, group, id){
-this.name = name;
-this.group = group;
-this.id = id;
-this.pts = 0;
-this.dg = 0;
-this.gf = 0;
-this.gc = 0;
+  this.name = name;
+  this.group = group;
+  this.id = id;
+  this.pts = 0;
+  this.dg = 0;
+  this.gf = 0;
+  this.gc = 0;
 }
 // add above to an index.js . pull index.js from all html files
-
-users = [];
 teams = [];
 groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 // group property in class correspond to group index
 
-function add_user(name, email, code){
-  var usr = new User(name, email, code);
-  users.push(usr);
-}
 
 function add_team(name, group, id){
   var team = new Team(name, group, id);
@@ -264,20 +245,11 @@ function submit(){
     var temp = Nusers_a + 1;
     var name = document.getElementsByName("name")[0].value;
     var email = document.getElementsByName("email")[0].value;
-    add_user(name, email, code);
     var arquero = document.getElementById("arquero").value;
     var jj = document.getElementById("jugador_joven").value;
     var mj = document.getElementById("mejor_jugador").value;
     var goleador = document.getElementById("goleador").value;
     var campeon = document.getElementById("campeon").value;
-    var names = database.ref("Names");
-    var dat = names.push({
-      name: name
-    })
-    var local_info = database.ref("Local");
-    var data0 = local_info.set({
-      Nusers: temp
-    });
     var name_db = database.ref(name);
     var data1 = name_db.set({
       name: name,
@@ -299,8 +271,7 @@ function submit(){
         var away_score = document.getElementById("M"+index+"A").value;
         home_team = home_team.trim();
         away_team = away_team.trim();
-        var data2 = name_db.push({
-          match: index,
+        var data2 = name_db.child("Games").push({
           home: home_team,
           away: away_team,
           home_score: home_score,
