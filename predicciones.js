@@ -180,6 +180,11 @@ function order_group(group){
           if(temp[min_index].gf > temp[a].gf){
             min_index = a;
           }
+          else if(temp[min_index].gf == temp[a].gf){
+            if(temp[min_index].id < temp[a].id){
+              min_index = a;
+            }
+          }
         }
       }
     }
