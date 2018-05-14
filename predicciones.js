@@ -103,7 +103,7 @@ function scoring(home_team, away_team, home_score, away_score){
   var away_team = away_team.trim();
   home_t = get_team_index(home_team);
   away_t = get_team_index(away_team);
-  if ((home_score=="" || away_score=="")==false) {
+  if ((home_score=="vacio" || away_score=="vacio")==false) {
 
     home_s = parseInt(home_score);
     away_s = parseInt(away_score);
@@ -209,7 +209,7 @@ function order_group(group){
           if((home == result[x].name) && (away == result[y].name)){
             var home_score = document.getElementById("M"+z+"H").value;
             var away_score = document.getElementById("M"+z+"A").value;
-            if ((home_score=="" || away_score=="")==false) {
+            if ((home_score=="vacio" || away_score=="vacio")==false) {
               if(home_score > away_score){
                 // swap
                 var temp = result[x];
@@ -221,7 +221,7 @@ function order_group(group){
           else if((away == result[x].name) && (home == result[y].name)){
             var home_score = document.getElementById("M"+z+"H").value;
             var away_score = document.getElementById("M"+z+"A").value;
-            if ((home_score=="" || away_score=="")==false) {
+            if ((home_score=="vacio" || away_score=="vacio")==false) {
               if(away_score > home_score){
                 var temp = result[x];
                 result[x] = result[y];
