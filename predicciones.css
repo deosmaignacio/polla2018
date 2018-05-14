@@ -150,6 +150,13 @@ td, th {
 	height: 80%;
 }
 
+.divider{
+	height: 100%;
+	width: 2%;
+	display: inline-block;
+	float: right;
+}
+
 
 .points{
 	width: 100%;

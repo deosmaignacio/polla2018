@@ -391,6 +391,53 @@ function check_entries(){
   return true;
 }
 
+function load_predictions(){
+  var curr_code = document.getElementsByName("code")[0].value;
+  var curr_name = document.getElementsByName("name")[0].value;
+  console.log(curr_code);
+  var bool = false;
+  var usersChecked = 0;
+  var ref = database.ref().once('value', function(snap){
+    snap.forEach(userSnap => {
+      usersChecked++;
+      var name = userSnap.key;
+      if(curr_name == name){
+        bool = true;
+        var index = 1;
+        var ref_name = database.ref().child(name).once('value', data =>{
+          var code = data.val().code;
+          if(code != curr_code){
+            alert("El codigo que ha ingresado es incorrecto.")
+          }
+          else if(code == curr_code){
+            var clasificados = database.ref().child(name).child("Clasificados").once('value', snapClas =>{
+              snapClas.forEach(snapDat =>{
+                var first = snapDat.key.slice(11, 13)[0];
+                var second = snapDat.key.slice(11, 13)[1];
+                document.getElementById(second+first+"CL").innerHTML = snapDat.val();
+              })
+            });
+            var game = database.ref().child(name).child("Games").once('value', snapGame =>{
+              snapGame.forEach(GameSnap =>{
+                var game = GameSnap.val();
+                var home_score = game.home_score;
+                var away_score = game.away_score;
+                var match = game.match;
+                document.getElementById("M"+index+"H").value = home_score;
+                document.getElementById("M"+index+"A").value = away_score;
+                index++;
+              })
+            });
+          }
+        });
+      }
+    })
+    if(!bool){
+      alert("No tenemos información sobre usted en nuestra base de datos.")
+    }
+  });
+}
+
 // AUTO COMPLETE
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
