@@ -313,7 +313,7 @@ function submit(x){
       ClasificadoG2: document.getElementById("2GCL").innerHTML,
       ClasificadoH1: document.getElementById("1HCL").innerHTML,
       ClasificadoH2: document.getElementById("2HCL").innerHTML
-    })
+    });
     document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
   }
   else if(x == 0){
@@ -396,7 +396,6 @@ function load_predictions(){
   var curr_name = document.getElementsByName("name")[0].value;
   if((curr_code.length == 0) || (curr_name.length == 0)){
     alert("Asegurarse de llenar casillas de nombre y código.");
-    return false;
   }
   var bool = false;
   var usersChecked = 0;
@@ -413,6 +412,11 @@ function load_predictions(){
             alert("El codigo que ha ingresado es incorrecto.")
           }
           else if(code == curr_code){
+            document.getElementById("arquero").value = data.val().arquero;
+            document.getElementById("jugador_joven").value = data.val().mejor_jugador_joven;
+            document.getElementById("mejor_jugador").value = data.val().mejor_jugador;
+            document.getElementById("goleador").value = data.val().goleador;
+            document.getElementById("campeon").value = data.val().campeon;
             var clasificados = database.ref().child(name).child("Clasificados").once('value', snapClas =>{
               snapClas.forEach(snapDat =>{
                 var first = snapDat.key.slice(11, 13)[0];
