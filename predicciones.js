@@ -287,7 +287,8 @@ function submit(x){
           home: home_team,
           away: away_team,
           home_score: home_score,
-          away_score: away_score
+          away_score: away_score,
+          match: index
         });
         index++;
       }
@@ -369,8 +370,8 @@ function check_entries(){
     var home_score = document.getElementById("M"+(i+1)+"H").value;
     var away_score = document.getElementById("M"+(i+1)+"A").value;
     if((home_score == "vacio") || (away_score == "vacio")){
-      alert("Asegurarse de no dejar ninguna casilla de resultado en blanco.");
-      return false;
+      // alert("Asegurarse de no dejar ninguna casilla de resultado en blanco.");
+      // return false;
     }
   }
   // 3. premios
@@ -384,8 +385,8 @@ function check_entries(){
      (jugadores.includes(mj)) &&
      (jugadores_jovenes.includes(mjj)) &&
      (jugadores.includes(goleador)))){
-       alert("Asegurarse de dar click en su selección de 'Premios Individuales'");
-       return false;
+       // alert("Asegurarse de dar click en su selección de 'Premios Individuales'");
+       // return false;
      }
   return true;
 }
