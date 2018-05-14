@@ -365,14 +365,14 @@ function check_entries(){
     return false;
   }
   // 2. casillas no en blanco en predicciones
-  // for(var i = 0; i < 48; i++){
-  //   var home_score = document.getElementById("M"+(i+1)+"H").value;
-  //   var away_score = document.getElementById("M"+(i+1)+"A").value;
-  //   if((home_score == "vacio") || (away_score == "vacio")){
-  //     alert("Asegurarse de no dejar ninguna casilla de resultado en blanco.");
-  //     return false;
-  //   }
-  // }
+  for(var i = 0; i < 48; i++){
+    var home_score = document.getElementById("M"+(i+1)+"H").value;
+    var away_score = document.getElementById("M"+(i+1)+"A").value;
+    if((home_score == "vacio") || (away_score == "vacio")){
+      alert("Asegurarse de no dejar ninguna casilla de resultado en blanco.");
+      return false;
+    }
+  }
   // 3. premios
   var arquero = document.getElementById("arquero").value;
   var mjj = document.getElementById("jugador_joven").value;
