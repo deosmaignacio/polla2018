@@ -46,7 +46,7 @@ header{
 }
 
 .info_name{
-	width: 40%;
+	max-width: 40%;
 	float: left;
 }
 
