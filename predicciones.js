@@ -394,7 +394,10 @@ function check_entries(){
 function load_predictions(){
   var curr_code = document.getElementsByName("code")[0].value;
   var curr_name = document.getElementsByName("name")[0].value;
-  console.log(curr_code);
+  if((curr_code.length == 0) || (curr_name.length == 0)){
+    alert("Asegurarse de llenar casillas de nombre y código.");
+    return false;
+  }
   var bool = false;
   var usersChecked = 0;
   var ref = database.ref().once('value', function(snap){
