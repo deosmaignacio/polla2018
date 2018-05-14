@@ -21,7 +21,7 @@ function add_user(name, points){
 var users = [];
 
 var Nusers = 0;
-var Ngames = 2;
+var Ngames = 3;
 
 var database = firebase.database();
 var ref = database.ref().once('value', function(snap){
