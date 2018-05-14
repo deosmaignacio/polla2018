@@ -103,31 +103,34 @@ function scoring(home_team, away_team, home_score, away_score){
   var away_team = away_team.trim();
   home_t = get_team_index(home_team);
   away_t = get_team_index(away_team);
-  home_s = parseInt(home_score);
-  away_s = parseInt(away_score);
-  // GF
-  teams[home_t].gf += home_s;
-  teams[away_t].gf += away_s;
+  if ((home_score=="" || away_score=="")==false) {
 
-  // GC
-  teams[home_t].gc += away_s;
-  teams[away_t].gc += home_s;
+    home_s = parseInt(home_score);
+    away_s = parseInt(away_score);
+    // GF
+    teams[home_t].gf += home_s;
+    teams[away_t].gf += away_s;
 
-  // DG
-  goal_d = home_s - away_s;
-  teams[home_t].dg += goal_d;
-  teams[away_t].dg += -1*goal_d;
+    // GC
+    teams[home_t].gc += away_s;
+    teams[away_t].gc += home_s;
 
-  // PTS
-  if(goal_d == 0){
-    teams[home_t].pts += 1;
-    teams[away_t].pts += 1;
-  }
-  else if(goal_d > 0){
-    teams[home_t].pts += 3;
-  }
-  else{
-    teams[away_t].pts += 3;
+    // DG
+    goal_d = home_s - away_s;
+    teams[home_t].dg += goal_d;
+    teams[away_t].dg += -1*goal_d;
+
+    // PTS
+    if(goal_d == 0){
+      teams[home_t].pts += 1;
+      teams[away_t].pts += 1;
+    }
+    else if(goal_d > 0){
+      teams[home_t].pts += 3;
+    }
+    else{
+      teams[away_t].pts += 3;
+    }
   }
 }
 
@@ -206,20 +209,24 @@ function order_group(group){
           if((home == result[x].name) && (away == result[y].name)){
             var home_score = document.getElementById("M"+z+"H").value;
             var away_score = document.getElementById("M"+z+"A").value;
-            if(home_score > away_score){
-              // swap
-              var temp = result[x];
-              result[x] = result[y];
-              result[y] = temp;
+            if ((home_score=="" || away_score=="")==false) {
+              if(home_score > away_score){
+                // swap
+                var temp = result[x];
+                result[x] = result[y];
+                result[y] = temp;
+              }
             }
           }
           else if((away == result[x].name) && (home == result[y].name)){
             var home_score = document.getElementById("M"+z+"H").value;
             var away_score = document.getElementById("M"+z+"A").value;
-            if(away_score > home_score){
-              var temp = result[x];
-              result[x] = result[y];
-              result[y] = temp;
+            if ((home_score=="" || away_score=="")==false) {
+              if(away_score > home_score){
+                var temp = result[x];
+                result[x] = result[y];
+                result[y] = temp;
+              }
             }
           }
         }
