@@ -21,7 +21,7 @@ function add_user(name, points){
 var users = [];
 
 var Nusers = 0;
-var Ngames = 3;
+var Ngames = games();
 
 var database = firebase.database();
 var ref = database.ref().once('value', function(snap){
@@ -54,6 +54,20 @@ var ref = database.ref().once('value', function(snap){
     });
   })
 });
+
+function games(){
+  var result = 0;
+  for(var i = 1; i < 65; i++){
+    var home_goals = document.getElementById("R"+i+"H").innerHTML;
+    var away_goals = document.getElementById("R"+i+"A").innerHTML;
+    if((home_goals.length > 0) && (away_goals.length > 0)){
+      result++;
+    }
+    else{
+      return result;
+    }
+  }
+}
 
 function calculate_pts(home_guess, away_guess, home_score, away_score){
   var dg_real = home_score - away_score;
