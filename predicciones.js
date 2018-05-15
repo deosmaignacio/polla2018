@@ -443,6 +443,9 @@ function load_predictions(){
       alert("No tenemos información sobre usted en nuestra base de datos.")
     }
   });
+  for(var j = 0; j < 8; j++){
+    group_points(j);
+  }
 }
 
 // AUTO COMPLETE
