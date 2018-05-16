@@ -143,3 +143,22 @@ header{
 .EquipoCampeon {
 
 }
+
+@media only screen and (max-width: 415px) {
+	.tabs{
+		height: 4%;
+	}
+	.instructions{
+		height: 35%;
+	}
+	.info_user{
+		height: 15%;
+	}
+	.info_entry{
+		width: 100%;
+		height: 30%;
+	}
+	.info_square{
+		margin-left: 1%;
+	}
+}
