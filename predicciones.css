@@ -375,10 +375,13 @@ color: black
 		width: 100%;
 		height: 55.5%;
 	}
+	.last_group h1 {
+		margin-right: 20%;
+	}
 
 	.points table{
 		margin-top: 0.1%;
-		margin-left: 8%;
+		margin-left: 1%;
 	}
 	.points{
 		height: 42.5%;
@@ -397,12 +400,22 @@ color: black
 		height: 24%;
 	}
 	.team_left{
-		width: 30%;
+		width: 20%;
 	}
 	.team_right{
 		width: 30%;
 	}
 	.score{
+		width: 40%;
+		height: 90%;
+	}
+	.team_left_last{
+		width: 20%;
+	}
+	.team_right_last{
+		width: 30%;
+	}
+	.score_last{
 		width: 40%;
 		height: 90%;
 	}
@@ -421,13 +434,21 @@ color: black
 	}
 	.rowlast {
 		height: 100%;
+		margin-left: 5%;
 	}
 	.lastrowinfo1 {
 		width: 100%;
 		height: 80%;
 	}
+	.lastrowinfo1 table {
+		width: 105%;
+	}
 	.lastrowinfo2 {
 		width: 100%;
 		height: 40%;
+	}
+	.lastrowinfo2 table {
+		width: 105%;
+		font-size: 40%;
 	}
 }
