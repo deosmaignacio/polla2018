@@ -534,12 +534,14 @@ color: black
 	.info_square{
 		margin-left: 1%;
 		width: 40%;
+		float: right;
 	}
 	.cajablanca {
-		width: 10%;
+		width: 5%;
 	}
 	.info_name {
-		width: 60%;
+		width: 90%;
+		max-width: 90%;
 	}
 	.rowlast {
 		height: 100%;
