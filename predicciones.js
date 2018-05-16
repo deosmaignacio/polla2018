@@ -397,52 +397,55 @@ function load_predictions(){
   if((curr_code.length == 0) || (curr_name.length == 0)){
     alert("Asegurarse de llenar casillas de nombre y código.");
   }
-  var bool = false;
-  var usersChecked = 0;
-  var ref = database.ref().once('value', function(snap){
-    snap.forEach(userSnap => {
-      usersChecked++;
-      var name = userSnap.key;
-      if(curr_name == name){
-        bool = true;
-        var index = 1;
-        var ref_name = database.ref().child(name).once('value', data =>{
-          var code = data.val().code;
-          if(code != curr_code){
-            alert("El codigo que ha ingresado es incorrecto.")
-          }
-          else if(code == curr_code){
-            document.getElementById("arquero").value = data.val().arquero;
-            document.getElementById("jugador_joven").value = data.val().mejor_jugador_joven;
-            document.getElementById("mejor_jugador").value = data.val().mejor_jugador;
-            document.getElementById("goleador").value = data.val().goleador;
-            document.getElementById("campeon").value = data.val().campeon;
-            var clasificados = database.ref().child(name).child("Clasificados").once('value', snapClas =>{
-              snapClas.forEach(snapDat =>{
-                var first = snapDat.key.slice(11, 13)[0];
-                var second = snapDat.key.slice(11, 13)[1];
-                document.getElementById(second+first+"CL").innerHTML = snapDat.val();
-              })
-            });
-            var game = database.ref().child(name).child("Games").once('value', snapGame =>{
-              snapGame.forEach(GameSnap =>{
-                var game = GameSnap.val();
-                var home_score = game.home_score;
-                var away_score = game.away_score;
-                var match = game.match;
-                document.getElementById("M"+index+"H").value = home_score;
-                document.getElementById("M"+index+"A").value = away_score;
-                index++;
-              })
-            });
-          }
-        });
+  else{
+    var bool = false;
+    var usersChecked = 0;
+    var ref = database.ref().once('value', function(snap){
+      snap.forEach(userSnap => {
+        usersChecked++;
+        var name = userSnap.key;
+        if(curr_name == name){
+          bool = true;
+          var index = 1;
+          var ref_name = database.ref().child(name).once('value', data =>{
+            var code = data.val().code;
+            if(code != curr_code){
+              alert("El codigo que ha ingresado es incorrecto.")
+            }
+            else if(code == curr_code){
+              document.getElementById("arquero").value = data.val().arquero;
+              document.getElementById("jugador_joven").value = data.val().mejor_jugador_joven;
+              document.getElementById("mejor_jugador").value = data.val().mejor_jugador;
+              document.getElementById("goleador").value = data.val().goleador;
+              document.getElementById("campeon").value = data.val().campeon;
+              var clasificados = database.ref().child(name).child("Clasificados").once('value', snapClas =>{
+                snapClas.forEach(snapDat =>{
+                  var first = snapDat.key.slice(11, 13)[0];
+                  var second = snapDat.key.slice(11, 13)[1];
+                  document.getElementById(second+first+"CL").innerHTML = snapDat.val();
+                })
+              });
+              var game = database.ref().child(name).child("Games").once('value', snapGame =>{
+                snapGame.forEach(GameSnap =>{
+                  var game = GameSnap.val();
+                  var home_score = game.home_score;
+                  var away_score = game.away_score;
+                  var match = game.match;
+                  document.getElementById("M"+index+"H").value = home_score;
+                  document.getElementById("M"+index+"A").value = away_score;
+                  index++;
+                })
+              });
+            }
+          });
+        }
+      })
+      console.log(bool);
+      if(!bool){
+        alert("No tenemos información sobre usted en nuestra base de datos.")
       }
-    })
-    if(!bool){
-      alert("No tenemos información sobre usted en nuestra base de datos.")
-    }
-  });
+    });
+  }
 }
 
 // AUTO COMPLETE
