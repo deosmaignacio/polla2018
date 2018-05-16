@@ -25,3 +25,11 @@ header{
 		font-size: 130%;
 	}
 }
+@media only screen and (max-width: 321px) {
+	body header {
+		font-size: 160%;
+	}
+	body h2 {
+		font-size: 110%;
+	}
+}
