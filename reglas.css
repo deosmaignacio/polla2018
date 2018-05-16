@@ -59,7 +59,7 @@ body {
 	margin-right: 0%;
 }
 
-@media only screen and (max-width: 376px) {
+@media only screen and (max-width: 415px) {
 	body header {
 		font-size: 180%;
 	}
@@ -79,7 +79,7 @@ body {
 
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 376px) {
 	body header {
 		font-size: 180%;
 	}
