@@ -10,15 +10,13 @@ var config = {
 firebase.initializeApp(config);
 
 var Nusers = 0; // jalar de DB
-var last_code;  // updatear manualmente (ESTE SE CAMBIA!) - ultimo código usado
+var last_code = 8360036710;  // updatear manualmente (ESTE SE CAMBIA!) - ultimo código usado
 var codes = [];
 
 // FUNCION PARA VER QUE código DAR (REMOVER COMMENTS EN L22)
 function print_code(code){
   return code == last_code;
 }
-
-// alert(codes[(codes.findIndex(print_code))+1]);
 
 var database = firebase.database();
 
@@ -44,6 +42,9 @@ function get_codes(){
         codes.push(code[k].code);
       }
     }
+    // if(codes.length == 400){
+    //   alert(codes[(codes.findIndex(print_code))+1]);
+    // }
   })
 }
 
