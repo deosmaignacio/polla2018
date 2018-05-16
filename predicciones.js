@@ -434,6 +434,9 @@ function load_predictions(){
                   document.getElementById("M"+index+"H").value = home_score;
                   document.getElementById("M"+index+"A").value = away_score;
                   index++;
+                  for(var a = 0; a < 8; a++){
+                    group_points(a);
+                  }
                 })
               });
             }
@@ -444,9 +447,6 @@ function load_predictions(){
         alert("No tenemos información sobre usted en nuestra base de datos.")
       }
     });
-  }
-  for(var a = 0; a < 8; a++){
-    group_points(a);
   }
 }
 
