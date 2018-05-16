@@ -144,6 +144,71 @@ header{
 
 }
 
+@media only screen and (max-width: 415px) {
+	.tabs{
+		height: 4%;
+	}
+	.instructions{
+		height: 38.5%;
+	}
+	.info_user{
+		height: 20%;
+	}
+	.info_entry{
+		width: 100%;
+		height: 30%;
+	}
+	.info_square{
+		margin-left: 1%;
+	}
+	.matches4 {
+		width: 100%;
+	}
+
+	.matches2 {
+		width: 100%;
+	}
+	.matches1 {
+		width: 100%;
+	}
+	.fasefinal {
+		width: 100%;
+	}
+	.match {
+		height: 12%;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		margin-right: 4%;
+	}
+
+	.matchfinal	{
+		height: 12%;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		margin-right: 4%;
+	}
+
+	.CasillaCampeon {
+		margin-top: 0%;
+		margin-bottom: 0%;
+		padding-left: 2px;
+		padding-bottom: 2px;
+		padding-top: 1px;
+		padding-right: 2px;
+		border-bottom: 1px solid black;
+		border-top: 1px solid black;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+		margin-right: 4%;
+	}
+
+	body header {
+		font-size: 200%;
+	}
+
+}
+
+
 @media only screen and (max-width: 376px) {
 	.tabs{
 		height: 4%;
@@ -271,73 +336,8 @@ header{
 		border-right: 1px solid black;
 		margin-right: 4%;
 	}
-
 	body header {
 		font-size: 180%;
-	}
-
-}
-
-@media only screen and (max-width: 415px) {
-	.tabs{
-		height: 4%;
-	}
-	.instructions{
-		height: 38.5%;
-	}
-	.info_user{
-		height: 20%;
-	}
-	.info_entry{
-		width: 100%;
-		height: 30%;
-	}
-	.info_square{
-		margin-left: 1%;
-	}
-	.matches4 {
-		width: 100%;
-	}
-
-	.matches2 {
-		width: 100%;
-	}
-	.matches1 {
-		width: 100%;
-	}
-	.fasefinal {
-		width: 100%;
-	}
-	.match {
-		height: 12%;
-		margin-top: 2%;
-		margin-bottom: 2%;
-		margin-right: 4%;
-	}
-
-	.matchfinal	{
-		height: 12%;
-		margin-top: 2%;
-		margin-bottom: 2%;
-		margin-right: 4%;
-	}
-
-	.CasillaCampeon {
-		margin-top: 0%;
-		margin-bottom: 0%;
-		padding-left: 2px;
-		padding-bottom: 2px;
-		padding-top: 1px;
-		padding-right: 2px;
-		border-bottom: 1px solid black;
-		border-top: 1px solid black;
-		border-left: 1px solid black;
-		border-right: 1px solid black;
-		margin-right: 4%;
-	}
-
-	body header {
-		font-size: 200%;
 	}
 
 }
