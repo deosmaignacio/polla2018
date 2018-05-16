@@ -16,3 +16,12 @@ header{
 .lista {
 	height: auto;
 }
+
+@media only screen and (max-width: 376px) {
+	body header {
+		font-size: 180%;
+	}
+	body h2 {
+		font-size: 130%;
+	}
+}
