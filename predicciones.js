@@ -11,14 +11,15 @@ firebase.initializeApp(config);
 
 var codes = [9074513446, 7457755588, 4121741592, 4809691577, 7906391236, 9918786968, 4914714566, 7502124568, 8927162667, 8076220242, 1521342472, 5217890826, 6434700837, 7220632906, 4227214146, 5014252667, 7515823403, 4500827771, 2074493062, 7373901522, 7233515879, 8955696374, 5148396674, 4538936527, 8351951308, 9827360772, 6827997368, 8862956432, 3571641213, 1537051081, 8726960894, 5500787952, 7800392082, 9559631366, 8142384266, 8996179516, 5470501526, 3672958497, 9541795599, 9076814679, 1983672781, 8538854977, 5333912954, 4909768348, 7562397226, 5452013889, 5277287996, 2835932913, 4394887703, 4837874069, 6833533435, 6628998356, 8730190189, 9367456835, 6184638876, 9327318563, 1962971653, 2314754631, 3767419257, 8290582094, 7493586791, 3878808218, 7004909904, 1188726542, 6342641044, 3639909489, 1721832360, 8894310813, 6953382615, 6395638337, 4692270253, 3532301383, 6674939320, 9038896107, 5360707708, 8449822129, 6973004397, 6789624053, 9588217560, 8177994204, 8122092323, 8556319113, 5210379417, 5207818696, 4785048755, 8785879549, 8597037221, 4043898169, 5764177655, 2041593160, 2132154848, 3182621113, 6251243197, 3568915564, 9761133909, 8662123573, 6448867466, 7625146623, 5562008942, 3345262352];
 
-var Nusers_a = 0; // jalar de DB
-var Nusers_b = 2; // updatear manualmente (ESTE SE CAMBIA!)
+var Nusers = 0; // jalar de DB
+var last_code = 7457755588; // updatear manualmente (ESTE SE CAMBIA!) - ultimo codigo usado
 
-// FUNCION PARA VER QUE CODIGO DAR (AL USAR, COMMENT OUT)
-function print_code(){
-alert("Codigo: "+codes[Nusers_b]);
+// FUNCION PARA VER QUE CODIGO DAR (REMOVER COMMENTS EN L22)
+function print_code(code){
+  return code == last_code;
 }
-// print_code();
+
+// alert(codes[(codes.findIndex(print_code))+1]);
 
 var database = firebase.database();
 
@@ -253,7 +254,7 @@ function order_group(group){
 //// Firebase
 function submit(x){
   if(x == -1 || x == 1){
-    var temp = Nusers_a + 1;
+    var temp = Nusers + 1;
     var name = document.getElementsByName("name")[0].value;
     var email = document.getElementsByName("email")[0].value;
     var code = document.getElementsByName("code")[0].value;
@@ -335,9 +336,8 @@ function check_result(){
     if(codes.includes(curr_code)){
       result = -1;
     }
-    console.log(result);
     var ref = database.ref().once('value', function(snap){
-      Nusers_a = snap.numChildren();
+      Nusers = snap.numChildren();
       snap.forEach(userSnap => {
         var name = userSnap.key;
         var ref_name = database.ref().child(name).once('value', data =>{
@@ -350,7 +350,7 @@ function check_result(){
           if((code == curr_code) && (name != curr_name) && !bool){
             result = 0;
           }
-          if(usersChecked == Nusers_a){
+          if(usersChecked == Nusers){
             console.log(result);
             submit(result);
           }
