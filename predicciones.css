@@ -589,20 +589,22 @@ color: black
 		margin-left: 1%;
 	}
 	.points{
-		height: 50%;
+		height: 48%;
 		width: 38.5%;
 		margin-right: 0%;
 	}
 	.matches{
 		margin-top: 0%;
-		height: 35%;
+		height: 30%;
+		margin-bottom: 10%;
 	}
 	.matches_last{
 		margin-top: 0%;
 		height: 35%;
+		margin-bottom: 20%;
 	}
 	.match{
-		height: 24%;
+		height: 18%;
 	}
 	.team_left{
 		width: 28%;
