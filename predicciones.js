@@ -440,7 +440,6 @@ function load_predictions(){
           });
         }
       })
-      console.log(bool);
       if(!bool){
         alert("No tenemos información sobre usted en nuestra base de datos.")
       }
