@@ -98,3 +98,15 @@ table {
 		font-size: 75%;
 	}
 }
+
+@media only screen and (max-width: 321px) {
+	.content1 {
+		font-size: 85%;
+	}
+	.content2 {
+		font-size: 75%;
+	}
+	body header {
+		font-size: 200%;
+	}
+}
