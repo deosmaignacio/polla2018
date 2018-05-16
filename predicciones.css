@@ -386,14 +386,18 @@ color: black
 		margin-top: 0.1%;
 		margin-left: 1%;
 	}
+	#tabla_grupo_e{
+		margin-left: 10%;
+	}
 	.points{
-		height: 42.5%;
+		height: 35%;
 		width: 38.5%;
 		margin-right: 0%;
 	}
 	.matches{
 		margin-top: 0%;
 		height: 30%;
+		width: 80%;
 	}
 	.matches_last{
 		margin-top: 0%;
@@ -434,6 +438,9 @@ color: black
 	}
 	.info_square{
 		margin-left: 1%;
+	}
+	.row3 table{
+		margin-left: 16.5%;
 	}
 	.rowlast {
 		height: 100%;
