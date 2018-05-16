@@ -327,6 +327,7 @@ function submit(x){
 function check_result(){
   if(check_entries()){
     var curr_code = document.getElementsByName("code")[0].value;
+    curr_code = parseInt(curr_code);
     var curr_name = document.getElementsByName("name")[0].value;
     var usersChecked = 0;
     var result = -2;
@@ -334,6 +335,7 @@ function check_result(){
     if(codes.includes(curr_code)){
       result = -1;
     }
+    console.log(result);
     var ref = database.ref().once('value', function(snap){
       Nusers_a = snap.numChildren();
       snap.forEach(userSnap => {
@@ -349,6 +351,7 @@ function check_result(){
             result = 0;
           }
           if(usersChecked == Nusers_a){
+            console.log(result);
             submit(result);
           }
         });
