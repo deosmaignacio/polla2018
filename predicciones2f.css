@@ -213,7 +213,7 @@ header{
 		height: 4%;
 	}
 	.instructions{
-		height: 60%;
+		height: 62%;
 	}
 	.info_user{
 		height: 30%;
@@ -246,14 +246,14 @@ header{
 		width: 100%;
 	}
 	.match {
-		height: 12%;
+		height: 18%;
 		margin-top: 2%;
 		margin-bottom: 2%;
 		margin-right: 4%;
 	}
 
 	.matchfinal	{
-		height: 12%;
+		height: 18%;
 		margin-top: 2%;
 		margin-bottom: 2%;
 		margin-right: 4%;
