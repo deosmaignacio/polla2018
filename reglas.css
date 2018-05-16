@@ -38,12 +38,17 @@ body {
 }
 
 
-.row{
+.row2{
 	height: 25%;
 	margin-bottom: 2.5%;
 	margin-left: 2.5%;
 }
 
+.row3{
+	height: 25%;
+	margin-bottom: 2.5%;
+	margin-left: 2.5%;
+}
 
 
 .info {
@@ -52,4 +57,24 @@ body {
 	float: left;
 	margin-left: 2.5%;
 	margin-right: 0%;
+}
+
+@media only screen and (max-width: 376px) {
+	body header {
+		font-size: 180%;
+	}
+	.row1 {
+		height: 90%
+	}
+	.info {
+		width: 95%;
+		height: 50%;
+	}
+	.row2 {
+		height: 80%;
+	}
+	.row3 {
+		height: 200%;
+	}
+
 }

@@ -225,8 +225,7 @@ header{
 	.info_square{
 		margin-left: 1%;
 		width: 40%;
-		float: right;
-	}
+		}
 	.info_name {
 		width: 50%;
 		max-width: 90%;
