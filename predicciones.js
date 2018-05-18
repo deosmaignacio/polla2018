@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 var Nusers = 0; // jalar de DB
-var last_code = 8360036710;  // updatear manualmente (ESTE SE CAMBIA!) - ultimo código usado
+var last_code = 9640990669;  // updatear manualmente (ESTE SE CAMBIA!) - ultimo código usado
 var codes = [];
 
 // FUNCION PARA VER QUE código DAR (REMOVER COMMENTS EN L22)
