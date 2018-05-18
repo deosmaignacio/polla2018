@@ -342,7 +342,7 @@ function submit(x){
     document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
   }
   else if(x == 0){
-    alert("Usted a ingresado con un nombre que no corresponde a ese código. Asegúrese de escribir su nombre como lo escribiste la primera vez.Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
+    alert("Usted a ingresado con un nombre que no corresponde a ese código. Asegúrese de escribir su nombre como lo escribio la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
   }
   else{
     alert("Ha ocurrido un error. Asegúrese de tener un código valido.");
@@ -471,7 +471,7 @@ function load_predictions(){
         }
       })
       if(!bool){
-        alert("No tenemos información sobre usted en nuestra base de datos.")
+        alert("No tenemos información sobre usted en nuestra base de datos. Asegúrese de escribir su nombre como lo escribio la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
       }
     });
   }
