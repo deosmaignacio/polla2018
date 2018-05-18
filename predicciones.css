@@ -485,7 +485,8 @@ color: black
 		height: 35.5%;
 	}
 	.last_group h1 {
-		margin-right: 20%;
+		margin-right: 0%;
+		margin-left: 0%;
 	}
 
 	.points table{
@@ -500,9 +501,10 @@ color: black
 	.matches{
 		margin-top: 0%;
 		height: 30%;
+		margin-left: 0%;
 	}
 	.matches_last{
-		margin-top: 0%;
+		margin-top: 10%;
 		height: 30%;
 		margin-left: 0%;
 	}
@@ -588,8 +590,8 @@ color: black
 		margin-bottom: 25%;
 	}
 	.last_group h1 {
-		width: 48%;
-		margin-right: 52%;
+		margin-left: 0%;
+
 	}
 
 	.points table{
