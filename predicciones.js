@@ -471,7 +471,7 @@ function load_predictions(){
         }
       })
       if(!bool){
-        alert("No tenemos información sobre usted en nuestra base de datos. Asegúrese de escribir su nombre como lo escribio la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
+        alert("No tenemos información sobre usted en nuestra base de datos. Asegúrese de escribir su nombre como lo escribió la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
       }
     });
   }
