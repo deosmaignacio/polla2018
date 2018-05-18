@@ -108,6 +108,7 @@ function init(){
       cell3.innerHTML = users[users.length-i-1].points;
     }
   }
+  document.getElementById("espere").innerHTML=""
 }
 
 function compare(x,y){
