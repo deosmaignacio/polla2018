@@ -342,7 +342,7 @@ function submit(x){
     document.getElementById("submit_result").innerHTML = "¡Gracias! Sus predicciones han sido registradas.";
   }
   else if(x == 0){
-    alert("Usted a ingresado con el código de otro usuario. Su nombre ha sido guardado y no podrá participar en la polla.")
+    alert("Usted a ingresado con un nombre que no corresponde a ese código. Asegúrese de escribir su nombre como lo escribiste la primera vez.Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
   }
   else{
     alert("Ha ocurrido un error. Asegúrese de tener un código valido.");
