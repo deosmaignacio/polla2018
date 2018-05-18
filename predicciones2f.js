@@ -44,22 +44,22 @@ function add_team(team, group, number){
   clasificados.push(x);
 }
 
-add_team("Japón", "H", 2);
-add_team("Colombia", "H", 1);
-add_team("Inglaterra", "G", 2);
-add_team("Bélgica", "G", 1);
-add_team("México", "F", 2);
-add_team("Alemania", "F", 1);
-add_team("Suiza", "E", 2);
-add_team("Brasil", "E", 1);
-add_team("Croacia", "D", 2);
-add_team("Argentina", "D", 1);
-add_team("Perú", "C", 2);
-add_team("Francia", "C", 1);
-add_team("España", "B", 2);
-add_team("Portugal", "B", 1);
-add_team("Rusia", "A", 2);
-add_team("Uruguay", "A", 1);
+add_team("2H", "H", 2);
+add_team("1H", "H", 1);
+add_team("2G", "G", 2);
+add_team("1G", "G", 1);
+add_team("2F", "F", 2);
+add_team("1F", "F", 1);
+add_team("2E", "E", 2);
+add_team("1E", "E", 1);
+add_team("2D", "D", 2);
+add_team("1D", "D", 1);
+add_team("2C", "C", 2);
+add_team("1C", "C", 1);
+add_team("2B", "B", 2);
+add_team("1B", "B", 1);
+add_team("2A", "A", 2);
+add_team("1A", "A", 1);
 
 function find_team(group, number){
   for(var i = 0; i < clasificados.length; i++){
