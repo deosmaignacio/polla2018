@@ -587,7 +587,8 @@ color: black
 		margin-bottom: 25%;
 	}
 	.last_group h1 {
-		margin-right: 30%;
+		width: 48%;
+		margin-right: 52%;
 	}
 
 	.points table{
