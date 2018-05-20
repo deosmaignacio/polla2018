@@ -20,37 +20,42 @@ function add_user(name, points){
 
 var users = [];
 
+var Ngames = games();
+
 var Nusers = 0;
 
 var database = firebase.database();
 function points(){
   var ref = database.ref().once('value', function(snap){
-    Nusers = snap.numChildren();
+    Nusers = snap.numChildren() - 1;
     snap.forEach(userSnap => {
       var name = userSnap.key;
-      var points_user = 0;
-      var ref_name = database.ref().child(name).once('value', data =>{
-        var games = database.ref().child(name).child("Games").once('value', function(snapGames){
-          snapGames.forEach(GameSnap =>{
-            var game = GameSnap.val();
-            var home = game.home;
-            var away = game.away;
-            var home_score = game.home_score;
-            var away_score = game.away_score;
-            for(var i = 1; i < 49; i++){
-              var home_team = document.getElementById("T"+i+"H").value;
-              var home_goals = document.getElementById("R"+i+"H").value;
-              var away_team = document.getElementById("T"+i+"A").value;
-              var away_goals = document.getElementById("R"+i+"A").value;
-              if((home_team == home) && (away_team == away) && (home_team != "vacio") && (away_team != "vacio")){
-                points_user = calculate_pts(home_score, away_score, home_goals, away_goals) + points_user;
+      if(name != "Codes"){
+        var points_user = 0;
+        var ref_name = database.ref().child(name).once('value', data =>{
+          var games = database.ref().child(name).child("Games").once('value', function(snapGames){
+            snapGames.forEach(GameSnap =>{
+              var game = GameSnap.val();
+              var home = game.home;
+              var away = game.away;
+              var home_score = game.home_score;
+              var away_score = game.away_score;
+              for(var i = 1; i < Ngames + 1; i++){
+                var home_team = document.getElementById("T"+i+"H").innerHTML;
+                var home_goals = document.getElementById("R"+i+"H").innerHTML;
+                var away_team = document.getElementById("T"+i+"A").innerHTML;
+                var away_goals = document.getElementById("R"+i+"A").innerHTML;
+                if((home_team == home) && (away_team == away)){
+                  points_user = calculate_pts(home_score, away_score, home_goals, away_goals) + points_user;
+                }
               }
-            }
-          })
-          add_user(name, points_user);
-          init();
+            })
+            database.ref().child(name).update({points: points_user});
+            add_user(name, points_user);
+            init();
+          });
         });
-      });
+    }
     })
   });
 }
@@ -103,3 +108,5 @@ function compare(x,y){
   }
   return 0;
 }
+
+points();
