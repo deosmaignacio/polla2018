@@ -42,9 +42,9 @@ function points(){
               var away_score = game.away_score;
               for(var i = 1; i < Ngames + 1; i++){
                 var home_team = document.getElementById("T"+i+"H").innerHTML;
-                var home_goals = document.getElementById("R"+i+"H").innerHTML;
+                var home_goals = document.getElementById("R"+i+"H").value;
                 var away_team = document.getElementById("T"+i+"A").innerHTML;
-                var away_goals = document.getElementById("R"+i+"A").innerHTML;
+                var away_goals = document.getElementById("R"+i+"A").value;
                 if((home_team == home) && (away_team == away)){
                   points_user = calculate_pts(home_score, away_score, home_goals, away_goals) + points_user;
                 }
@@ -96,6 +96,7 @@ function init(){
       cell2.innerHTML = users[users.length-i-1].name;
       cell3.innerHTML = users[users.length-i-1].points;
     }
+    document.getElementById("espere").innerHTML=""
   }
 }
 
@@ -109,18 +110,22 @@ function compare(x,y){
   return 0;
 }
 
+//oee aca no me esta funcionando lo de games --> result siempre sale 0
+
 function games(){
   var result = 0;
   for(var i = 1; i < 65; i++){
-    var home_goals = document.getElementById("R"+i+"H").innerHTML;
-    var away_goals = document.getElementById("R"+i+"A").innerHTML;
-    if((home_goals.length > 0) && (away_goals.length > 0)){
-      result++;
+    var home_goals = document.getElementById("R"+i+"H").value;
+    var away_goals = document.getElementById("R"+i+"A").value;
+    if((home_goals=="vacio") || (away_goals="vacio")){
+      return result++;
+      console.log(result)
     }
     else{
-      return result;
+       result++;
     }
   }
+  console.log(result);
 }
 
 points();
