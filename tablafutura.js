@@ -109,4 +109,18 @@ function compare(x,y){
   return 0;
 }
 
+function games(){
+  var result = 0;
+  for(var i = 1; i < 65; i++){
+    var home_goals = document.getElementById("R"+i+"H").innerHTML;
+    var away_goals = document.getElementById("R"+i+"A").innerHTML;
+    if((home_goals.length > 0) && (away_goals.length > 0)){
+      result++;
+    }
+    else{
+      return result;
+    }
+  }
+}
+
 points();
