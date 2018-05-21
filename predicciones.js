@@ -397,7 +397,7 @@ function check_entries(){
     var home_score = document.getElementById("M"+(i+1)+"H").value;
     var away_score = document.getElementById("M"+(i+1)+"A").value;
     if((home_score == "vacio") || (away_score == "vacio")){
-      // alert("Asegurarse de no dejar ninguna casilla de resultado en blanco.");
+      alert("Usted está dejando alguna casilla en blanco. Igual se ingresarán sus predicciones.");
       // return false;
     }
   }
