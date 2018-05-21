@@ -92,10 +92,9 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
   return result;
 }
 
-init();
-
 function init(){
   if(Nusers == users.length){
+    document.getElementById("espere").innerHTML=""
     users.sort(compare);
     var table = document.getElementById("positions");
     for(var i = 0; i < users.length; i++){
@@ -111,7 +110,6 @@ function init(){
       cell3.innerHTML = users[users.length-i-1].points;
     }
   }
-  document.getElementById("espere").innerHTML=""
 }
 
 function user_predictions(place){
