@@ -75,21 +75,20 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
   var dg_real = home_score - away_score;
   var dg_pred = home_guess - away_guess
   var result = 0;
-  if(dg_real * dg_pred >= 0){
-    if((dg_real == 0) && (dg_pred == 0)){
-      result+= 50;
-      result+= 10;
+
+  if((home_score == home_guess) && (away_score == away_guess)){
+    result=80;
     }
-    else if ((dg_real > 0) && (dg_pred > 0)){
-      result+= 50;
-      if(dg_real == dg_pred){
-        result += 10;
+    else if (dg_real == dg_pred){
+      result=60;
       }
-    }
-    if((home_score == home_guess) && (away_score == away_guess)){
-      result+= 20;
-    }
-  }
+      else if(dg_real * dg_pred > 0){
+        result= 50;
+        }
+        else{
+          result=0;
+          }
+
   return result;
 }
 
