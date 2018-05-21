@@ -42,7 +42,8 @@ function points(){
               var away = game.away;
               var home_score = game.home_score;
               var away_score = game.away_score;
-              for(var i = 1; i < 49; i++){
+              // for(var i = 1; i < 49; i++){
+              var i = 7;
                 var home_team = document.getElementById("T"+i+"H").innerHTML;
                 var home_goals = document.getElementById("R"+i+"H").value;
                 var away_team = document.getElementById("T"+i+"A").innerHTML;
@@ -54,7 +55,7 @@ function points(){
                     console.log(points_user);
                   }
                 }
-              }
+              // }
             })
             add_user(name, points_user);
             init();
