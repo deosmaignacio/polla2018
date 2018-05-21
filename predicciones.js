@@ -397,8 +397,8 @@ function check_entries(){
     var home_score = document.getElementById("M"+(i+1)+"H").value;
     var away_score = document.getElementById("M"+(i+1)+"A").value;
     if((home_score == "vacio") || (away_score == "vacio")){
-      alert("Usted está dejando alguna casilla en blanco. Igual se ingresarán sus predicciones.");
-      // return false;
+      alert("Usted está dejando alguna casilla en blanco. Sus predicciones no han sido enviadas.");
+      return false;
     }
   }
   // 3. premios
@@ -412,7 +412,7 @@ function check_entries(){
      (jugadores.includes(mj)) &&
      (jugadores_jovenes.includes(mjj)) &&
      (jugadores.includes(goleador)))){
-       alert("Asegurarse de ingresar correctamente las selecciones de 'Premios Individuales'");
+       alert("Asegurarse de ingresar correctamente sus predicciones en 'Premios Individuales'. Sus predicciones no han sido enviadas.");
        return false;
      }
   return true;
