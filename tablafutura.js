@@ -21,43 +21,45 @@ function add_user(name, points){
 var users = [];
 
 var Ngames = games();
+console.log(Ngames);
 
 var Nusers = 0;
 
 var database = firebase.database();
 function points(){
-  var ref = database.ref().once('value', function(snap){
-    Nusers = snap.numChildren() - 1;
-    snap.forEach(userSnap => {
-      var name = userSnap.key;
-      if(name != "Codes"){
-        var points_user = 0;
-        var ref_name = database.ref().child(name).once('value', data =>{
-          var games = database.ref().child(name).child("Games").once('value', function(snapGames){
-            snapGames.forEach(GameSnap =>{
-              var game = GameSnap.val();
-              var home = game.home;
-              var away = game.away;
-              var home_score = game.home_score;
-              var away_score = game.away_score;
-              for(var i = 1; i < Ngames + 1; i++){
-                var home_team = document.getElementById("T"+i+"H").innerHTML;
-                var home_goals = document.getElementById("R"+i+"H").value;
-                var away_team = document.getElementById("T"+i+"A").innerHTML;
-                var away_goals = document.getElementById("R"+i+"A").value;
-                if((home_team == home) && (away_team == away)){
-                  points_user = calculate_pts(home_score, away_score, home_goals, away_goals) + points_user;
-                }
-              }
-            })
-            database.ref().child(name).update({points: points_user});
-            add_user(name, points_user);
-            init();
-          });
-        });
-    }
-    })
-  });
+  console.log("games are", games());
+  // var ref = database.ref().once('value', function(snap){
+  //   Nusers = snap.numChildren() - 1;
+  //   snap.forEach(userSnap => {
+  //     var name = userSnap.key;
+  //     if(name != "Codes"){
+  //       var points_user = 0;
+  //       var ref_name = database.ref().child(name).once('value', data =>{
+  //         var games = database.ref().child(name).child("Games").once('value', function(snapGames){
+  //           snapGames.forEach(GameSnap =>{
+  //             var game = GameSnap.val();
+  //             var home = game.home;
+  //             var away = game.away;
+  //             var home_score = game.home_score;
+  //             var away_score = game.away_score;
+  //             for(var i = 1; i < Ngames + 1; i++){
+  //               var home_team = document.getElementById("T"+i+"H").innerHTML;
+  //               var home_goals = document.getElementById("R"+i+"H").value;
+  //               var away_team = document.getElementById("T"+i+"A").innerHTML;
+  //               var away_goals = document.getElementById("R"+i+"A").value;
+  //               if((home_team == home) && (away_team == away)){
+  //                 points_user = calculate_pts(home_score, away_score, home_goals, away_goals) + points_user;
+  //               }
+  //             }
+  //           })
+  //           database.ref().child(name).update({points: points_user});
+  //           add_user(name, points_user);
+  //           init();
+  //         });
+  //       });
+  //   }
+  //   })
+  // });
 }
 
 function calculate_pts(home_guess, away_guess, home_score, away_score){
@@ -117,15 +119,14 @@ function games(){
   for(var i = 1; i < 65; i++){
     var home_goals = document.getElementById("R"+i+"H").value;
     var away_goals = document.getElementById("R"+i+"A").value;
-    if((home_goals=="vacio") || (away_goals="vacio")){
-      return result++;
-      console.log(result)
+    console.log(home_goals, away_goals);
+    if((home_goals=="vacio") || (away_goals=="vacio")){
+      return result;
     }
     else{
-       result++;
+      result ++;
     }
   }
-  console.log(result);
 }
 
-points();
+// points();
