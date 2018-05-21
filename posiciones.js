@@ -106,7 +106,7 @@ function init(){
       var cell3 = row.insertCell(2);
       cell1.innerHTML = users.length-i;
       cell2.innerHTML = users[users.length-i-1].name;
-      cell2.onclick = "user_predictions(users.length-i)";
+      // cell2.onclick = "user_predictions(users.length-i)";
       cell3.innerHTML = users[users.length-i-1].points;
     }
   }
