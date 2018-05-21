@@ -24,6 +24,22 @@ tr:hover {background-color:#b5b19f;}
 	text-decoration: underline;
 }
 
+.ochenta{
+	color: green;
+}
+
+.sesenta{
+	color: orange;
+}
+
+.cincuenta{
+	color: blue;
+}
+
+.cero{
+	color: red;
+}
+
 .tab {
 	width: 20%;
 	float: left;
