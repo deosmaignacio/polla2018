@@ -26,6 +26,8 @@ var Nusers = 0;
 
 var database = firebase.database();
 function points(){
+  users = [];
+  console.log("enter points()");
   var ref = database.ref().once('value', function(snap){
     Nusers = snap.numChildren() - 1;
     snap.forEach(userSnap => {
@@ -42,13 +44,14 @@ function points(){
               var away_score = game.away_score;
               for(var i = 1; i < 49; i++){
                 var home_team = document.getElementById("T"+i+"H").innerHTML;
-                console.log(home_team);
                 var home_goals = document.getElementById("R"+i+"H").value;
                 var away_team = document.getElementById("T"+i+"A").innerHTML;
                 var away_goals = document.getElementById("R"+i+"A").value;
                 if((home_goals != "vacio") && (away_goals != "vacio")){
+                  console.log(home_team, away_team);
                   if((home_team == home) && (away_team == away)){
                     points_user = calculate_pts(home_score, away_score, home_goals, away_goals) + points_user;
+                    console.log(points_user);
                   }
                 }
               }
@@ -87,6 +90,9 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
 
 function init(){
   if(Nusers == users.length){
+    while(document.getElementById("positions").rows.length > 1){
+      document.getElementById("positions").deleteRow(1);
+    }
     users.sort(compare);
     var table = document.getElementById("positions");
     for(var i = 0; i < users.length; i++){
