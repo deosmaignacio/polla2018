@@ -112,21 +112,16 @@ function compare(x,y){
   return 0;
 }
 
-//oee aca no me esta funcionando lo de games --> result siempre sale 0
-
 function games(){
   var result = 0;
-  for(var i = 1; i < 65; i++){
+  for(var i = 1; i < 49; i++){
     var home_goals = document.getElementById("R"+i+"H").value;
     var away_goals = document.getElementById("R"+i+"A").value;
-    console.log(home_goals, away_goals);
-    if((home_goals=="vacio") || (away_goals=="vacio")){
-      return result;
-    }
-    else{
-      result ++;
+    if(!((home_goals=="vacio") || (away_goals=="vacio"))){
+      result++;
     }
   }
+  return result;
 }
 
 // points();
