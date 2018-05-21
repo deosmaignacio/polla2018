@@ -106,7 +106,9 @@ function init(){
       var cell3 = row.insertCell(2);
       cell1.innerHTML = users.length-i;
       cell2.innerHTML = users[users.length-i-1].name;
-      // cell2.onclick = "user_predictions(users.length-i)";
+      // cell2.setAttribute("class", "link_users");
+      var place = users.length-i
+      // cell2.setAttribute("onclick","user_predictions("+place+")");
       cell3.innerHTML = users[users.length-i-1].points;
     }
   }
@@ -114,7 +116,9 @@ function init(){
 }
 
 function user_predictions(place){
-  // var name = find name on index 'place'
+  var place = parseInt(place);
+  var name = document.getElementById("positions").rows[place].cells[1].innerHTML;
+  document.getElementById("1f_header").innerHTML = "Predicciones: "+name;
   var name_ref = database.ref().child(name).once('value', function(snap){
     var games = database.ref().child(name).child("Games").once('value', function(snapGames){
       snapGames.forEach(GameSnap =>{
@@ -123,7 +127,7 @@ function user_predictions(place){
         var away = game.away;
         var home_score = game.home_score;
         var away_score = game.away_score;
-        for(var i = 1; i < Ngames + 1; i++){
+        for(var i = 1; i < 49; i++){
           var home_team = document.getElementById("T"+i+"H").innerHTML;
           var away_team = document.getElementById("T"+i+"A").innerHTML;
           if((home_team == home) && (away_team == away)){

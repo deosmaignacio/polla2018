@@ -19,6 +19,10 @@ tr:hover {background-color:#b5b19f;}
 	height: 2.5%;
 }
 
+.link_users{
+	color: blue;
+	text-decoration: underline;
+}
 
 .tab {
 	width: 20%;
