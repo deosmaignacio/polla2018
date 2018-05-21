@@ -162,12 +162,16 @@ function quarter_finals(num){
         x = document.getElementById("Q4A");
         break;
   }
+  while(x.length > 0){
+    x.remove(0);
+  }
+  console.log(x.length);
   for(var i = 0; i < team_arr.length; i++){
-    console.log(x);
     var option = document.createElement("option");
     option.text = team_arr[i];
     option.value = team_arr[i];
     x.add(option);
+    // console.log(x.length);
   }
 }
 
@@ -187,6 +191,9 @@ function semi_finals(num){
     case 4:
         x = document.getElementById("S2A");
         break;
+  }
+  while(x.length > 0){
+    x.remove(0);
   }
   for(var i = 0; i < team_arr.length; i++){
     console.log(x);
@@ -210,7 +217,12 @@ function final(num){
         y = document.getElementById("T1A")
         break;
   }
-  console.log(x);
+  while(x.length > 0){
+    x.remove(0);
+  }
+  while(y.length > 0){
+    y.remove(0);
+  }
   for(var i = 0; i < team_arr.length; i++){
     var element_length = team_arr[i].length;
     if(element_length == 1 && i == 0){
@@ -243,6 +255,9 @@ function final(num){
 function champion(){
   var team_arr = winner("F", 1);
   x = document.getElementById("Winner");
+  while(x.length > 0){
+    x.remove(0);
+  }
   for(var i = 0; i < team_arr.length; i++){
     var element_length = team_arr[i].length;
     if(element_length == 1 && i == 0){
@@ -266,6 +281,9 @@ function champion(){
 
 function third(){
   var team_arr = winner("T", 1);
+  while(x.length > 0){
+    x.remove(0);
+  }
   x = document.getElementById("Third");
   for(var i = 0; i < team_arr.length; i++){
     var element_length = team_arr[i].length;

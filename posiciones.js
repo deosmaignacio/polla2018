@@ -93,6 +93,7 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
   return result;
 }
 
+init();
 
 function init(){
   if(Nusers == users.length){
@@ -105,10 +106,34 @@ function init(){
       var cell3 = row.insertCell(2);
       cell1.innerHTML = users.length-i;
       cell2.innerHTML = users[users.length-i-1].name;
+      cell2.onclick = "user_predictions(users.length-i)";
       cell3.innerHTML = users[users.length-i-1].points;
     }
   }
   document.getElementById("espere").innerHTML=""
+}
+
+function user_predictions(place){
+  // var name = find name on index 'place'
+  var name_ref = database.ref().child(name).once('value', function(snap){
+    var games = database.ref().child(name).child("Games").once('value', function(snapGames){
+      snapGames.forEach(GameSnap =>{
+        var game = GameSnap.val();
+        var home = game.home;
+        var away = game.away;
+        var home_score = game.home_score;
+        var away_score = game.away_score;
+        for(var i = 1; i < Ngames + 1; i++){
+          var home_team = document.getElementById("T"+i+"H").innerHTML;
+          var away_team = document.getElementById("T"+i+"A").innerHTML;
+          if((home_team == home) && (away_team == away)){
+            document.getElementById("R"+i+"H").innerHTML = home_score;
+            document.getElementById("R"+i+"A").innerHTML = away_score
+          }
+        }
+      })
+    });
+  });
 }
 
 function compare(x,y){
