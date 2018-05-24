@@ -58,7 +58,7 @@ header{
 
 @media only screen and (max-width: 376px) {
 	body header{
-		font-size: 230%;
+		font-size: 200%;
 	}
 	.image img{
 		height: 55%;
@@ -73,7 +73,7 @@ header{
 
 @media only screen and (max-width: 321px) {
 	body header{
-		font-size: 180%;
+		font-size: 100%;
 	}
 	.image img{
 		height: 55%;
