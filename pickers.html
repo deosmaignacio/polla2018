@@ -2,8 +2,8 @@
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Polla OV Tabla</title>
-      <link rel="stylesheet" type="text/css" href="posiciones.css"/>
+      <title>Polla OV Pickers</title>
+      <link rel="stylesheet" type="text/css" href="pickers.css"/>
     </head>
     <body>
       <header>Polla OV Mundial 2018</header>
@@ -25,27 +25,6 @@
         </div>
       </div>
     <br>
-    <div class="instructions">
-        Simula futuros resultados y mira la tabla <a href="tablafutura.html">aquí.</a>
-    </div>
-
-<div class="columna1">
-        <h2>Tabla de posiciones</h2>
-  <table id="positions">
-    <col width="50">
-    <col width="450">
-    <col width="150">
-      <tr>
-        <th></th>
-        <th>Nombre</th>
-        <th>Pts</th>
-      </tr>
-  </table>
-<p id="espere"> Espere unos segundos mientras carga...</p>
-</div>
-<div class="columna2">
-<div class="fila">
-  <h2>Resultados: Primera fase</h2>
 
   <div class="tablagrupos">
 
@@ -68,7 +47,7 @@
       <td>1</td>
       <td id="T1H" >Rusia</td>
       <td>
-        <select id="R1H" onchange="points()">
+        <select id="R1H" onchange="pickresult()">
         <option value="vacio"></option>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -83,7 +62,7 @@
         </select>
     </td>
     <td>
-      <select id="R1A" onchange="points()">
+      <select id="R1A" onchange="pickresult()">
       <option value="vacio"></option>
       <option value="0">0</option>
       <option value="1">1</option>
@@ -103,7 +82,7 @@
       <td>2</td>
       <td id="T2H">Egipto</td>
       <td>
-        <select id="R2H" onchange="points()">
+        <select id="R2H" onchange="pickresult()">
         <option value="vacio"></option>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -118,7 +97,7 @@
         </select>
       </td>
       <td>
-        <select id="R2A" onchange="points()">
+        <select id="R2A" onchange="pickresult()">
         <option value="vacio"></option>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -138,7 +117,7 @@
       <td>3</td>
       <td id=T3H>Marruecos</td>
       <td>
-      <select id="R3H" onchange="points()">
+      <select id="R3H" onchange="pickresult()">
       <option value="vacio"></option>
       <option value="0">0</option>
       <option value="1">1</option>
@@ -153,7 +132,7 @@
       </select>
       </td>
       <td>
-      <select  id="R3A" onchange="points()">
+      <select  id="R3A" onchange="pickresult()">
       <option value="vacio"></option>
       <option value="0">0</option>
       <option value="1">1</option>
@@ -173,7 +152,7 @@
       <td>4</td>
       <td id="T4H">Portugal</td>
       <td>
-      <select id="R4H" onchange="points()">
+      <select id="R4H" onchange="pickresult()">
       <option value="vacio"></option>
       <option value="0">0</option>
       <option value="1">1</option>
@@ -188,7 +167,7 @@
       </select>
       </td>
       <td>
-      <select  id="R4A" onchange="points()">
+      <select  id="R4A" onchange="pickresult()">
       <option value="vacio"></option>
       <option value="0">0</option>
       <option value="1">1</option>
@@ -208,7 +187,7 @@
     <td>5</td>
     <td id="T5H">Francia</td>
     <td>
-    <select id="R5H" onchange="points()">
+    <select id="R5H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -223,7 +202,7 @@
     </select>
     </td>
     <td>
-    <select  id="R5A" onchange="points()">
+    <select  id="R5A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -243,7 +222,7 @@
     <td>6</td>
     <td id="T6H">Argentina</td>
     <td>
-    <select id="R6H" onchange="points()">
+    <select id="R6H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -258,7 +237,7 @@
     </select>
     </td>
     <td>
-    <select  id="R6A" onchange="points()">
+    <select  id="R6A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -278,7 +257,7 @@
     <td>7</td>
     <td id="T7H">Perú</td>
     <td>
-    <select id="R7H" onchange="points()">
+    <select id="R7H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -293,7 +272,7 @@
     </select>
     </td>
     <td>
-    <select  id="R7A" onchange="points()">
+    <select  id="R7A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -313,7 +292,7 @@
     <td>8</td>
     <td id="T8H">Croacia</td>
     <td>
-    <select id="R8H" onchange="points()">
+    <select id="R8H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -328,7 +307,7 @@
     </select>
     </td>
     <td>
-    <select  id="R8A" onchange="points()">
+    <select  id="R8A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -348,7 +327,7 @@
     <td>9</td>
     <td id="T9H">Costa Rica</td>
     <td>
-    <select id="R9H" onchange="points()">
+    <select id="R9H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -363,7 +342,7 @@
     </select>
     </td>
     <td>
-    <select  id="R9A" onchange="points()">
+    <select  id="R9A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -383,7 +362,7 @@
     <td>10</td>
     <td id="T10H">Alemania</td>
     <td>
-    <select id="R10H" onchange="points()">
+    <select id="R10H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -398,7 +377,7 @@
     </select>
     </td>
     <td>
-    <select  id="R10A" onchange="points()">
+    <select  id="R10A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -418,7 +397,7 @@
     <td>11</td>
     <td id="T11H">Brasil</td>
     <td>
-    <select id="R11H" onchange="points()">
+    <select id="R11H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -433,7 +412,7 @@
     </select>
     </td>
     <td>
-    <select  id="R11A" onchange="points()">
+    <select  id="R11A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -453,7 +432,7 @@
     <td>12</td>
     <td id="T12H">Suecia</td>
     <td>
-    <select id="R12H" onchange="points()">
+    <select id="R12H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -468,7 +447,7 @@
     </select>
     </td>
     <td>
-    <select  id="R12A" onchange="points()">
+    <select  id="R12A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -488,7 +467,7 @@
     <td>13</td>
     <td id="T13H">Bélgica</td>
     <td>
-    <select id="R13H" onchange="points()">
+    <select id="R13H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -503,7 +482,7 @@
     </select>
     </td>
     <td>
-    <select  id="R13A" onchange="points()">
+    <select  id="R13A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -523,7 +502,7 @@
     <td>14</td>
     <td id="T14H">Túnez</td>
     <td>
-    <select id="R14H" onchange="points()">
+    <select id="R14H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -538,7 +517,7 @@
     </select>
     </td>
     <td>
-    <select  id="R14A" onchange="points()">
+    <select  id="R14A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -558,7 +537,7 @@
     <td>15</td>
     <td id="T15H">Colombia</td>
     <td>
-    <select id="R15H" onchange="points()">
+    <select id="R15H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -573,7 +552,7 @@
     </select>
     </td>
     <td>
-    <select  id="R15A" onchange="points()">
+    <select  id="R15A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -593,7 +572,7 @@
     <td>16</td>
     <td id="T16H">Polonia</td>
     <td>
-    <select id="R16H" onchange="points()">
+    <select id="R16H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -608,7 +587,7 @@
     </select>
     </td>
     <td>
-    <select  id="R16A" onchange="points()">
+    <select  id="R16A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -628,7 +607,7 @@
     <td>17</td>
     <td id="T17H">Rusia</td>
     <td>
-    <select id="R17H" onchange="points()">
+    <select id="R17H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -643,7 +622,7 @@
     </select>
     </td>
     <td>
-    <select  id="R17A" onchange="points()">
+    <select  id="R17A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -663,7 +642,7 @@
     <td>18</td>
     <td id="T18H">Portugal</td>
     <td>
-    <select id="R18H" onchange="points()">
+    <select id="R18H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -678,7 +657,7 @@
     </select>
     </td>
     <td>
-    <select  id="R18A" onchange="points()">
+    <select  id="R18A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -698,7 +677,7 @@
     <td>19</td>
     <td id="T19H">Uruguay</td>
     <td>
-    <select id="R19H" onchange="points()">
+    <select id="R19H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -713,7 +692,7 @@
     </select>
     </td>
     <td>
-    <select  id="R19A" onchange="points()">
+    <select  id="R19A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -733,7 +712,7 @@
     <td>20</td>
     <td id="T20H">Irán</td>
     <td>
-    <select id="R20H" onchange="points()">
+    <select id="R20H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -748,7 +727,7 @@
     </select>
     </td>
     <td>
-    <select  id="R20A" onchange="points()">
+    <select  id="R20A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -768,7 +747,7 @@
     <td>21</td>
     <td id="T21H">Dinamarca</td>
     <td>
-    <select id="R21H" onchange="points()">
+    <select id="R21H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -783,7 +762,7 @@
     </select>
     </td>
     <td>
-    <select  id="R21A" onchange="points()">
+    <select  id="R21A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -803,7 +782,7 @@
     <td>22</td>
     <td id="T22H">Francia</td>
     <td>
-    <select id="R22H" onchange="points()">
+    <select id="R22H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -818,7 +797,7 @@
     </select>
     </td>
     <td>
-    <select  id="R22A" onchange="points()">
+    <select  id="R22A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -838,7 +817,7 @@
     <td>23</td>
     <td id="T23H">Argentina</td>
     <td>
-    <select id="R23H" onchange="points()">
+    <select id="R23H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -853,7 +832,7 @@
     </select>
     </td>
     <td>
-    <select  id="R23A" onchange="points()">
+    <select  id="R23A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -873,7 +852,7 @@
     <td>24</td>
     <td id="T24H">Brasil</td>
     <td>
-    <select id="R24H" onchange="points()">
+    <select id="R24H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -888,7 +867,7 @@
     </select>
     </td>
     <td>
-    <select  id="R24A" onchange="points()">
+    <select  id="R24A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -922,7 +901,7 @@
     <td>25</td>
     <td id="T25H">Nigeria</td>
     <td>
-    <select id="R25H" onchange="points()">
+    <select id="R25H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -937,7 +916,7 @@
     </select>
     </td>
     <td>
-    <select  id="R25A" onchange="points()">
+    <select  id="R25A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -957,7 +936,7 @@
     <td>26</td>
     <td id="T26H">Serbia</td>
     <td>
-    <select id="R26H" onchange="points()">
+    <select id="R26H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -972,7 +951,7 @@
     </select>
     </td>
     <td>
-    <select  id="R26A" onchange="points()">
+    <select  id="R26A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -992,7 +971,7 @@
     <td>27</td>
     <td id="T27H">Bélgica</td>
     <td>
-    <select id="R27H" onchange="points()">
+    <select id="R27H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1007,7 +986,7 @@
     </select>
     </td>
     <td>
-    <select  id="R27A" onchange="points()">
+    <select  id="R27A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1027,7 +1006,7 @@
     <td>28</td>
     <td id="T28H">Corea</td>
     <td>
-    <select id="R28H" onchange="points()">
+    <select id="R28H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1042,7 +1021,7 @@
     </select>
     </td>
     <td>
-    <select  id="R28A" onchange="points()">
+    <select  id="R28A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1062,7 +1041,7 @@
     <td>29</td>
     <td id="T29H">Alemania</td>
     <td>
-    <select id="R29H" onchange="points()">
+    <select id="R29H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1077,7 +1056,7 @@
     </select>
     </td>
     <td>
-    <select  id="R29A" onchange="points()">
+    <select  id="R29A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1097,7 +1076,7 @@
     <td>30</td>
     <td id="T30H">Inglaterra</td>
     <td>
-    <select id="R30H" onchange="points()">
+    <select id="R30H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1112,7 +1091,7 @@
     </select>
     </td>
     <td>
-    <select  id="R30A" onchange="points()">
+    <select  id="R30A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1132,7 +1111,7 @@
     <td>31</td>
     <td id="T31H">Japón</td>
     <td>
-    <select id="R31H" onchange="points()">
+    <select id="R31H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1147,7 +1126,7 @@
     </select>
     </td>
     <td>
-    <select  id="R31A" onchange="points()">
+    <select  id="R31A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1167,7 +1146,7 @@
     <td>32</td>
     <td id="T32H">Polonia</td>
     <td>
-    <select id="R32H" onchange="points()">
+    <select id="R32H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1182,7 +1161,7 @@
     </select>
     </td>
     <td>
-    <select  id="R32A" onchange="points()">
+    <select  id="R32A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1202,7 +1181,7 @@
     <td>33</td>
     <td id="T33H">Arabia S.</td>
     <td>
-    <select id="R33H" onchange="points()">
+    <select id="R33H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1217,7 +1196,7 @@
     </select>
     </td>
     <td>
-    <select  id="R33A" onchange="points()">
+    <select  id="R33A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1237,7 +1216,7 @@
     <td>34</td>
     <td id="T34H">Uruguay</td>
     <td>
-    <select id="R34H" onchange="points()">
+    <select id="R34H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1252,7 +1231,7 @@
     </select>
     </td>
     <td>
-    <select  id="R34A" onchange="points()">
+    <select  id="R34A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1272,7 +1251,7 @@
     <td>35</td>
     <td id="T35H">Irán</td>
     <td>
-    <select id="R35H" onchange="points()">
+    <select id="R35H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1287,7 +1266,7 @@
     </select>
     </td>
     <td>
-    <select  id="R35A" onchange="points()">
+    <select  id="R35A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1307,7 +1286,7 @@
     <td>36</td>
     <td id="T36H">España</td>
     <td>
-    <select id="R36H" onchange="points()">
+    <select id="R36H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1322,7 +1301,7 @@
     </select>
     </td>
     <td>
-    <select  id="R36A" onchange="points()">
+    <select  id="R36A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1342,7 +1321,7 @@
     <td>37</td>
     <td id="T37H">Australia</td>
     <td>
-    <select id="R37H" onchange="points()">
+    <select id="R37H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1357,7 +1336,7 @@
     </select>
     </td>
     <td>
-    <select  id="R37A" onchange="points()">
+    <select  id="R37A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1377,7 +1356,7 @@
     <td>38</td>
     <td id="T38H">Dinamarca</td>
     <td>
-    <select id="R38H" onchange="points()">
+    <select id="R38H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1392,7 +1371,7 @@
     </select>
     </td>
     <td>
-    <select  id="R38A" onchange="points()">
+    <select  id="R38A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1412,7 +1391,7 @@
     <td>39</td>
     <td id="T39H">Nigeria</td>
     <td>
-    <select id="R39H" onchange="points()">
+    <select id="R39H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1427,7 +1406,7 @@
     </select>
     </td>
     <td>
-    <select  id="R39A" onchange="points()">
+    <select  id="R39A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1447,7 +1426,7 @@
     <td>40</td>
     <td id="T40H">Islandia</td>
     <td>
-    <select id="R40H" onchange="points()">
+    <select id="R40H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1462,7 +1441,7 @@
     </select>
     </td>
     <td>
-    <select  id="R40A" onchange="points()">
+    <select  id="R40A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1482,7 +1461,7 @@
     <td>41</td>
     <td id="T41H">Corea</td>
     <td>
-    <select id="R41H" onchange="points()">
+    <select id="R41H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1497,7 +1476,7 @@
     </select>
     </td>
     <td>
-    <select  id="R41A" onchange="points()">
+    <select  id="R41A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1517,7 +1496,7 @@
     <td>42</td>
     <td id="T42H">México</td>
     <td>
-    <select id="R42H" onchange="points()">
+    <select id="R42H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1532,7 +1511,7 @@
     </select>
     </td>
     <td>
-    <select  id="R42A" onchange="points()">
+    <select  id="R42A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1552,7 +1531,7 @@
     <td>43</td>
     <td id="T43H">Suiza</td>
     <td>
-    <select id="R43H" onchange="points()">
+    <select id="R43H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1567,7 +1546,7 @@
     </select>
     </td>
     <td>
-    <select  id="R43A" onchange="points()">
+    <select  id="R43A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1587,7 +1566,7 @@
     <td>44</td>
     <td id="T44H">Serbia</td>
     <td>
-    <select id="R44H" onchange="points()">
+    <select id="R44H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1602,7 +1581,7 @@
     </select>
     </td>
     <td>
-    <select  id="R44A" onchange="points()">
+    <select  id="R44A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1622,7 +1601,7 @@
     <td>45</td>
     <td id="T45H">Senegal</td>
     <td>
-    <select id="R45H" onchange="points()">
+    <select id="R45H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1637,7 +1616,7 @@
     </select>
     </td>
     <td>
-    <select  id="R45A" onchange="points()">
+    <select  id="R45A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1657,7 +1636,7 @@
     <td>46</td>
     <td id="T46H">Japón</td>
     <td>
-    <select id="R46H" onchange="points()">
+    <select id="R46H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1672,7 +1651,7 @@
     </select>
     </td>
     <td>
-    <select  id="R46A" onchange="points()">
+    <select  id="R46A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1692,7 +1671,7 @@
     <td>47</td>
     <td id="T47H">Inglaterra</td>
     <td>
-    <select id="R47H" onchange="points()">
+    <select id="R47H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1707,7 +1686,7 @@
     </select>
     </td>
     <td>
-    <select  id="R47A" onchange="points()">
+    <select  id="R47A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1727,7 +1706,7 @@
     <td>48</td>
     <td id="T48H">Panamá</td>
     <td>
-    <select id="R48H" onchange="points()">
+    <select id="R48H" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1742,7 +1721,7 @@
     </select>
     </td>
     <td>
-    <select  id="R48A" onchange="points()">
+    <select  id="R48A" onchange="pickresult()">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1788,153 +1767,25 @@
   </tr>
   <tr>
   <td><b>1</b></td>
-  <td>
-  <select  id="1ACL" onchange="pointsCl()">
-  <option value="vacio"></option>
-  <option value="Rusia">Rusia</option>
-  <option value="Arabia S.">Arabia S.</option>
-  <option value="Egipto">Egipto</option>
-  <option value="Uruguay">Uruguay</option>
-  </select>
-  </td>
-  <td>
-    <select  id="1BCL" onchange="pointsCl()">
-    <option value="vacio"></option>
-    <option value="Portugal">Portugal</option>
-    <option value="España">España</option>
-    <option value="Marruecos">Marruecos</option>
-    <option value="Irán">Irán</option>
-    </select>
-  </td>
-  <td>
-    <select  id="1CCL" onchange="pointsCl()">
-    <option value="vacio"></option>
-    <option value="Francia">Francia</option>
-    <option value="Australia">Australia</option>
-    <option value="Perú">Perú</option>
-    <option value="Dinamarca">Dinamarca</option>
-    </select>
-  </td>
-  <td>
-    <select  id="1DCL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Argentina">Argentina</option>
-      <option value="Islandia">Islandia</option>
-      <option value="Croacia">Croacia</option>
-      <option value="Nigeria">Nigeria</option>
-    </select>
-  </td>
-  <td>
-    <select  id="1ECL" onchange="pointsCl()">
-    <option value="vacio"></option>
-    <option value="Brasil">Brasil</option>
-    <option value="Suiza">Suiza</option>
-    <option value="Costa Rica">Costa Rica</option>
-    <option value="Serbia">Serbia</option>
-    </select>
-  </td>
-  <td>
-    <select  id="1FCL" onchange="pointsCl()">
-    <option value="vacio"></option>
-    <option value="Alemania">Alemania</option>
-    <option value="México">México</option>
-    <option value="Suecia">Suecia</option>
-    <option value="Corea">Corea</option>
-    </select>
-  </td>
-  <td>
-    <select  id="1GCL" onchange="pointsCl()">
-    <option value="vacio"></option>
-    <option value="Bélgica">Bélgica</option>
-    <option value="Panamá">Panamá</option>
-    <option value="Túnez">Túnez</option>
-    <option value="Inglaterra">Inglaterra</option>
-    </select>
-  </td>
-  <td>
-    <select  id="1HCL" onchange="pointsCl()">
-    <option value="vacio"></option>
-    <option value="Polonia">Polonia</option>
-    <option value="Senegal">Senegal</option>
-    <option value="Colombia">Colombia</option>
-    <option value="Japón">Japón</option>
-    </select>
-  </td>
+  <td id="1ACL">1A</td>
+  <td id="1BCL">1B</td>
+  <td id="1CCL">1C</td>
+  <td id="1DCL">1D</td>
+  <td id="1ECL">1E</td>
+  <td id="1FCL">1F</td>
+  <td id="1GCL">1G</td>
+  <td id="1HCL">1H</td>
   </tr>
   <tr>
   <td><b>2</b></td>
-  <td>
-    <select  id="2ACL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Rusia">Rusia</option>
-      <option value="Arabia S.">Arabia S.</option>
-      <option value="Egipto">Egipto</option>
-      <option value="Uruguay">Uruguay</option>
-    </select>
-  </td>
-  <td>
-    <select  id="2BCL" onchange="pointsCl()">
-    <option value="vacio"></option>
-    <option value="Portugal">Portugal</option>
-    <option value="España">España</option>
-    <option value="Marruecos">Marruecos</option>
-    <option value="Irán">Irán</option>
-    </select>
-  </td>
-  <td>
-    <select  id="2CCL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Francia">Francia</option>
-      <option value="Australia">Australia</option>
-      <option value="Perú">Perú</option>
-      <option value="Dinamarca">Dinamarca</option>
-    </select>
-  </td>
-  <td>
-    <select  id="2DCL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Argentina">Argentina</option>
-      <option value="Islandia">Islandia</option>
-      <option value="Croacia">Croacia</option>
-      <option value="Nigeria">Nigeria</option>
-    </select>
-  </td>
-  <td>
-    <select  id="2ECL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Brasil">Brasil</option>
-      <option value="Suiza">Suiza</option>
-      <option value="Costa Rica">Costa Rica</option>
-      <option value="Serbia">Serbia</option>
-    </select>
-  </td>
-  <td>
-    <select  id="2FCL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Alemania">Alemania</option>
-      <option value="México">México</option>
-      <option value="Suecia">Suecia</option>
-      <option value="Corea">Corea</option>
-    </select>
-  </td>
-  <td>
-    <select  id="2GCL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Bélgica">Bélgica</option>
-      <option value="Panamá">Panamá</option>
-      <option value="Túnez">Túnez</option>
-      <option value="Inglaterra">Inglaterra</option>
-    </select>
-  </td>
-  <td>
-    <select  id="2HCL" onchange="pointsCl()">
-      <option value="vacio"></option>
-      <option value="Polonia">Polonia</option>
-      <option value="Senegal">Senegal</option>
-      <option value="Colombia">Colombia</option>
-      <option value="Japón">Japón</option>
-    </select>
-  </td>
+  <td id="2ACL">2A</td>
+  <td id="2BCL">2B</td>
+  <td id="2CCL">2C</td>
+  <td id="2DCL">2D</td>
+  <td id="2ECL">2E</td>
+  <td id="2FCL">2F</td>
+  <td id="2GCL">2G</td>
+  <td id="2HCL">2H</td>
   </tr>
   </table>
 </div>
@@ -2160,6 +2011,6 @@
 <p align="right">Por: Ignacio de Osma, Gonzalo Vidaurrazaga, y Juan Diego Vidaurrazaga</p>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
- <script src="tablafutura.js">
+ <script src="pickers.js">
  </script>
 </html>
