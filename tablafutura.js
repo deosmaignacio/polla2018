@@ -46,10 +46,10 @@ function points(){
               var away_score = game.away_score;
               // for(var i = 1; i < 49; i++){
               var i = 7;
-                var home_team = document.getElementById("T"+i+"H").innerHTML;
-                var home_goals = document.getElementById("R"+i+"H").value;
-                var away_team = document.getElementById("T"+i+"A").innerHTML;
-                var away_goals = document.getElementById("R"+i+"A").value;
+                var home_team = document.getElementById("SimT"+i+"H").innerHTML;
+                var home_goals = document.getElementById("SimR"+i+"H").value;
+                var away_team = document.getElementById("SimT"+i+"A").innerHTML;
+                var away_goals = document.getElementById("SimR"+i+"A").value;
                 if((home_goals != "vacio") && (away_goals != "vacio")){
                   console.log(home_team, away_team);
                   if((home_team == home) && (away_team == away)){
@@ -123,8 +123,8 @@ function compare(x,y){
 function games(){
   var result = 0;
   for(var i = 1; i < 49; i++){
-    var home_goals = document.getElementById("R"+i+"H").value;
-    var away_goals = document.getElementById("R"+i+"A").value;
+    var home_goals = document.getElementById("SimR"+i+"H").value;
+    var away_goals = document.getElementById("SimR"+i+"A").value;
     if(!((home_goals=="vacio") || (away_goals=="vacio"))){
       result++;
     }
