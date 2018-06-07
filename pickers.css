@@ -19,6 +19,31 @@ tr:hover {background-color:#b5b19f;}
 	height: 4%;
 }
 
+.info_user{
+	width: 100%;
+	height: 7.5%;
+	margin-top: 1.75%;
+	margin-bottom: 0%;
+}
+
+.info_entry{
+	float: left;
+	width: 30%;
+	height: 100%;
+}
+
+.info_name{
+	max-width: 200%;
+	float: right;
+}
+.info_square{
+	width: 60%;
+	float: left;
+}
+.submit{
+	text-align: center;
+	margin-top: 2.5%;
+}
 
 .tab {
 	width: 20%;
@@ -67,6 +92,7 @@ table {
 .tablacol2 {
 	margin-right: 9.2%;
 }
+
 
 @media only screen and (max-width: 376px) {
 	body header {
