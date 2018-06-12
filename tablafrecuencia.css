@@ -43,3 +43,321 @@ table {
   text-align: center;
   font-size: 150%;
 }
+.text2{
+  margin-top: 0%;
+	margin-left: 0%;
+  margin-bottom: 0%;
+  text-align: left;
+  font-size: 150%;
+	height: 1%;
+}
+
+
+.tablas {
+	width: 100%;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+.row {
+height: 10%;
+width: 100%;
+margin-top: 5%;
+margin-bottom: 5%;
+
+}
+
+
+.tabla {
+	float: left;
+	width: 16%;
+}
+
+
+.row2 {
+height: 15%;
+width: 100%;
+margin-top: 5%;
+margin-bottom: 5%;
+margin-left: 10%;
+margin-right: 10%;
+
+}
+
+
+.tabla2 {
+	float: left;
+	width: 20%;
+}
+
+.row3 {
+height: 15%;
+width: 100%;
+margin-top: 5%;
+margin-bottom: 5%;
+margin-left: 2.5%;
+margin-right: 2.5%;
+
+}
+
+
+.tabla3 {
+	float: left;
+	width: 18%;
+}
+
+@media only screen and (max-width: 1025px) {
+	body header{
+		font-size: 230%;
+	}
+	.tabla{
+		width: 33%;
+		margin-left: 0%;
+		margin-right: 0%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+	.row {
+		height: 52%;
+	}
+
+	.tabla2{
+		width: 50%;
+		margin-left: 0%;
+		margin-right: 0%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row2 {
+			height: 55%;
+		}
+
+	.tabla3{
+		width: 80%;
+		margin-left: 3.5%;
+		margin-right: 3.5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row3 {
+			height: 85%;
+		}
+
+		.text2{
+		  margin-top: 0%;
+			margin-left: 0%;
+		  margin-bottom: 0%;
+		  text-align: left;
+		  font-size: 150%;
+			height: 4%;
+		}
+
+}
+
+
+@media only screen and (max-width: 769px) {
+	body header{
+		font-size: 230%;
+	}
+	.tabla{
+		width: 33%;
+		margin-left: 0%;
+		margin-right: 0%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+	.row {
+		height: 37%;
+	}
+
+	.tabla2{
+		width: 50%;
+		margin-left: 0%;
+		margin-right: 0%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row2 {
+			height: 42%;
+		}
+
+	.tabla3{
+		width: 80%;
+		margin-left: 3.5%;
+		margin-right: 3.5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row3 {
+			height: 75%;
+		}
+
+		.text2{
+		  margin-top: 0%;
+			margin-left: 0%;
+		  margin-bottom: 0%;
+		  text-align: left;
+		  font-size: 150%;
+			height: 4%;
+		}
+
+}
+
+@media only screen and (max-width: 415px) {
+	body header{
+		font-size: 230%;
+	}
+	.tabla{
+		width: 50%;
+		margin-left: 0%;
+		margin-right: 0%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+	.row {
+		height: 52%;
+	}
+
+	.tabla2{
+		width: 50%;
+		margin-left: 0%;
+		margin-right: 0%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row2 {
+			height: 50%;
+		}
+
+	.tabla3{
+		width: 80%;
+		margin-left: 3.5%;
+		margin-right: 3.5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row3 {
+			height: 85%;
+		}
+
+		.text2{
+		  margin-top: 0%;
+			margin-left: 0%;
+		  margin-bottom: 0%;
+		  text-align: left;
+		  font-size: 150%;
+			height: 4%;
+		}
+
+}
+
+@media only screen and (max-width: 376px) {
+	body header{
+		font-size: 200%;
+	}
+	.tabla{
+		width: 80%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+	.row {
+		height: 118%;
+	}
+
+	.tabla2{
+		width: 80%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row2 {
+			height: 108%;
+		}
+
+	.tabla3{
+		width: 80%;
+		margin-left: 3.5%;
+		margin-right: 3.5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row3 {
+			height: 140%;
+		}
+
+		.text2{
+		  margin-top: 0%;
+			margin-left: 0%;
+		  margin-bottom: 0%;
+		  text-align: left;
+		  font-size: 150%;
+			height: 4%;
+		}
+
+}
+
+@media only screen and (max-width: 321px) {
+	body header{
+		font-size: 180%;
+	}
+	.tabla{
+		width: 80%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+	.row {
+		height: 131%;
+	}
+
+	.tabla2{
+		width: 80%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row2 {
+			height: 125%;
+		}
+
+	.tabla3{
+		width: 80%;
+		margin-left: 3.5%;
+		margin-right: 3.5%;
+		margin-top: 3.5%;
+		margin-bottom: 3.5%;
+	}
+
+		.row3 {
+			height: 160%;
+		}
+
+		.text2{
+		  margin-top: 0%;
+			margin-left: 0%;
+		  margin-bottom: 0%;
+		  text-align: left;
+		  font-size: 150%;
+			height: 4%;
+		}
+
+}
