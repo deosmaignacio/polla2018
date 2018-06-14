@@ -26,15 +26,13 @@ var Nusers = 0;
 
 var database = firebase.database();
 
-alert("El simulador funcionará recién cuando comience el mundial, por ahora podrás probarlo solo para el partido Perú vs Dinamarca");
 function points(){
   users = [];
-  console.log("enter points()");
   var ref = database.ref().once('value', function(snap){
-    Nusers = snap.numChildren() - 1;
+    Nusers = snap.numChildren() - 2;
     snap.forEach(userSnap => {
       var name = userSnap.key;
-      if(name != "Codes"){
+      if(name != "Codes" && name != "Scores"){
         var points_user = 0;
         var ref_name = database.ref().child(name).once('value', data =>{
           var games = database.ref().child(name).child("Games").once('value', function(snapGames){
@@ -44,8 +42,7 @@ function points(){
               var away = game.away;
               var home_score = game.home_score;
               var away_score = game.away_score;
-              // for(var i = 1; i < 49; i++){
-              var i = 7;
+              for(var i = 1; i < 49; i++){
                 var home_team = document.getElementById("SimT"+i+"H").innerHTML;
                 var home_goals = document.getElementById("SimR"+i+"H").value;
                 var away_team = document.getElementById("SimT"+i+"A").innerHTML;
@@ -57,7 +54,7 @@ function points(){
                     console.log(points_user);
                   }
                 }
-              // }
+              }
             })
             add_user(name, points_user);
             init();

@@ -12,13 +12,38 @@ function User(name, points){
   this.name = name;
   this.points = points;
 }
-
+console.log("enter");
 function add_user(name, points){
   var user = new User(name, points);
   users.push(user);
 }
 
+function Match(homeTeam, awayTeam, homeScore, awayScore){
+  this.homeTeam = homeTeam;
+  this.awayTeam = awayTeam;
+  this.homeScore = homeScore;
+  this.awayScore = awayScore;
+}
+
+function addMatch(homeTeam, awayTeam, homeScore, awayScore){
+  var match = new Match(homeTeam, awayTeam, homeScore, awayScore);
+  matches.push(match);
+}
+
+function getMatch(homeTeam, awayTeam){
+  for(var i = 0; i < matches.length; i++){
+    var match = matches[i];
+    var currHomeTeam = match.homeTeam;
+    var currAwayTeam = match.awayTeam;
+    if((currHomeTeam == homeTeam) && (currAwayTeam == awayTeam)){
+      return match;
+    }
+  }
+}
+
 var users = [];
+var matches = [];
+groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
 var Nusers = 0;
 var Ngames = games();
@@ -28,7 +53,23 @@ var ref = database.ref().once('value', function(snap){
   Nusers = snap.numChildren() - 2;
   snap.forEach(userSnap => {
     var name = userSnap.key;
-    if(name != "Codes" && name != "Scores"){
+    if(name == "Scores"){
+      var ref_match = database.ref().child("Scores").once('value', function(snapMatch){
+        Ngames_db = snapMatch.val().Ngames;
+        points_db = snapMatch.val().points;
+        snapMatch.forEach(matchSnap =>{
+          var match = matchSnap.val();
+          if(match != Ngames_db && match != points_db){
+            var homeTeam = match.home;
+            var awayTeam = match.away;
+            var homeScore = match.home_score;
+            var awayScore = match.away_score;
+            addMatch(homeTeam, awayTeam, homeScore, awayScore);
+          }
+        })
+      });
+    }
+    else if (name != "Codes"){
       var points_user = 0;
       var ref_name = database.ref().child(name).once('value', data =>{
         var games = database.ref().child(name).child("Games").once('value', function(snapGames){
@@ -94,6 +135,7 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
 
 function init(){
   if(Nusers == users.length){
+    init_scores();
     document.getElementById("espere").innerHTML=""
     users.sort(compare);
     var table = document.getElementById("positions");
@@ -104,12 +146,35 @@ function init(){
       var cell3 = row.insertCell(2);
       cell1.innerHTML = users.length-i;
       cell2.innerHTML = users[users.length-i-1].name;
-      // cell2.setAttribute("class", "link_users");
+      cell2.setAttribute("class", "link_users");
       var place = users.length-i
-      // cell2.setAttribute("onclick","user_predictions("+place+")");
+      cell2.setAttribute("onclick","user_predictions("+place+")");
       cell3.innerHTML = users[users.length-i-1].points;
     }
   }
+}
+
+function init_scores(){
+  for(var i = 1; i < 49; i++){
+    var currHomeTeam = document.getElementById("T"+i+"H").innerHTML;
+    var currAwayTeam = document.getElementById("T"+i+"A").innerHTML;
+    var currHomeScore = document.getElementById("R"+i+"H").innerHTML;
+    var currAwayScore = document.getElementById("R"+i+"A").innerHTML;
+    if(currHomeScore.length == 0){
+      currHomeScore = "vacio";
+    }
+    if(currAwayScore.length == 0){
+      currAwayScore = "vacio";
+    }
+    var currMatch = getMatch(currHomeTeam, currAwayTeam);
+    var dbHomeScore = currMatch.homeScore;
+    var dbAwayScore = currMatch.awayScore;
+    if((dbHomeScore != currHomeScore) && (dbAwayScore != currAwayScore)){
+      document.getElementById("R"+i+"H").innerHTML = dbHomeScore;
+      document.getElementById("R"+i+"A").innerHTML = dbAwayScore;
+    }
+  }
+
 }
 
 function user_predictions(place){
@@ -133,6 +198,25 @@ function user_predictions(place){
           }
         }
       })
+    });
+    var classified = database.ref().child(name).child("Clasificados").once('value', function(snapClassified){
+      var classifiedTeam = snapClassified.val();
+      document.getElementById("1ACL").innerHTML = classifiedTeam.ClasificadoA1;
+      document.getElementById("2ACL").innerHTML = classifiedTeam.ClasificadoA2;
+      document.getElementById("1BCL").innerHTML = classifiedTeam.ClasificadoB1;
+      document.getElementById("2BCL").innerHTML = classifiedTeam.ClasificadoB2;
+      document.getElementById("1CCL").innerHTML = classifiedTeam.ClasificadoC1;
+      document.getElementById("2CCL").innerHTML = classifiedTeam.ClasificadoC2;
+      document.getElementById("1DCL").innerHTML = classifiedTeam.ClasificadoD1;
+      document.getElementById("2DCL").innerHTML = classifiedTeam.ClasificadoD2;
+      document.getElementById("1ECL").innerHTML = classifiedTeam.ClasificadoE1;
+      document.getElementById("2ECL").innerHTML = classifiedTeam.ClasificadoE2;
+      document.getElementById("1FCL").innerHTML = classifiedTeam.ClasificadoF1;
+      document.getElementById("2FCL").innerHTML = classifiedTeam.ClasificadoF2;
+      document.getElementById("1GCL").innerHTML = classifiedTeam.ClasificadoG1;
+      document.getElementById("2GCL").innerHTML = classifiedTeam.ClasificadoG2;
+      document.getElementById("1HCL").innerHTML = classifiedTeam.ClasificadoH1;
+      document.getElementById("2HCL").innerHTML = classifiedTeam.ClasificadoH2;
     });
   });
 }
