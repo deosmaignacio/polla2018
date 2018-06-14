@@ -112,4 +112,7 @@ table {
 	body header {
 		font-size: 180%;
 	}
+	.tabs {
+		font-size: 80%;
+	}
 }
