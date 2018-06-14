@@ -281,6 +281,7 @@ function champion(){
 
 function third(){
   var team_arr = winner("T", 1);
+  x = document.getElementById("Third");
   while(x.length > 0){
     x.remove(0);
   }
@@ -307,8 +308,43 @@ function third(){
 }
 
 function submit(x){
-}
+  console.log(x);
+  var y = 1;
+  if(y == 1){
+    var name = document.getElementsByName("name")[0].value;
+    var code = document.getElementsByName("code")[0].value;
+    var name_db = database.ref(name);
+    var stages = ["O", "Q", "S", "F", "T"];
+    var games = [8, 4, 2, 1, 1];
+    for(var i = 0; i < stages.length; i++){
+      var fase = stages[i];
+      var nStageGames = games[i];
+      for(var j = 1; j <= nStageGames; j++){
+        var home_team = document.getElementById(fase+j+"H").value;
+        var away_team = document.getElementById(fase+j+"A").value;
+        var home_score = document.getElementById(fase+j+"H_score").value;
+        var away_score = document.getElementById(fase+j+"A_score").value;
+        var index = fase+j+"H";
+        console.log(home_team, home_score, away_team, away_score);
+        var data2 = name_db.child("Games_2f").push({
+          home: home_team,
+          away: away_team,
+          home_score: home_score,
+          away_score: away_score,
+          match: index
+        });
+      }
+    }
+    document.getElementById("submit_result").innerHTML = "¡Gracias! Tus predicciones han sido registradas. Para verificar que ya estás inscrito, mira la tabla, ahí aparecerá tu nombre";
 
+  }
+  else if(x == 0){
+    alert("Usted a ingresado con un nombre que no corresponde a ese código. Asegúrese de escribir su nombre como lo escribió la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
+  }
+  else{
+    alert("Ha ocurrido un error. Asegúrese de escribir su nombre como lo escribió la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.");
+  }
+}
 
 function check_result(){
   if(check_entries()){
@@ -318,28 +354,27 @@ function check_result(){
     var usersChecked = 0;
     var result = -2;
     var bool = false;
-    if(codes.includes(curr_code)){
-      result = -1;
-    }
     var ref = database.ref().once('value', function(snap){
-      Nusers = snap.numChildren();
+      Nusers = snap.numChildren() - 1;
       snap.forEach(userSnap => {
         var name = userSnap.key;
-        var ref_name = database.ref().child(name).once('value', data =>{
-          var code = data.val().code;
-          usersChecked++;
-          if((code == curr_code) && (name == curr_name)){
-            result = 1;
-            bool = true;
-          }
-          if((code == curr_code) && (name != curr_name) && !bool){
-            result = 0;
-          }
-          if(usersChecked == Nusers){
-            console.log(result);
-            submit(result);
-          }
-        });
+        if(name != "Codes" && name != "Scores"){
+          var ref_name = database.ref().child(name).once('value', data =>{
+            var code = data.val().code;
+            usersChecked++;
+            if((code == curr_code) && (name == curr_name)){
+              result = 1;
+              bool = true;
+            }
+            if((code == curr_code) && (name != curr_name) && !bool){
+              result = 0;
+            }
+            if(usersChecked == Nusers){
+              console.log(result);
+              submit(result);
+            }
+          });
+        }
       })
     });
   }
@@ -351,21 +386,21 @@ function check_entries(){
   var code = document.getElementsByName("code")[0].value;
   var name = document.getElementsByName("name")[0].value;
   if((code.length == 0) || (name.length == 0)){
-    alert("Asegurarse de llenar casillas de nombre y código.");
-    return false;
+    // alert("Asegurarse de llenar casillas de nombre y código.");
+    // return false;
   }
   // 2. toda casilla con equipo
   var stages = ["O", "Q", "S", "F", "T"];
   var games = [8, 4, 2, 1, 1];
   for(var i = 0; i < stages.length; i++){
     var fase = stages[i];
-    var Ngames = games[i];
-    for(j = 0; j < Ngames; j++){
+    var nStageGames = games[i];
+    for(var j = 1; j <= nStageGames; j++){
       var home_score = document.getElementById(fase+j+"H_score").value;
       var away_score = document.getElementById(fase+j+"A_score").value;
       if((home_score == "vacio") || (away_score == "vacio")){
-        alert("Asegurarse de llenar todas las casillas.");
-        return false;
+        // alert("Asegurarse de llenar todas las casillas.");
+        // return false;
       }
     }
   }
