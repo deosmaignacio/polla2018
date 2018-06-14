@@ -60,7 +60,7 @@ table {
 }
 
 .row {
-height: 10%;
+height: 40%;
 width: 100%;
 margin-top: 5%;
 margin-bottom: 5%;
@@ -91,19 +91,18 @@ margin-right: 10%;
 }
 
 .row3 {
-height: 15%;
+height: 60%;
 width: 100%;
 margin-top: 5%;
 margin-bottom: 5%;
-margin-left: 2.5%;
-margin-right: 2.5%;
-
 }
 
 
 .tabla3 {
 	float: left;
-	width: 18%;
+	width: 16%;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
 }
 
 @media only screen and (max-width: 1025px) {
@@ -119,7 +118,7 @@ margin-right: 2.5%;
 	}
 
 	.row {
-		height: 52%;
+		height: 165%;
 	}
 
 	.tabla2{
@@ -222,7 +221,7 @@ margin-right: 2.5%;
 	}
 
 	.row {
-		height: 52%;
+		height: 166%;
 	}
 
 	.tabla2{
@@ -273,7 +272,7 @@ margin-right: 2.5%;
 	}
 
 	.row {
-		height: 118%;
+		height: 350%;
 	}
 
 	.tabla2{
@@ -324,7 +323,7 @@ margin-right: 2.5%;
 	}
 
 	.row {
-		height: 131%;
+		height: 400%;
 	}
 
 	.tabla2{
@@ -358,6 +357,9 @@ margin-right: 2.5%;
 		  text-align: left;
 		  font-size: 150%;
 			height: 4%;
+		}
+		.tabs {
+			font-size: 80%;
 		}
 
 }

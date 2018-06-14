@@ -98,3 +98,26 @@ body {
 	}
 
 }
+
+@media only screen and (max-width: 321px) {
+	body header {
+		font-size: 180%;
+	}
+	.row1 {
+		height: 90%
+	}
+	.info {
+		width: 95%;
+		height: 55%;
+	}
+	.row2 {
+		height: 80%;
+	}
+	.row3 {
+		height: 230%;
+	}
+	.tabs {
+		font-size: 80%;
+	}
+
+}
