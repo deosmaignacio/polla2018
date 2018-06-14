@@ -48,6 +48,26 @@ groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 var Nusers = 0;
 var Ngames = games();
 
+for(var i = 1; i < 49; i++){
+  var currHomeTeam = document.getElementById("T"+i+"H").innerHTML;
+  var currAwayTeam = document.getElementById("T"+i+"A").innerHTML;
+  var currHomeScore = document.getElementById("R"+i+"H").innerHTML;
+  var currAwayScore = document.getElementById("R"+i+"A").innerHTML;
+  if(currHomeScore.length == 0){
+    currHomeScore = "vacio";
+  }
+  if(currAwayScore.length == 0){
+    currAwayScore = "vacio";
+  }
+  var currMatch = getMatch(currHomeTeam, currAwayTeam);
+  var dbHomeScore = currMatch.homeScore;
+  var dbAwayScore = currMatch.awayScore;
+  if((dbHomeScore != currHomeScore) && (dbAwayScore != currAwayScore)){
+    document.getElementById("R"+i+"H").innerHTML = dbHomeScore;
+    document.getElementById("R"+i+"A").innerHTML = dbAwayScore;
+  }
+}
+
 var database = firebase.database();
 var ref = database.ref().once('value', function(snap){
   Nusers = snap.numChildren() - 2;
@@ -131,27 +151,6 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
           }
 
   return result;
-}
-
-function init(){
-  if(Nusers == users.length){
-    init_scores();
-    document.getElementById("espere").innerHTML=""
-    users.sort(compare);
-    var table = document.getElementById("positions");
-    for(var i = 0; i < users.length; i++){
-      var row = table.insertRow(1);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      cell1.innerHTML = users.length-i;
-      cell2.innerHTML = users[users.length-i-1].name;
-      cell2.setAttribute("class", "link_users");
-      var place = users.length-i
-      cell2.setAttribute("onclick","user_predictions("+place+")");
-      cell3.innerHTML = users[users.length-i-1].points;
-    }
-  }
 }
 
 function init_scores(){
