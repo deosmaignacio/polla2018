@@ -217,6 +217,12 @@ function user_predictions(place){
       document.getElementById("2GCL").innerHTML = classifiedTeam.ClasificadoG2;
       document.getElementById("1HCL").innerHTML = classifiedTeam.ClasificadoH1;
       document.getElementById("2HCL").innerHTML = classifiedTeam.ClasificadoH2;
+
+    //  document.getElementById("pred_campeon").innerHTML ="hola" ;
+    //  document.getElementById("pred_mejor_arquero").innerHTML = ;
+    //  document.getElementById("pred_mejor_jugador_joven").innerHTML = ;
+    //  document.getElementById("pred_mejor_jugador").innerHTML = ;
+    //  document.getElementById("pred_goleador").innerHTML = ;
     });
   });
 }
