@@ -8,6 +8,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var database = firebase.database();
+
 function User(name, points){
   this.name = name;
   this.points = points;
@@ -18,7 +20,50 @@ function add_user(name, points){
   users.push(user);
 }
 
+// Scores
+var Ngames = games();
+function games(){
+  var result = 0;
+  for(var i = 1; i < 65; i++){
+    var home_goals = document.getElementById("PickR"+i+"H").value;
+    var away_goals = document.getElementById("PickR"+i+"A").value;
+    if((home_goals != "vacio") && (away_goals != "vacio")){
+      result++;
+    }
+    else{
+      return result;
+    }
+  }
+}
 
+function submitResults(){
+  if (verifySubmission()){
+    var ref = database.ref().child("Scores").once('value', function(snap){
+      Ngames_db = snap.val().Ngames;
+      for(var i = 1; i < 49; i++){
+        var home_team = document.getElementById("PickT"+i+"H").innerHTML;
+        var away_team = document.getElementById("PickT"+i+"A").innerHTML;
+        var home_goals = document.getElementById("PickR"+i+"H").value;
+        var away_goals = document.getElementById("PickR"+i+"A").value;
+        var game_name = "Game"+i;
+        var games = database.ref().child("Scores").child(game_name).update({
+            home: home_team,
+            away: away_team,
+            home_score: home_goals,
+            away_score: away_goals,
+          });
+      }
+    });
+  }
+}
+
+function verifySubmission(){
+  var pass = document.getElementsByName("password")[0].value;
+  if(pass == "paolotastas"){
+    return true;
+  }
+  return false;
+}
 
 
 

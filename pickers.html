@@ -26,11 +26,11 @@
       </div>
 
   <div class="info_square">
-      <input type="text" name="code">
+      <input type="text" name="password">
   </div>
 
   <div class="submit_button">
-      <input type="submit" value="Enviar Resultados" onclick="pickresult()" style="float: center;">
+      <input type="submit" value="Enviar Resultados" onclick="submitResults()" style="float: center;">
   </div>
     <div class="row">
       <div class="group_half">
@@ -56,7 +56,7 @@
       <td>1</td>
       <td id="PickT1H" >Rusia</td>
       <td>
-        <select id="PickR1H" onchange="pickresult()">
+        <select id="PickR1H">
         <option value="vacio"></option>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -71,7 +71,7 @@
         </select>
     </td>
     <td>
-      <select id="PickR1A" onchange="pickresult()">
+      <select id="PickR1A">
       <option value="vacio"></option>
       <option value="0">0</option>
       <option value="1">1</option>
@@ -336,7 +336,7 @@
     <td>9</td>
     <td id="PickT9H">Costa Rica</td>
     <td>
-    <select id="PickR9H" onchange="pickresult()">
+    <select id="PickR9H">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -351,7 +351,7 @@
     </select>
     </td>
     <td>
-    <select  id="PickR9A" onchange="pickresult()">
+    <select  id="PickR9A">
     <option value="vacio"></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -1777,7 +1777,7 @@
 <tr>
 <td><b>1</b></td>
 <td>
-<select  id="Pick1ACL" onchange="PickpointsCl()">
+<select  id="Pick1ACL">
 <option value="vacio"></option>
 <option value="Rusia">Rusia</option>
 <option value="Arabia S.">Arabia S.</option>
@@ -1786,7 +1786,7 @@
 </select>
 </td>
 <td>
-  <select  id="Pick1BCL" onchange="PickpointsCl()">
+  <select  id="Pick1BCL">
   <option value="vacio"></option>
   <option value="Portugal">Portugal</option>
   <option value="España">España</option>

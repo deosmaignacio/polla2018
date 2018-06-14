@@ -25,10 +25,10 @@ var Ngames = games();
 
 var database = firebase.database();
 var ref = database.ref().once('value', function(snap){
-  Nusers = snap.numChildren() - 1;
+  Nusers = snap.numChildren() - 2;
   snap.forEach(userSnap => {
     var name = userSnap.key;
-    if(name != "Codes"){
+    if(name != "Codes" && name != "Scores"){
       var points_user = 0;
       var ref_name = database.ref().child(name).once('value', data =>{
         var games = database.ref().child(name).child("Games").once('value', function(snapGames){
