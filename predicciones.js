@@ -351,6 +351,7 @@ function submit(x){
 
 function check_result(){
   if(check_entries()){
+    console.log("enter first");
     var curr_code = document.getElementsByName("code")[0].value;
     curr_code = parseInt(curr_code);
     var curr_name = document.getElementsByName("name")[0].value;
@@ -368,6 +369,7 @@ function check_result(){
           var code = data.val().code;
           usersChecked++;
           if((code == curr_code) && (name == curr_name)){
+            console.log("enter");
             result = 1;
             bool = true;
           }
