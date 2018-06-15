@@ -88,12 +88,7 @@ function general(NumberOfGames){
               var away = game.away;
               var home_score = game.home_score;
               var away_score = game.away_score;
-              console.log(Ngames);
               for(var i = 1; i < Ngames + 1; i++){
-                console.log("enter");
-                if(matches.length != 48){
-                  console.log("not 48");
-                }
                 var home_team = document.getElementById("T"+i+"H").innerHTML;
                 var home_goals = document.getElementById("R"+i+"H").innerHTML;
                 var away_team = document.getElementById("T"+i+"A").innerHTML;
@@ -261,12 +256,26 @@ function user_predictions(place){
       document.getElementById("2GCL").innerHTML = classifiedTeam.ClasificadoG2;
       document.getElementById("1HCL").innerHTML = classifiedTeam.ClasificadoH1;
       document.getElementById("2HCL").innerHTML = classifiedTeam.ClasificadoH2;
-
-    //  document.getElementById("pred_campeon").innerHTML ="hola" ;
-    //  document.getElementById("pred_mejor_arquero").innerHTML = ;
-    //  document.getElementById("pred_mejor_jugador_joven").innerHTML = ;
-    //  document.getElementById("pred_mejor_jugador").innerHTML = ;
-    //  document.getElementById("pred_goleador").innerHTML = ;
+    });
+    var awards = database.ref().child(name).once('value', function(data){
+      var vals = Object.keys(data.val());
+      for(var j = 0; j < vals.length; j++){
+        if(vals[j] == "arquero"){
+          document.getElementById("pred_mejor_arquero").innerHTML = data.val().arquero;
+        }
+        else if(vals[j] == "campeon"){
+          document.getElementById("pred_campeon").innerHTML = data.val().campeon;
+        }
+        else if(vals[j] == "mejor_jugador_joven"){
+          document.getElementById("pred_mejor_jugador_joven").innerHTML = data.val().mejor_jugador_joven;
+        }
+        else if(vals[j] == "mejor_jugador"){
+          document.getElementById("pred_mejor_jugador").innerHTML = data.val().mejor_jugador;
+        }
+        else if(vals[j] == "goleador"){
+          document.getElementById("pred_goleador").innerHTML = data.val().goleador;
+        }
+      }
     });
   });
 }

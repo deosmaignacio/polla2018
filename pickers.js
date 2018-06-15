@@ -21,40 +21,81 @@ function add_user(name, points){
 }
 
 // Scores
-var Ngames = games();
-function games(){
-  var result = 0;
-  for(var i = 1; i < 65; i++){
-    var home_goals = document.getElementById("PickR"+i+"H").value;
-    var away_goals = document.getElementById("PickR"+i+"A").value;
-    if((home_goals != "vacio") && (away_goals != "vacio")){
-      result++;
-    }
-    else{
-      return result;
+const totalIndexes = 19; // cambiar esto a 48 una vez todos los ids en pickers.html esten bienc
+var Ngames;
+
+var reference = database.ref().child("Scores").once('value', function(snap){
+  var data = Object.keys(snap.val());
+  for(var i = 0; i < data.length; i++){
+    if(data[i] != "Ngames" && data[i] != "points"){
+      var game = snap.val()[data[i]];
+      var homeTeam = game.home;
+      var awayTeam = game.away;
+      var homeScore = game.home_score;
+      var awayScore = game.away_score;
+      if(homeScore != "vacio" && awayScore != "vacio"){
+        var index;
+        if(data[i].length == 5){
+          index = data[i].slice(4,5);
+        }
+        else{
+          index = data[i].slice(4,6);
+        }
+        document.getElementById("R"+index+"H").innerHTML = homeScore;
+        document.getElementById("R"+index+"A").innerHTML = awayScore;
+      }
     }
   }
-}
+  Object.keys(snap.val()).length;
+});
+
+// function games(){
+//   var numberOfGames = 48;
+//   for(var i = 1; i < 20; i++){
+//     var homeResult = document.getElementById("R"+i+"H").innerHTML;
+//     var awayResult = document.getElementById("R"+i+"A").innerHTML;
+//     console.log(i);
+//     if(homeResult.length > 2 && awayResult.length > 2){
+//       console.log(document.getElementById("PickR"+2+"H").value);
+//     }
+//   }
+// }
 
 function submitResults(){
   if (verifySubmission()){
     var ref = database.ref().child("Scores").once('value', function(snap){
       Ngames_db = snap.val().Ngames;
-      for(var i = 1; i < 49; i++){
-        var home_team = document.getElementById("PickT"+i+"H").innerHTML;
-        var away_team = document.getElementById("PickT"+i+"A").innerHTML;
-        var home_goals = document.getElementById("PickR"+i+"H").value;
-        var away_goals = document.getElementById("PickR"+i+"A").value;
-        var game_name = "Game"+i;
-        var games = database.ref().child("Scores").child(game_name).update({
-            home: home_team,
-            away: away_team,
-            home_score: home_goals,
-            away_score: away_goals,
-          });
+      for(var i = 1; i < totalIndexes+1; i++){
+        if(document.getElementById("R"+i+"H").innerHTML.length > 2){
+          var home_team = document.getElementById("PickT"+i+"H").innerHTML;
+          var away_team = document.getElementById("PickT"+i+"A").innerHTML;
+          var home_goals = document.getElementById("PickR"+i+"H").value;
+          var away_goals = document.getElementById("PickR"+i+"A").value;
+          var game_name = "Game"+i;
+          var games = database.ref().child("Scores").child(game_name).update({
+              home: home_team,
+              away: away_team,
+              home_score: home_goals,
+              away_score: away_goals,
+            });
       }
+    }
+    var numberOfGames = totalIndexes;
+    for(var i = 1; i < totalIndexes+1; i++){
+      var homeResult = document.getElementById("R"+i+"H").innerHTML;
+      var awayResult = document.getElementById("R"+i+"A").innerHTML;
+      console.log(i);
+      if(homeResult.length > 2 && awayResult.length > 2){
+        if(document.getElementById("PickR"+i+"H").value == "vacio" &&
+           document.getElementById("PickR"+i+"A").value == "vacio"){
+             numberOfGames--;
+        }
+      }
+    }
+    var ref2 = database.ref().child("Scores").update({
+      Ngames: numberOfGames
     });
-    
+    });
   }
 }
 
