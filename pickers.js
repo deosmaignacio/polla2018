@@ -21,7 +21,7 @@ function add_user(name, points){
 }
 
 // Scores
-const totalIndexes = 19; // cambiar esto a 48 una vez todos los ids en pickers.html esten bienc
+const totalIndexes = 48; // cambiar esto a 48 una vez todos los ids en pickers.html esten bienc
 var Ngames;
 
 var reference = database.ref().child("Scores").once('value', function(snap){

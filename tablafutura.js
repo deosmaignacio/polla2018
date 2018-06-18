@@ -20,7 +20,7 @@ function add_user(name, points){
 
 var users = [];
 
-var Ngames = games();
+var Ngames;
 
 var Nusers = 0;
 
