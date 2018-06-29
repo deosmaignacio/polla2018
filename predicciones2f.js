@@ -336,7 +336,7 @@ function submit(x){
         });
       }
     }
-    document.getElementById("submit_result").innerHTML = "¡Gracias! Tus predicciones han sido registradas. Para verificar que ya estás inscrito, mira la tabla, ahí aparecerá tu nombre";
+    document.getElementById("submit_result").innerHTML = "¡Gracias! Tus predicciones han sido registradas. Si quieres cambiarlas, deberás llenar todas tus predicciones de la Fase 2 nuevamente con tu mismo nombre y código.";
   }
   else if(x == 0){
     alert("Usted a ingresado con un nombre que no corresponde a ese código. Asegúrese de escribir su nombre como lo escribió la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
