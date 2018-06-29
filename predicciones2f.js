@@ -360,8 +360,8 @@ function check_result(){
       if(trueCode == currCode){
         if(Object.keys(data).length == 12){
           database.ref().child(currName).child("Games2f").remove();
-          submit(1);
         }
+        submit(1);
       }
       else if(trueCode != currCode){
         submit(-1);
