@@ -355,9 +355,13 @@ function check_result(){
     currCode = parseInt(curr_code);
     var currName = document.getElementsByName("name")[0].value;
     var ref = database.ref().child(currName).once('value', function(snap){
+      var data = snap.val();
       var trueCode = snap.val().code;
       if(trueCode == currCode){
-        submit(1);
+        if(Object.keys(data).length == 12){
+          database.ref().child(currName).child("Games2f").remove();
+          submit(1);
+        }
       }
       else if(trueCode != currCode){
         submit(-1);
