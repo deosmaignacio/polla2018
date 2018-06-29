@@ -278,7 +278,18 @@ function Classified(){
   });
 }
 
-//Classified();
+function classifiedCheck(){
+  var ref = database.ref().child("Ignacio de Osma").once('value', function(snap) {
+    var points = snap.val().points;
+    console.log(points);
+    if (points == 1500){
+      console.log("enter");
+      Classified();
+    }
+  });
+}
+
+classifiedCheck();
 
 function calculateClassifiedPoints(pred1, pred2, actual1, actual2){
   var result = 0;
