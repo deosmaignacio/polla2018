@@ -224,28 +224,25 @@ function Classified(){
     snap.forEach(userSnap => {
       var name = userSnap.key;
       if((name != "Scores") && (name != "Codes")){
-        var ref_name = database.ref().child(name).child("Clasificados").once('value', function(snapGame){
-          var userPoints = 0
-          var points = database.ref().child(name).child("points").once('value', function(points){
-            userPoints = points.val();
-          });
-          var data = Object.keys(snapGame.val());
-          var classA1 = snapGame.val()["ClasificadoA1"];
-          var classA2 = snapGame.val()["ClasificadoA2"];
-          var classB1 = snapGame.val()["ClasificadoB1"];
-          var classB2 = snapGame.val()["ClasificadoB2"];
-          var classC1 = snapGame.val()["ClasificadoC1"];
-          var classC2 = snapGame.val()["ClasificadoC2"];
-          var classD1 = snapGame.val()["ClasificadoD1"];
-          var classD2 = snapGame.val()["ClasificadoD2"];
-          var classE1 = snapGame.val()["ClasificadoE1"];
-          var classE2 = snapGame.val()["ClasificadoE2"];
-          var classF1 = snapGame.val()["ClasificadoF1"];
-          var classF2 = snapGame.val()["ClasificadoF2"];
-          var classG1 = snapGame.val()["ClasificadoG1"];
-          var classG2 = snapGame.val()["ClasificadoG2"];
-          var classH1 = snapGame.val()["ClasificadoH1"];
-          var classH2 = snapGame.val()["ClasificadoH2"];
+        var ref_name = database.ref().child(name).once('value', function(snapGame){
+          var data = snapGame.val();
+          var userPoints = data.points;
+          var classA1 = data.Clasificados.ClasificadoA1;
+          var classA2 = data.Clasificados.ClasificadoA2;
+          var classB1 = data.Clasificados.ClasificadoB1;
+          var classB2 = data.Clasificados.ClasificadoB2;
+          var classC1 = data.Clasificados.ClasificadoC1;
+          var classC2 = data.Clasificados.ClasificadoC2;
+          var classD1 = data.Clasificados.ClasificadoD1;
+          var classD2 = data.Clasificados.ClasificadoD2;
+          var classE1 = data.Clasificados.ClasificadoE1;
+          var classE2 = data.Clasificados.ClasificadoE2;
+          var classF1 = data.Clasificados.ClasificadoF1;
+          var classF2 = data.Clasificados.ClasificadoF2;
+          var classG1 = data.Clasificados.ClasificadoG1;
+          var classG2 = data.Clasificados.ClasificadoG2;
+          var classH1 = data.Clasificados.ClasificadoH1;
+          var classH2 = data.Clasificados.ClasificadoH2;
 
           var clasificadoA1 = document.getElementById("1ACL").innerHTML;
           var clasificadoA2 = document.getElementById("2ACL").innerHTML;
@@ -273,13 +270,15 @@ function Classified(){
           userPoints += calculateClassifiedPoints(classG1, classG2, clasificadoG1, clasificadoG2);
           userPoints += calculateClassifiedPoints(classH1, classH2, clasificadoH1, clasificadoH2);
 
-          // database.ref().child(name).update({points: userPoints});
+          database.ref().child(name).update({points: userPoints});
 
         });
       }
     })
   });
 }
+
+//Classified();
 
 function calculateClassifiedPoints(pred1, pred2, actual1, actual2){
   var result = 0;
@@ -293,7 +292,7 @@ function calculateClassifiedPoints(pred1, pred2, actual1, actual2){
     result += 25;
   }
   if(pred2 == actual1){
-    reslut += 25
+    result += 25
   }
   return result;
 }
@@ -316,7 +315,7 @@ function dbGames(){
   // var ref_match = database.ref().child("Scores").once('value', function(snap){
   //   general(snap.val().Ngames);
   // });
-  general2F(1);
+  //general2F(1);
 }
 
 
@@ -342,7 +341,7 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
 }
 
 function init(){
-  if(Nusers == users.length){
+  //if(Nusers == users.length){
     document.getElementById("espere").innerHTML=""
     users.sort(compare);
     var table = document.getElementById("positions");
@@ -353,15 +352,45 @@ function init(){
       var cell3 = row.insertCell(2);
       cell1.innerHTML = users.length-i;
       cell2.innerHTML = users[users.length-i-1].name;
-      cell2.setAttribute("class", "link_users");
+      //cell2.setAttribute("class", "link_users");
       var place = users.length-i
-      cell2.setAttribute("onclick","user_predictions("+place+")");
+      //cell2.setAttribute("onclick","user_predictions("+place+")");
       cell3.innerHTML = users[users.length-i-1].points;
     }
-  }
+  //}
 }
 
+function initTemp(){
+  var ref = database.ref().once('value', function(snap){
+    var dataRaw = snap.val();
+    var names = Object.keys(dataRaw);
+    for(var i = 0; i < names.length; i++){
+      if(names[i] == "Scores"){
+        var data = dataRaw[names[i]];
+        var matchesKeys = Object.keys(data);
+        for(var j = 0; j < matchesKeys.length; j++){
+          var matchData = data[matchesKeys[j]];
+          var homeTeam = matchData.home;
+          var awayTeam = matchData.away;
+          var homeScore = matchData.home_score;
+          var awayScore = matchData.away_score;
+          addMatch(homeTeam, awayTeam, homeScore, awayScore);
+        }
+      }
+      else if(names[i] != "Codes"){
+        var data = dataRaw[names[i]];
+        add_user(names[i], data.points);
+      }
+    }
+    init();
+    init_scores();
+  });
+}
+
+initTemp();
+
 function init_scores(){
+  console.log(matches.length);
   for(var i = 1; i < 49; i++){
       var currHomeTeam = document.getElementById("T"+i+"H").innerHTML;
       var currAwayTeam = document.getElementById("T"+i+"A").innerHTML;
@@ -508,24 +537,23 @@ function userPredictionsEfficient(place){
         }
 
         }
-      }
       else if(match[0] == "Q"){
-
+        // something
       }
       else if(match[0] == "S"){
-
+        //something
       }
       else if(match[0] == "F"){
-
+        //something
       }
       else if(match[0] == "T"){
-
+        //something
       }
     }
   });
 }
 
-userPredictionsEfficient();
+// userPredictionsEfficient();
 
 function compare(x,y){
   if(x.points > y.points){
