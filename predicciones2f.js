@@ -165,13 +165,11 @@ function quarter_finals(num){
   while(x.length > 0){
     x.remove(0);
   }
-  console.log(x.length);
   for(var i = 0; i < team_arr.length; i++){
     var option = document.createElement("option");
     option.text = team_arr[i];
     option.value = team_arr[i];
     x.add(option);
-    // console.log(x.length);
   }
 }
 
@@ -196,7 +194,6 @@ function semi_finals(num){
     x.remove(0);
   }
   for(var i = 0; i < team_arr.length; i++){
-    console.log(x);
     var option = document.createElement("option");
     option.text = team_arr[i];
     option.value = team_arr[i];
@@ -205,8 +202,11 @@ function semi_finals(num){
 }
 
 function final(num){
+  console.log("final enter", num);
   var team_arr = winner("S", num);
+  console.log(team_arr);
   var x;
+  var y;
   switch(num){
     case 1:
         x = document.getElementById("F1H");
@@ -226,26 +226,29 @@ function final(num){
   for(var i = 0; i < team_arr.length; i++){
     var element_length = team_arr[i].length;
     if(element_length == 1 && i == 0){
+      console.log("enter if 1");
       var option1 = document.createElement("option");
       option1.text = team_arr[i][0];
       option1.value = team_arr[i][0];
       x.add(option1);
     }
     else if(element_length == 1 && i != 0){
+      console.log("enter if 2");
       var option1 = document.createElement("option");
       option1.text = team_arr[i][0];
       option1.value = team_arr[i][0];
       y.add(option1);
     }
     else if(element_length == 2 && i == 0){
+      console.log("enter correct if");
       var option1 = document.createElement("option");
+      var option2 = document.createElement("option");
       option1.text = team_arr[i][0];
       option1.value = team_arr[i][0];
-      var option2 = document.createElement("option");
       option2.text = team_arr[i][1];
       option2.value = team_arr[i][1];
-      x.add(option1);
-      x.add(option2);
+      x.options[x.options.length] = new Option(team_arr[i][0], team_arr[i][0]);
+      x.options[x.options.length] = new Option(team_arr[i][1], team_arr[i][1]);
       y.add(option1);
       y.add(option2);
     }
@@ -308,9 +311,8 @@ function third(){
 }
 
 function submit(x){
-  console.log(x);
-  var y = 1;
-  if(y == 1){
+  if(x == 1){
+    console.log("enter submit");
     var name = document.getElementsByName("name")[0].value;
     var code = document.getElementsByName("code")[0].value;
     var name_db = database.ref(name);
@@ -325,8 +327,7 @@ function submit(x){
         var home_score = document.getElementById(fase+j+"H_score").value;
         var away_score = document.getElementById(fase+j+"A_score").value;
         var index = fase+j+"H";
-        console.log(home_team, home_score, away_team, away_score);
-        var data2 = name_db.child("Games_2f").push({
+        var data2 = name_db.child("Games2f").push({
           home: home_team,
           away: away_team,
           home_score: home_score,
@@ -336,10 +337,12 @@ function submit(x){
       }
     }
     document.getElementById("submit_result").innerHTML = "¡Gracias! Tus predicciones han sido registradas. Para verificar que ya estás inscrito, mira la tabla, ahí aparecerá tu nombre";
-
   }
   else if(x == 0){
     alert("Usted a ingresado con un nombre que no corresponde a ese código. Asegúrese de escribir su nombre como lo escribió la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.")
+  }
+  else if(x == -1){
+    alert("Código inválido. Consulte con los organizadores y confirme que su código es el correcto.");
   }
   else{
     alert("Ha ocurrido un error. Asegúrese de escribir su nombre como lo escribió la primera vez. Si no se acuerda, puede buscarlo en la Tabla de posiciones.");
@@ -349,34 +352,20 @@ function submit(x){
 function check_result(){
   if(check_entries()){
     var curr_code = document.getElementsByName("code")[0].value;
-    curr_code = parseInt(curr_code);
-    var curr_name = document.getElementsByName("name")[0].value;
-    var usersChecked = 0;
-    var result = -2;
-    var bool = false;
-    var ref = database.ref().once('value', function(snap){
-      Nusers = snap.numChildren() - 1;
-      snap.forEach(userSnap => {
-        var name = userSnap.key;
-        if(name != "Codes" && name != "Scores"){
-          var ref_name = database.ref().child(name).once('value', data =>{
-            var code = data.val().code;
-            usersChecked++;
-            if((code == curr_code) && (name == curr_name)){
-              result = 1;
-              bool = true;
-            }
-            if((code == curr_code) && (name != curr_name) && !bool){
-              result = 0;
-            }
-            if(usersChecked == Nusers){
-              console.log(result);
-              submit(result);
-            }
-          });
-        }
-      })
-    });
+    currCode = parseInt(curr_code);
+    var currName = document.getElementsByName("name")[0].value;
+    var ref = database.ref().child(currName).once('value', function(snap){
+      var trueCode = snap.val().code;
+      if(trueCode == currCode){
+        submit(1);
+      }
+      else if(trueCode != currCode){
+        submit(-1);
+      }
+      else if((trueCode == currCode) && (name != currName)){
+        submit(0);
+      }
+  });
   }
 }
 
@@ -386,8 +375,8 @@ function check_entries(){
   var code = document.getElementsByName("code")[0].value;
   var name = document.getElementsByName("name")[0].value;
   if((code.length == 0) || (name.length == 0)){
-    // alert("Asegurarse de llenar casillas de nombre y código.");
-    // return false;
+    alert("Asegurarse de llenar casillas de nombre y código.");
+    return false;
   }
   // 2. toda casilla con equipo
   var stages = ["O", "Q", "S", "F", "T"];
@@ -399,8 +388,8 @@ function check_entries(){
       var home_score = document.getElementById(fase+j+"H_score").value;
       var away_score = document.getElementById(fase+j+"A_score").value;
       if((home_score == "vacio") || (away_score == "vacio")){
-        // alert("Asegurarse de llenar todas las casillas.");
-        // return false;
+        alert("Asegurarse de llenar todas las casillas.");
+        return false;
       }
     }
   }
