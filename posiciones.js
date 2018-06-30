@@ -61,8 +61,6 @@ groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 var Nusers = 0;
 var Ngames;
 
-dbGames();
-
 var stopper = false;
 
 function general(NumberOfGames){
@@ -123,17 +121,15 @@ function general(NumberOfGames){
 function general2F(NumberOfGames){
   //assume we have the number of games
   // Ngames = NumberOfGames;
-  NgamesTemp = 58;
-  var x = 10;
+  var NgamesTemp = 58;
   var ref = database.ref().once('value', function(snap){
     snap.forEach(userSnap => {
       if(Object.keys(userSnap.val()).length == 12){
         var data = userSnap.val();
         var name = data.name;
-        var points = data.points;
+        var userPoints = data.points;
         var Games2F = data.Games2f;
         var keys = Object.keys(data.Games2f);
-        var userPoints = 0;
         for(var i = 0; i < keys.length; i++){
           var dbGame = Games2F[keys[i]];
           var dbHomeTeam = dbGame.home;
@@ -154,17 +150,93 @@ function general2F(NumberOfGames){
             }
           }
         }
-      add_user(name, points);
+      add_user(name, userPoints);
       }
     })
     init();
+    init_scores();
+  });
+}
+
+function userPredictionsEfficient(place){
+  var place = parseInt(place);
+  var name = document.getElementById("positions").rows[place].cells[1].innerHTML;
+  document.getElementById("1f_header").innerHTML = "Predicciones: "+ name;
+  var ref = database.ref().child(name).once('value', function(snap){
+    var data = snap.val();
+    for(var i = 0; i < 48; i++){
+      var index = Object.keys(data.Games)[i];
+      var awayTeam = data.Games[index].away;
+      var homeTeam = data.Games[index].home;
+      var awayScore = data.Games[index].away_score;
+      var homeScore = data.Games[index].home_score;
+      var matchIndex = data.Games[index].match;
+      document.getElementById("T"+matchIndex+"H").innerHTML = homeTeam;
+      document.getElementById("T"+matchIndex+"A").innerHTML = awayTeam;
+      document.getElementById("R"+matchIndex+"H").innerHTML = homeScore;
+      document.getElementById("R"+matchIndex+"A").innerHTML = awayScore;
+    }
+
+    document.getElementById("1ACL").innerHTML = data.Clasificados.ClasificadoA1;
+    document.getElementById("2ACL").innerHTML = data.Clasificados.ClasificadoA2;
+    document.getElementById("1BCL").innerHTML = data.Clasificados.ClasificadoB1;
+    document.getElementById("2BCL").innerHTML = data.Clasificados.ClasificadoB2;
+    document.getElementById("1CCL").innerHTML = data.Clasificados.ClasificadoC1;
+    document.getElementById("2CCL").innerHTML = data.Clasificados.ClasificadoC2;
+    document.getElementById("1DCL").innerHTML = data.Clasificados.ClasificadoD1;
+    document.getElementById("2DCL").innerHTML = data.Clasificados.ClasificadoD2;
+    document.getElementById("1ECL").innerHTML = data.Clasificados.ClasificadoE1;
+    document.getElementById("2ECL").innerHTML = data.Clasificados.ClasificadoE2;
+    document.getElementById("1FCL").innerHTML = data.Clasificados.ClasificadoF1;
+    document.getElementById("2FCL").innerHTML = data.Clasificados.ClasificadoF2;
+    document.getElementById("1GCL").innerHTML = data.Clasificados.ClasificadoG1;
+    document.getElementById("2GCL").innerHTML = data.Clasificados.ClasificadoG2;
+    document.getElementById("1HCL").innerHTML = data.Clasificados.ClasificadoH1;
+    document.getElementById("2HCL").innerHTML = data.Clasificados.ClasificadoH2;
+
+    for(var x = 0; x < 16; x++){
+      var index = Object.keys(data.Games2f)[x];
+      var awayTeam = data.Games2f[index].away;
+      var homeTeam = data.Games2f[index].home;
+      var awayScore = data.Games2f[index].away_score;
+      var homeScore = data.Games2f[index].home_score;
+      var match = data.Games2f[index].match;
+      var game = "";
+      if(match[0] == "O"){
+        var octavosMatches = [49, 50, 53, 54, 51, 52, 55, 56];
+        game = octavosMatches[match[1]-1];
+        }
+      else if(match[0] == "Q"){
+        var cuartosMatches = [57, 58, 59, 60];
+        game = cuartosMatches[match[1]-1];
+      }
+      else if(match[0] == "S"){
+        var semisMatches = [61, 62];
+        game = semisMatches[match[1]-1];
+      }
+      else if(match[0] == "F"){
+        game = "64";
+      }
+      else if(match[0] == "T"){
+        game = "63";
+      }
+      document.getElementById("T"+game+"H").innerHTML = homeTeam;
+      document.getElementById("T"+game+"A").innerHTML = awayTeam;
+      document.getElementById("R"+game+"H").innerHTML = homeScore;
+      document.getElementById("R"+game+"A").innerHTML = awayScore;
+    }
+
+    document.getElementById("pred_mejor_arquero").innerHTML = data.arquero
+    document.getElementById("pred_campeon").innerHTML = data.campeon
+    document.getElementById("pred_mejor_jugador_joven").innerHTML = data.mejor_jugador_joven;
+    document.getElementById("pred_mejor_jugador").innerHTML = data.mejor_jugador;
+    document.getElementById("pred_goleador").innerHTML = data.goleador;
   });
 }
 
 function calculate2fPoints(dbHomeScore, dbAwayScore, dbHomeTeam, dbAwayTeam,
                            currHomeScore, currAwayScore, currHomeTeam, currAwayTeam, dbIndex){
 
-  console.log(dbHomeTeam, currHomeTeam, dbAwayTeam, currAwayTeam);
   var result = 0;
   if(dbIndex == "Q"){
     if(dbHomeTeam == currHomeTeam){
@@ -281,9 +353,7 @@ function Classified(){
 function classifiedCheck(){
   var ref = database.ref().child("Ignacio de Osma").once('value', function(snap) {
     var points = snap.val().points;
-    console.log(points);
     if (points == 1500){
-      console.log("enter");
       Classified();
     }
   });
@@ -322,12 +392,11 @@ function games(){
   }
 }
 
-function dbGames(){
-  // var ref_match = database.ref().child("Scores").once('value', function(snap){
-  //   general(snap.val().Ngames);
-  // });
-  //general2F(1);
-}
+// function dbGames(){
+//   var ref_match = database.ref().child("Scores").once('value', function(snap){
+//     general2F(snap.val().Ngames);
+//   });
+// }
 
 
 function calculate_pts(home_guess, away_guess, home_score, away_score){
@@ -363,9 +432,9 @@ function init(){
       var cell3 = row.insertCell(2);
       cell1.innerHTML = users.length-i;
       cell2.innerHTML = users[users.length-i-1].name;
-      //cell2.setAttribute("class", "link_users");
+      cell2.setAttribute("class", "link_users");
       var place = users.length-i
-      //cell2.setAttribute("onclick","user_predictions("+place+")");
+      cell2.setAttribute("onclick","userPredictionsEfficient("+place+")");
       cell3.innerHTML = users[users.length-i-1].points;
     }
   //}
@@ -401,7 +470,6 @@ function initTemp(){
 initTemp();
 
 function init_scores(){
-  console.log(matches.length);
   for(var i = 1; i < 49; i++){
       var currHomeTeam = document.getElementById("T"+i+"H").innerHTML;
       var currAwayTeam = document.getElementById("T"+i+"A").innerHTML;
@@ -487,85 +555,6 @@ function user_predictions(place){
   });
 }
 
-function userPredictionsEfficient(place){
-  var place = parseInt(place);
-  // var name = document.getElementById("positions").rows[place].cells[1].innerHTML;
-  name = "Ignacio de Osma" // delete
-  // document.getElementById("1f_header").innerHTML = "Predicciones: "+ name;
-  var ref = database.ref().child(name).once('value', function(snap){
-    var data = snap.val();
-    for(var i = 0; i < 48; i++){
-      var index = Object.keys(data.Games)[i];
-      var awayTeam = data.Games[index].away;
-      var homeTeam = data.Games[index].home;
-      var awayScore = data.Games[index].away_score;
-      var homeScore = data.Games[index].home_score;
-      for(var j = 1; j < 49; j++){
-        var currHomeTeam = document.getElementById("T"+j+"H");
-        var currAwayTeam = document.getElementById("T"+j+"A");
-        if((currHomeTeam == homeTeam) && (currAwayTeam == awayTeam)){
-          document.getElementById("R"+j+"H").innerHTML = homeScore;
-          document.getElementById("R"+j+"A").innerHTML = awayScore;
-        }
-        break;
-      }
-    }
-
-    document.getElementById("1ACL").innerHTML = data.Clasificados.ClasificadoA1;
-    document.getElementById("2ACL").innerHTML = data.Clasificados.ClasificadoA2;
-    document.getElementById("1BCL").innerHTML = data.Clasificados.ClasificadoB1;
-    document.getElementById("2BCL").innerHTML = data.Clasificados.ClasificadoB2;
-    document.getElementById("1CCL").innerHTML = data.Clasificados.ClasificadoC1;
-    document.getElementById("2CCL").innerHTML = data.Clasificados.ClasificadoC2;
-    document.getElementById("1DCL").innerHTML = data.Clasificados.ClasificadoD1;
-    document.getElementById("2DCL").innerHTML = data.Clasificados.ClasificadoD2;
-    document.getElementById("1ECL").innerHTML = data.Clasificados.ClasificadoE1;
-    document.getElementById("2ECL").innerHTML = data.Clasificados.ClasificadoE2;
-    document.getElementById("1FCL").innerHTML = data.Clasificados.ClasificadoF1;
-    document.getElementById("2FCL").innerHTML = data.Clasificados.ClasificadoF2;
-    document.getElementById("1GCL").innerHTML = data.Clasificados.ClasificadoG1;
-    document.getElementById("2GCL").innerHTML = data.Clasificados.ClasificadoG2;
-    document.getElementById("1HCL").innerHTML = data.Clasificados.ClasificadoH1;
-    document.getElementById("2HCL").innerHTML = data.Clasificados.ClasificadoH2;
-
-    for(var i = 0; i < 16; i++){
-      var index = Object.keys(data.Games2f)[i];
-      var awayTeam = data.Games[index].away;
-      var homeTeam = data.Games[index].home;
-      var awayScore = data.Games[index].away_score;
-      var homeScore = data.Games[index].home_score;
-      var match = data.Games[index].match;
-      if(match[0] == "O"){
-        var octavosMatches = [49, 50, 53, 54, 51, 52, 55, 56];
-        var octavosIndexes = [1, 2, 5, 6, 3, 4, 7, 8];
-        if(octavosIndexes.slice(0, 2).includes(match[1])){
-          var game = octavosMatches.slice(0, 2)[match[1]-1];
-          document.getElementById("R"+game+"H").innerHTML = homeScore;
-          document.getElementById("R"+game+"A").innerHTML = awayScore;
-        }
-        else if(octavosMatches.slice(2, 4).includes(match[1])){
-          var game = octavosIndexes.slice(2,4)[match[1]]
-        }
-
-        }
-      else if(match[0] == "Q"){
-        // something
-      }
-      else if(match[0] == "S"){
-        //something
-      }
-      else if(match[0] == "F"){
-        //something
-      }
-      else if(match[0] == "T"){
-        //something
-      }
-    }
-  });
-}
-
-// userPredictionsEfficient();
-
 function compare(x,y){
   if(x.points > y.points){
     return -1;
@@ -588,7 +577,7 @@ function no2F(){
   });
 }
 
-no2F();
+//no2F();
 
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");
