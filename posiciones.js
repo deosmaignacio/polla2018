@@ -588,7 +588,7 @@ function no2F(){
   });
 }
 
-//no2F();
+no2F();
 
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");

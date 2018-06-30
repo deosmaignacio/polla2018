@@ -346,13 +346,14 @@ function submit(x){
 }
 
 function check_result(){
-  if(check_entries()){
+  // if(check_entries()){
     var curr_code = document.getElementsByName("code")[0].value;
     currCode = parseInt(curr_code);
     var currName = document.getElementsByName("name")[0].value;
     var ref = database.ref().child(currName).once('value', function(snap){
       var data = snap.val();
-      var trueCode = snap.val().code;
+      console.log(data);
+      var trueCode = data.code;
       if(trueCode == currCode){
         if(Object.keys(data).length == 12){
           database.ref().child(currName).child("Games2f").remove();
@@ -366,7 +367,7 @@ function check_result(){
         submit(0);
       }
   });
-  }
+  // }
 }
 
 
