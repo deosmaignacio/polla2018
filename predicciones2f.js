@@ -346,7 +346,7 @@ function submit(x){
 }
 
 function check_result(){
-  // if(check_entries()){
+  if(check_entries()){
     var curr_code = document.getElementsByName("code")[0].value;
     currCode = parseInt(curr_code);
     var currName = document.getElementsByName("name")[0].value;
@@ -367,7 +367,7 @@ function check_result(){
         submit(0);
       }
   });
-  // }
+  }
 }
 
 
