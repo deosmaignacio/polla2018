@@ -576,6 +576,20 @@ function compare(x,y){
   return 0;
 }
 
+function no2F(){
+  var ref = database.ref().once('value', function(snap){
+    var data = snap.val();
+    var keys = Object.keys(snap.val());
+    for(var i = 0; i < keys.length; i++){
+      if(Object.keys(data[keys[i]]).length == 11){
+        console.log(data[keys[i]].name);
+      }
+    }
+  });
+}
+
+//no2F();
+
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");
 

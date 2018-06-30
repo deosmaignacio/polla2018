@@ -202,9 +202,7 @@ function semi_finals(num){
 }
 
 function final(num){
-  console.log("final enter", num);
   var team_arr = winner("S", num);
-  console.log(team_arr);
   var x;
   var y;
   switch(num){
@@ -226,21 +224,18 @@ function final(num){
   for(var i = 0; i < team_arr.length; i++){
     var element_length = team_arr[i].length;
     if(element_length == 1 && i == 0){
-      console.log("enter if 1");
       var option1 = document.createElement("option");
       option1.text = team_arr[i][0];
       option1.value = team_arr[i][0];
       x.add(option1);
     }
     else if(element_length == 1 && i != 0){
-      console.log("enter if 2");
       var option1 = document.createElement("option");
       option1.text = team_arr[i][0];
       option1.value = team_arr[i][0];
       y.add(option1);
     }
     else if(element_length == 2 && i == 0){
-      console.log("enter correct if");
       var option1 = document.createElement("option");
       var option2 = document.createElement("option");
       option1.text = team_arr[i][0];
@@ -311,6 +306,7 @@ function third(){
 }
 
 function submit(x){
+  console.log(x);
   if(x == 1){
     console.log("enter submit");
     var name = document.getElementsByName("name")[0].value;
