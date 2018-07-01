@@ -118,13 +118,23 @@ function general(NumberOfGames){
   });
 }
 
-function general2F(NumberOfGames){
-  //assume we have the number of games
-  // Ngames = NumberOfGames;
-  var NgamesTemp = 58;
+function general2F(){
+  var NgamesTemp = 62;
   var ref = database.ref().once('value', function(snap){
     snap.forEach(userSnap => {
-      if(Object.keys(userSnap.val()).length == 12){
+      if(Object.keys(userSnap.val()).length > 12 && Object.keys(userSnap.val()).length < 100){
+        var dataRaw = userSnap.val();
+        var names = Object.keys(dataRaw);
+        for(var j = 0; j < names.length; j++){
+          var data = dataRaw[names[j]];
+          var homeTeam = data.home;
+          var awayTeam = data.away;
+          var homeScore = data.home_score;
+          var awayScore = data.away_score;
+          addMatch(homeTeam, awayTeam, homeScore, awayScore);
+        }
+      }
+      else if(Object.keys(userSnap.val()).length == 12){
         var data = userSnap.val();
         var name = data.name;
         var userPoints = data.points;
@@ -157,6 +167,8 @@ function general2F(NumberOfGames){
     init_scores();
   });
 }
+
+general2F();
 
 function userPredictionsEfficient(place){
   var place = parseInt(place);
@@ -350,6 +362,8 @@ function Classified(){
   });
 }
 
+// Classified();
+
 function classifiedCheck(){
   var ref = database.ref().child("Ignacio de Osma").once('value', function(snap) {
     var points = snap.val().points;
@@ -392,11 +406,13 @@ function games(){
   }
 }
 
-// function dbGames(){
-//   var ref_match = database.ref().child("Scores").once('value', function(snap){
-//     general2F(snap.val().Ngames);
-//   });
-// }
+ function dbGames(){
+   var ref_match = database.ref().child("Scores").once('value', function(snap){
+     general(snap.val().Ngames);
+   });
+}
+
+// dbGames();
 
 
 function calculate_pts(home_guess, away_guess, home_score, away_score){
@@ -421,7 +437,7 @@ function calculate_pts(home_guess, away_guess, home_score, away_score){
 }
 
 function init(){
-  //if(Nusers == users.length){
+  // if(Nusers - 2 == users.length){
     document.getElementById("espere").innerHTML=""
     users.sort(compare);
     var table = document.getElementById("positions");
@@ -437,7 +453,7 @@ function init(){
       cell2.setAttribute("onclick","userPredictionsEfficient("+place+")");
       cell3.innerHTML = users[users.length-i-1].points;
     }
-  //}
+  // }
 }
 
 function initTemp(){
@@ -467,7 +483,7 @@ function initTemp(){
   });
 }
 
-initTemp();
+// initTemp();
 
 function init_scores(){
   for(var i = 1; i < 49; i++){
@@ -577,7 +593,7 @@ function no2F(){
   });
 }
 
-//no2F();
+// no2F();
 
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");
