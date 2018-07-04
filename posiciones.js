@@ -284,7 +284,7 @@ function Points2fIndependentGame(dbHomeScore, dbAwayScore, currHomeScore, currAw
   var dgPred = dbHomeScore - dbAwayScore;
 
   if((dbHomeScore == currHomeScore) && (dbAwayScore == currAwayScore)){
-    result = 20;
+    result = 30;
   }
   else if(dgReal == dgPred){
     result = 10;
