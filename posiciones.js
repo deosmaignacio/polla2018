@@ -119,7 +119,7 @@ function general(NumberOfGames){
 }
 
 function general2F(){
-  var NgamesTemp = 62;
+  var NgamesTemp = 65;
   var ref = database.ref().once('value', function(snap){
     snap.forEach(userSnap => {
       if(Object.keys(userSnap.val()).length > 12 && Object.keys(userSnap.val()).length < 100){
@@ -295,7 +295,7 @@ function Points2fIndependentGame(dbHomeScore, dbAwayScore, currHomeScore, currAw
 function verifyIteration(dbIndex, j){
   if((dbIndex == "O" && j < 57) ||
      (dbIndex == "Q" && j > 56 && j < 61) ||
-     (dbIndex == "S" && j > 60 && j < 62) ||
+     (dbIndex == "S" && j > 60 && j < 63) ||
      (dbIndex == "F" && (j==64)))
   {
     return true;
