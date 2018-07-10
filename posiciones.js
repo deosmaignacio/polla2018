@@ -60,6 +60,7 @@ groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
 var Nusers = 0;
 var Ngames;
+var numberOfEntries = 12; // cambiar a 14 cuando se hayan metido campeon2f y tercero
 
 var stopper = false;
 
@@ -122,7 +123,7 @@ function general2F(){
   var NgamesTemp = 65;
   var ref = database.ref().once('value', function(snap){
     snap.forEach(userSnap => {
-      if(Object.keys(userSnap.val()).length > 12 && Object.keys(userSnap.val()).length < 100){
+      if(Object.keys(userSnap.val()).length > numberOfEntries && Object.keys(userSnap.val()).length < 100){
         var dataRaw = userSnap.val();
         var names = Object.keys(dataRaw);
         for(var j = 0; j < names.length; j++){
@@ -134,7 +135,7 @@ function general2F(){
           addMatch(homeTeam, awayTeam, homeScore, awayScore);
         }
       }
-      else if(Object.keys(userSnap.val()).length == 12){
+      else if(Object.keys(userSnap.val()).length == numberOfEntries){
         var data = userSnap.val();
         var name = data.name;
         var userPoints = data.points;

@@ -21,7 +21,7 @@ function add_user(name, points){
 }
 
 // Scores
-const totalIndexes = 48; // cambiar esto a 48 una vez todos los ids en pickers.html esten bienc
+const totalIndexes = 48;
 var Ngames;
 
 var reference = database.ref().child("Scores").once('value', function(snap){
@@ -48,18 +48,6 @@ var reference = database.ref().child("Scores").once('value', function(snap){
   }
   Object.keys(snap.val()).length;
 });
-
-// function games(){
-//   var numberOfGames = 48;
-//   for(var i = 1; i < 20; i++){
-//     var homeResult = document.getElementById("R"+i+"H").innerHTML;
-//     var awayResult = document.getElementById("R"+i+"A").innerHTML;
-//     console.log(i);
-//     if(homeResult.length > 2 && awayResult.length > 2){
-//       console.log(document.getElementById("PickR"+2+"H").value);
-//     }
-//   }
-// }
 
 function submitResults(){
   if (verifySubmission()){
