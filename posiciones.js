@@ -244,6 +244,8 @@ function userPredictionsEfficient(place){
     document.getElementById("pred_mejor_jugador_joven").innerHTML = data.mejor_jugador_joven;
     document.getElementById("pred_mejor_jugador").innerHTML = data.mejor_jugador;
     document.getElementById("pred_goleador").innerHTML = data.goleador;
+    document.getElementById("pred_campeon2f").innerHTML = data.campeon2f;
+    document.getElementById("pred_3rpuesto").innerHTML = data.tercero;
   });
 }
 
