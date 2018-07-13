@@ -60,7 +60,7 @@ groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
 var Nusers = 0;
 var Ngames;
-var numberOfEntries = 12; // cambiar a 14 cuando se hayan metido campeon2f y tercero
+var numberOfEntries = 14; // cambiar a 14 cuando se hayan metido campeon2f y tercero
 
 var stopper = false;
 
