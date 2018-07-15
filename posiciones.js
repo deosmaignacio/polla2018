@@ -140,6 +140,13 @@ function general2F(){
         var name = data.name;
         var userPoints = data.points;
         var Games2F = data.Games2f;
+        var dbArquero = data.arquero;
+        var dbCampeon1F = data.campeon;
+        var dbCampeon2F = data.campeon2f;
+        var dbGoleador = data.goleador;
+        var dbMejorJugador = data.mejor_jugador;
+        var dbMejorJugadorJoven = data.mejor_jugador_joven;
+        var dbTercero = data.tercero;
         var keys = Object.keys(data.Games2f);
         for(var i = 0; i < keys.length; i++){
           var dbGame = Games2F[keys[i]];
@@ -161,7 +168,8 @@ function general2F(){
             }
           }
         }
-      add_user(name, userPoints);
+        userPoints += puntosAdicionales(dbArquero, dbCampeon1F, dbCampeon2F, dbGoleador, dbMejorJugador, dbMejorJugadorJoven, dbTercero);
+        add_user(name, userPoints);
       }
     })
     init();
@@ -170,6 +178,47 @@ function general2F(){
 }
 
 general2F();
+
+// function temp(){
+//   var ref = database.ref().child("Ignacio de Osma").child("campeon2f").set("Brasil");
+//   var ref2 = database.ref().child("Ignacio de Osma").child("tercero").set("Inglaterra");
+// }
+//
+// temp();
+
+function puntosAdicionales(dbArquero, dbCampeon1F, dbCampeon2F, dbGoleador, dbMejorJugador, dbMejorJugadorJoven, dbTercero){
+  var result = 0;
+  var currArquero = document.getElementById("pred_mejor_arquero").innerHTML;
+  var currCampeon1F = document.getElementById("pred_campeon").innerHTML;
+  var currCampeon2F = document.getElementById("pred_campeon2f").innerHTML;
+  var currGoleador = document.getElementById("pred_goleador").innerHTML;
+  var currMejorJugador = document.getElementById("pred_mejor_jugador").innerHTML;
+  var currMejorJugadorJoven = document.getElementById("pred_mejor_jugador_joven").innerHTML;
+  var currTercero = document.getElementById("pred_3rpuesto").innerHTML;
+
+  if(dbArquero == currArquero){
+    result += 150;
+  }
+  if(dbCampeon1F == currCampeon1F){
+    result += 450;
+  }
+  if(dbCampeon2F == currCampeon2F){
+    result += 300;
+  }
+  if(dbGoleador == currGoleador){
+    result += 150;
+  }
+  if(dbMejorJugador == currMejorJugador){
+    result += 150;
+  }
+  if(dbMejorJugadorJoven == currMejorJugadorJoven){
+    result += 150;
+  }
+  if(dbTercero == currTercero){
+    result += 200;
+  }
+  return result;
+}
 
 function userPredictionsEfficient(place){
   var place = parseInt(place);
@@ -299,7 +348,8 @@ function verifyIteration(dbIndex, j){
   if((dbIndex == "O" && j < 57) ||
      (dbIndex == "Q" && j > 56 && j < 61) ||
      (dbIndex == "S" && j > 60 && j < 63) ||
-     (dbIndex == "F" && (j==64)))
+     (dbIndex == "F" && j==64) ||
+     (dbIndex == "T" && j==63))
   {
     return true;
   }
@@ -310,6 +360,7 @@ function Classified(){
   var ref = database.ref().once('value', function(snap){
     snap.forEach(userSnap => {
       var name = userSnap.key;
+      if(name == "Ignacio de Osma"){
       if((name != "Scores") && (name != "Codes")){
         var ref_name = database.ref().child(name).once('value', function(snapGame){
           var data = snapGame.val();
@@ -361,6 +412,7 @@ function Classified(){
 
         });
       }
+    }
     })
   });
 }

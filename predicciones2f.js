@@ -306,7 +306,6 @@ function third(){
 }
 
 function submit(x){
-  console.log(x);
   if(x == 1){
     console.log("enter submit");
     var name = document.getElementsByName("name")[0].value;
